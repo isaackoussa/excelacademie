@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Formation Excel en 12 modules pour construire des tableaux de bord dynamiques : Power Query, TCD, mesures, segments, trois volets metier finance, comptabilite et assurance, un volet VBA et 135 raccourcis clavier.">
+<meta name="description" content="Formation Excel en 15 modules, du grand debutant au tableau de bord : interface, saisie, premieres formules, Power Query, TCD, mesures, segments, volets finance, comptabilite et assurance, VBA et 135 raccourcis.">
 <meta name="author" content="Isaac Koussa">
 <meta name="theme-color" content="#F7F9F8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0B0F0E" media="(prefers-color-scheme: dark)">
@@ -12,10 +12,9 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Atelier Dashboard Excel">
-<meta property="og:description" content="12 modules, 50 schemas illustres, trois volets metier finance-compta-assurance, un volet VBA et 135 raccourcis clavier.">
+<meta property="og:description" content="15 modules du grand debutant aux metiers, 59 schemas illustres et 135 raccourcis clavier.">
 <style>
-/* Réinitialisation équivalente à celle fournie par la plateforme Artifact,
-   nécessaire ici puisque la page est servie telle quelle. */
+/* Reinitialisation equivalente a celle fournie par la plateforme Artifact. */
 :root{ color-scheme: light dark; }
 body{ margin:0; }
 img{ max-width:100%; }
@@ -573,17 +572,17 @@ svg.fig .dash{stroke-dasharray:4 3}
 
 
 <!-- ================= FEUILLE 0 : PARCOURS ================= -->
-<section class="sheet" id="sh-0" data-cell="A1" data-formula="=PARCOURS(12;&quot;modules&quot;)" data-tab="Parcours" data-num="&#8962;" role="tabpanel">
+<section class="sheet" id="sh-0" data-cell="A1" data-formula="=PARCOURS(15;&quot;modules&quot;)" data-tab="Parcours" data-num="&#8962;" role="tabpanel">
 
   <div class="prose">
-    <div class="eyebrow"><b>Formation</b> <span>·</span> 12 modules + 1 projet + 1 volet VBA <span>·</span> débutant confirmé → avancé</div>
+    <div class="eyebrow"><b>Formation</b> <span>·</span> 15 modules + 1 projet + 1 volet VBA <span>·</span> grand débutant → avancé</div>
     <h1>Construire des dashboards Excel qui se mettent à jour tout seuls</h1>
     <p class="lede">Pas des captures d'écran collées dans un classeur. Une chaîne propre : données brutes → transformation → modèle → visuels pilotés par segments. Vous cliquez sur <em>Actualiser</em>, tout suit.</p>
   </div>
 
   <div class="grid g4">
-    <div class="stat"><div class="v">12</div><div class="l">modules + 1 volet VBA</div></div>
-    <div class="stat"><div class="v">≈ 22 h</div><div class="l">durée conseillée</div></div>
+    <div class="stat"><div class="v">15</div><div class="l">modules + 1 volet VBA</div></div>
+    <div class="stat"><div class="v">≈ 26 h</div><div class="l">durée conseillée</div></div>
     <div class="stat"><div class="v" id="stat-sk">—</div><div class="l">raccourcis clavier</div></div>
     <div class="stat"><div class="v" id="stat-fig">50</div><div class="l">schémas illustrés</div></div>
   </div>
@@ -736,16 +735,550 @@ svg.fig .dash{stroke-dasharray:4 3}
   </div>
 </section>
 
-<!-- ================= FEUILLE 1 : DONNÉES ================= -->
-<section class="sheet" id="sh-1" data-cell="M1" data-formula="=MODULE(1;&quot;Des données propres&quot;)" data-tab="Données" data-num="M1" role="tabpanel" hidden>
+<!-- ================= FEUILLE : DÉCOUVRIR EXCEL ================= -->
+<section class="sheet" id="sh-b1" data-cell="M1" data-formula="=MODULE(1;&quot;Découvrir Excel&quot;)" data-tab="Découvrir Excel" data-num="M1" role="tabpanel" hidden>
   <div class="prose">
-    <div class="eyebrow"><b>Module 1</b> <span>·</span> 90 min</div>
+    <div class="eyebrow"><b>Module 1</b> <span>·</span> 50 min <span>·</span> départ de zéro</div>
+    <h1>Découvrir Excel : se repérer et comprendre le vocabulaire</h1>
+    <p class="lede">Si vous n'avez jamais ouvert Excel, commencez ici. Ce module ne demande aucune connaissance préalable — on nomme les choses, on apprend à se déplacer, et rien de plus.</p>
+  </div>
+
+  <div class="note key">
+    <h4>Comment lire ce cours</h4>
+    <p>Chaque module suit la même structure : des explications, un schéma commenté, les <strong>pièges</strong> qui font perdre du temps, puis un exercice. Ouvrez Excel à côté et refaites les manipulations au fur et à mesure — lire sans faire ne sert à rien en informatique. Les trois premiers modules sont pour les grands débutants ; si vous savez déjà écrire une formule, commencez au module 4.</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">1.1</span><h2>Ce que vous avez sous les yeux</h2></div>
+    <p class="prose">Un écran d'Excel paraît chargé. En réalité, six zones seulement comptent, et vous allez passer 95 % de votre temps dans deux d'entre elles.</p>
+    <figure>
+      <div class="figbox">
+        <svg class="fig" viewBox="0 0 720 400" role="img" aria-label="Anatomie de la fenêtre Excel avec ses six zones principales numérotées">
+          <rect x="1" y="1" width="718" height="398" rx="8" class="f-surf"/>
+          <rect x="1.5" y="1.5" width="717" height="397" rx="8" class="st2"/>
+
+          <rect x="2" y="2" width="716" height="26" class="f-head"/>
+          <text x="18" y="19" class="t-ink t-b">Budget 2026.xlsx</text>
+          <text x="560" y="19">Enregistré</text>
+          <circle cx="672" cy="15" r="9" class="f-acc"/><text x="672" y="19" text-anchor="middle" class="t-on t-b">1</text>
+
+          <rect x="2" y="28" width="716" height="22" class="f-grd"/>
+          <text x="20" y="43" class="t-acc t-b">Accueil</text><text x="86" y="43">Insertion</text><text x="152" y="43">Mise en page</text><text x="244" y="43">Formules</text><text x="310" y="43">Données</text><text x="374" y="43">Révision</text><text x="440" y="43">Affichage</text>
+          <line x1="2" y1="50" x2="718" y2="50" class="st"/>
+
+          <rect x="2" y="50" width="716" height="46" class="f-grd"/>
+          <g class="f-soft">
+            <rect x="16" y="58" width="52" height="30" rx="5"/><rect x="76" y="58" width="72" height="30" rx="5"/>
+            <rect x="156" y="58" width="88" height="30" rx="5"/><rect x="252" y="58" width="80" height="30" rx="5"/>
+            <rect x="340" y="58" width="96" height="30" rx="5"/><rect x="444" y="58" width="80" height="30" rx="5"/>
+          </g>
+          <text x="26" y="77">Coller</text><text x="86" y="77">Police</text><text x="166" y="77">Alignement</text><text x="262" y="77">Nombre</text><text x="350" y="77">Mise en forme</text><text x="454" y="77">Cellules</text>
+          <circle cx="672" cy="73" r="9" class="f-acc"/><text x="672" y="77" text-anchor="middle" class="t-on t-b">2</text>
+          <line x1="2" y1="96" x2="718" y2="96" class="st"/>
+
+          <rect x="2" y="96" width="716" height="26" class="f-surf"/>
+          <rect x="14" y="100" width="70" height="18" rx="3" class="f-soft"/>
+          <rect x="14.5" y="100.5" width="69" height="17" rx="3" class="st2"/>
+          <text x="34" y="113" class="t-ink t-b">C4</text>
+          <text x="96" y="113" class="t-mut">fx</text>
+          <text x="118" y="113" class="t-acc t-b">=B4*C2</text>
+          <circle cx="672" cy="109" r="9" class="f-acc2"/><text x="672" y="113" text-anchor="middle" class="t-on t-b">3</text>
+          <line x1="2" y1="122" x2="718" y2="122" class="st"/>
+
+          <rect x="2" y="122" width="40" height="22" class="f-head"/>
+          <g class="f-head">
+            <rect x="42" y="122" width="96" height="22"/><rect x="138" y="122" width="96" height="22"/>
+            <rect x="234" y="122" width="96" height="22"/><rect x="330" y="122" width="96" height="22"/>
+            <rect x="426" y="122" width="96" height="22"/><rect x="522" y="122" width="96" height="22"/>
+            <rect x="618" y="122" width="100" height="22"/>
+          </g>
+          <text x="86" y="137" text-anchor="middle" class="t-ink t-b">A</text><text x="182" y="137" text-anchor="middle" class="t-ink t-b">B</text>
+          <text x="278" y="137" text-anchor="middle" class="t-ink t-b">C</text><text x="374" y="137" text-anchor="middle" class="t-ink t-b">D</text>
+          <text x="470" y="137" text-anchor="middle" class="t-ink t-b">E</text><text x="566" y="137" text-anchor="middle" class="t-ink t-b">F</text><text x="666" y="137" text-anchor="middle" class="t-ink t-b">G</text>
+          <circle cx="278" cy="112" r="9" class="f-acc"/><text x="278" y="116" text-anchor="middle" class="t-on t-b">4</text>
+
+          <g class="f-head">
+            <rect x="2" y="144" width="40" height="26"/><rect x="2" y="170" width="40" height="26"/><rect x="2" y="196" width="40" height="26"/>
+            <rect x="2" y="222" width="40" height="26"/><rect x="2" y="248" width="40" height="26"/><rect x="2" y="274" width="40" height="26"/>
+          </g>
+          <text x="22" y="161" text-anchor="middle" class="t-ink t-b">1</text><text x="22" y="187" text-anchor="middle" class="t-ink t-b">2</text>
+          <text x="22" y="213" text-anchor="middle" class="t-ink t-b">3</text><text x="22" y="239" text-anchor="middle" class="t-ink t-b">4</text>
+          <text x="22" y="265" text-anchor="middle" class="t-ink t-b">5</text><text x="22" y="291" text-anchor="middle" class="t-ink t-b">6</text>
+
+          <g class="st">
+            <line x1="42" y1="170" x2="718" y2="170"/><line x1="42" y1="196" x2="718" y2="196"/>
+            <line x1="42" y1="222" x2="718" y2="222"/><line x1="42" y1="248" x2="718" y2="248"/>
+            <line x1="42" y1="274" x2="718" y2="274"/><line x1="42" y1="300" x2="718" y2="300"/>
+            <line x1="138" y1="144" x2="138" y2="300"/><line x1="234" y1="144" x2="234" y2="300"/>
+            <line x1="330" y1="144" x2="330" y2="300"/><line x1="426" y1="144" x2="426" y2="300"/>
+            <line x1="522" y1="144" x2="522" y2="300"/><line x1="618" y1="144" x2="618" y2="300"/>
+          </g>
+          <text x="54" y="161" class="t-ink">Produit</text><text x="150" y="161" class="t-ink">Quantité</text><text x="246" y="161" class="t-ink">Prix</text><text x="342" y="161" class="t-ink">Total</text>
+          <text x="54" y="187">Clavier</text><text x="150" y="187">12</text><text x="246" y="187">39</text><text x="342" y="187">468</text>
+          <text x="54" y="213">Écran</text><text x="150" y="213">4</text><text x="246" y="213">210</text><text x="342" y="213">840</text>
+          <rect x="234" y="222" width="96" height="26" class="f-accs"/>
+          <rect x="234.5" y="222.5" width="95" height="25" class="st-acc"/>
+          <rect x="324" y="242" width="7" height="7" class="f-acc"/>
+          <text x="54" y="239">Souris</text><text x="150" y="239">9</text><text x="246" y="239" class="t-acc t-b">25</text><text x="342" y="239">225</text>
+          <text x="54" y="265">Casque</text><text x="150" y="265">6</text><text x="246" y="265">78</text><text x="342" y="265">468</text>
+          <circle cx="360" cy="235" r="9" class="f-acc2"/><text x="360" y="239" text-anchor="middle" class="t-on t-b">5</text>
+
+          <rect x="2" y="310" width="716" height="26" class="f-grd"/>
+          <line x1="2" y1="310" x2="718" y2="310" class="st"/>
+          <rect x="14" y="314" width="70" height="18" rx="4" class="f-surf"/>
+          <rect x="14.5" y="314.5" width="69" height="17" rx="4" class="st2"/>
+          <text x="30" y="327" class="t-ink t-b">Janvier</text>
+          <text x="98" y="327">Février</text><text x="154" y="327">Mars</text><text x="204" y="327" class="t-acc">+</text>
+          <circle cx="672" cy="323" r="9" class="f-acc"/><text x="672" y="327" text-anchor="middle" class="t-on t-b">6</text>
+
+          <rect x="2" y="336" width="716" height="22" class="f-head"/>
+          <text x="18" y="351">Prêt</text><text x="420" y="351">Moyenne : 25</text><text x="520" y="351">Nb : 1</text><text x="580" y="351">Somme : 25</text>
+
+          <text x="16" y="378" class="t-ink">Regardez toujours la zone 3 : elle dit où vous êtes et ce que contient vraiment la cellule.</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 3</b> <strong>1</strong> Le nom du fichier, appelé <em>classeur</em>. <strong>2</strong> Le <em>ruban</em>, rangé par onglets thématiques. <strong>3</strong> La <em>zone Nom</em> (l'adresse de la cellule) et la <em>barre de formule</em> (son vrai contenu). <strong>4</strong> Les en-têtes de colonnes, des lettres. <strong>5</strong> La cellule sélectionnée, entourée de vert, avec sa poignée en bas à droite. <strong>6</strong> Les onglets de <em>feuilles</em> — un classeur en contient plusieurs.</figcaption>
+    </figure>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">1.2</span><h2>Classeur, feuille, cellule, plage</h2></div>
+    <p class="prose">Ces quatre mots reviendront dans tout le cours. Ils s'emboîtent comme des poupées russes.</p>
+    <figure>
+      <div class="figbox">
+        <svg class="fig" viewBox="0 0 720 260" role="img" aria-label="Emboîtement classeur, feuille, plage et cellule">
+          <rect x="8" y="30" width="704" height="176" rx="8" class="f-soft"/>
+          <text x="24" y="52" class="t-ink t-b">CLASSEUR — un fichier .xlsx</text>
+          <text x="24" y="68">C'est ce que vous enregistrez, envoyez par mail, ouvrez d'un double-clic.</text>
+
+          <rect x="24" y="80" width="672" height="112" rx="6" class="f-surf"/>
+          <rect x="24.5" y="80.5" width="671" height="111" rx="6" class="st"/>
+          <text x="40" y="100" class="t-acc t-b">FEUILLE — un onglet en bas du classeur</text>
+          <text x="40" y="116">Une grille de 16 384 colonnes sur 1 048 576 lignes. Vous n'en utiliserez jamais le centième.</text>
+
+          <rect x="40" y="128" width="300" height="52" rx="5" class="f-acc2s"/>
+          <rect x="40.5" y="128.5" width="299" height="51" rx="5" class="st-acc2"/>
+          <text x="54" y="148" class="t-acc2 t-b">PLAGE — un rectangle de cellules</text>
+          <text x="54" y="166" class="t-acc2">On l'écrit B2:D8 — du coin haut-gauche au coin bas-droit.</text>
+
+          <rect x="358" y="128" width="322" height="52" rx="5" class="f-accs"/>
+          <rect x="358.5" y="128.5" width="321" height="51" rx="5" class="st-acc"/>
+          <text x="372" y="148" class="t-acc t-b">CELLULE — une case, à l'intersection</text>
+          <text x="372" y="166" class="t-acc">Son adresse : la colonne puis la ligne, C4.</text>
+
+          <rect x="8" y="220" width="704" height="32" rx="6" class="f-warns"/>
+          <text x="24" y="240" class="t-warn">Une cellule contient UNE chose : une valeur tapée, ou une formule. Jamais les deux.</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 4</b> L'adresse d'une cellule se lit toujours colonne puis ligne : <span class="inl">C4</span>, jamais « 4C ». C'est la convention que suivront toutes vos formules.</figcaption>
+    </figure>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">1.3</span><h2>Se déplacer et sélectionner</h2></div>
+    <p class="prose">Un débutant utilise la souris et la barre de défilement. C'est ce qui coûte le plus de temps sur une journée. Prenez tout de suite les bons gestes.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th style="width:32%">Pour</th><th style="width:30%">Faites</th><th>Pourquoi ça compte</th></tr></thead>
+        <tbody>
+          <tr><td>Aller d'une cellule à l'autre</td><td class="mono">Flèches</td><td>Les mains restent sur le clavier</td></tr>
+          <tr><td>Valider ce qu'on tape</td><td class="mono">Entrée</td><td>Descend d'une cellule ; <kbd>Tab</kbd> va à droite</td></tr>
+          <tr><td>Sauter au bout des données</td><td><span class="keys"><kbd>Ctrl</kbd><s>+</s><kbd>↓</kbd></span></td><td>Instantané, même sur 50 000 lignes</td></tr>
+          <tr><td>Revenir en A1</td><td><span class="keys"><kbd>Ctrl</kbd><s>+</s><kbd>Origine</kbd></span></td><td>Le point de repère quand on est perdu</td></tr>
+          <tr><td>Sélectionner jusqu'au bout</td><td><span class="keys"><kbd>Ctrl</kbd><s>+</s><kbd>Maj</kbd><s>+</s><kbd>↓</kbd></span></td><td>Remplace un glisser-déposer interminable</td></tr>
+          <tr><td>Sélectionner une colonne</td><td><span class="keys"><kbd>Ctrl</kbd><s>+</s><kbd>Espace</kbd></span></td><td>Ou cliquer sur sa lettre</td></tr>
+          <tr><td>Annuler une bêtise</td><td><span class="keys"><kbd>Ctrl</kbd><s>+</s><kbd>Z</kbd></span></td><td>Autant de fois que nécessaire</td></tr>
+          <tr><td>Enregistrer</td><td><span class="keys"><kbd>Ctrl</kbd><s>+</s><kbd>S</kbd></span></td><td>À faire par réflexe, toutes les deux minutes</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note tip">
+      <h4>Astuce : la zone Nom comme téléporteur</h4>
+      <p>Tapez <span class="inl">M250</span> dans la petite case à gauche de la barre de formule, puis <kbd>Entrée</kbd> : vous y êtes. Plus rapide que n'importe quel défilement, et utile quand une formule vous parle d'une cellule lointaine.</p>
+    </div>
+    <div class="note trap">
+      <h4>Piège du débutant : le mode Édition</h4>
+      <p>Quand vous double-cliquez dans une cellule, Excel passe en <em>mode Édition</em> — la barre d'état l'indique en bas à gauche. Dans ce mode, les flèches déplacent le curseur <strong>dans le texte</strong>, pas d'une cellule à l'autre. Appuyez sur <kbd>Échap</kbd> pour en sortir sans rien modifier, ou <kbd>Entrée</kbd> pour valider.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">1.4</span><h2>Enregistrer sans se tromper de format</h2></div>
+    <div class="grid g3">
+      <div class="card"><h3>.xlsx</h3><p>Le format normal. Gardez celui-ci dans 99 % des cas.</p><span class="tag a">par défaut</span></div>
+      <div class="card"><h3>.xlsm</h3><p>Identique, mais autorisé à contenir des macros. Nécessaire seulement si vous en écrivez.</p><span class="tag b">avec macros</span></div>
+      <div class="card"><h3>.csv</h3><p>Du texte brut séparé par des points-virgules. <strong>Perd tout</strong> : mise en forme, formules, feuilles multiples. À réserver aux échanges de données.</p><span class="tag w">destructeur</span></div>
+    </div>
+    <div class="note trap">
+      <h4>Piège</h4>
+      <p>Si vous ouvrez un <span class="inl">.csv</span>, travaillez dessus et faites <kbd>Ctrl</kbd> <kbd>S</kbd>, Excel réenregistre en CSV : vos couleurs, vos largeurs de colonnes et vos autres feuilles disparaissent sans avertissement clair. Faites <em>Fichier → Enregistrer sous</em> et choisissez <strong>Classeur Excel (*.xlsx)</strong> dès la première minute.</p>
+    </div>
+  </div>
+
+  <div class="exo">
+    <h4>Exercice 1</h4>
+    <ol class="steps">
+      <li>Ouvrez Excel, créez un classeur vide, enregistrez-le en <span class="inl">.xlsx</span> sur votre bureau sous le nom <span class="inl">Essai</span>.</li>
+      <li>Renommez la feuille <span class="inl">Feuil1</span> en <span class="inl">Données</span> : double-clic sur l'onglet, tapez, validez.</li>
+      <li>Ajoutez une deuxième feuille avec le bouton <span class="inl">+</span>, puis supprimez-la par clic droit.</li>
+      <li>Tapez votre prénom en <span class="inl">A1</span>, un nombre en <span class="inl">B1</span>. Remarquez que le texte se colle à gauche et le nombre à droite : c'est déjà un diagnostic, on y revient au module 2.</li>
+      <li>Allez en <span class="inl">M250</span> par la zone Nom, tapez quelque chose, puis revenez en <kbd>Ctrl</kbd> <kbd>Origine</kbd>.</li>
+      <li>Faites <kbd>Ctrl</kbd> <kbd>Fin</kbd> : Excel vous emmène à la dernière cellule utilisée. Elle est loin, à cause de l'étape précédente.</li>
+    </ol>
+  </div>
+  <button class="donebtn" data-done="b1" type="button" aria-pressed="false">Marquer le module 1 comme terminé</button>
+</section>
+
+<!-- ================= FEUILLE : SAISIR ET METTRE EN FORME ================= -->
+<section class="sheet" id="sh-b2" data-cell="M2" data-formula="=MODULE(2;&quot;Saisir et mettre en forme&quot;)" data-tab="Saisir et mettre en forme" data-num="M2" role="tabpanel" hidden>
+  <div class="prose">
+    <div class="eyebrow"><b>Module 2</b> <span>·</span> 60 min <span>·</span> départ de zéro</div>
+    <h1>Saisir, corriger, présenter</h1>
+    <p class="lede">Excel distingue trois types de contenu, et tout le reste en découle. Comprendre cette distinction dès le début vous épargnera les trois quarts des problèmes que rencontrent les débutants.</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">2.1</span><h2>Les trois types de contenu</h2></div>
+    <p class="prose">Quand vous tapez quelque chose, Excel décide tout seul de quoi il s'agit — et vous le montre par l'alignement. C'est votre premier outil de diagnostic, gratuit et permanent.</p>
+    <figure>
+      <div class="figbox">
+        <svg class="fig" viewBox="0 0 720 280" role="img" aria-label="Les trois types de contenu d'une cellule reconnaissables à leur alignement par défaut">
+          <text x="8" y="18" class="t-ink t-d" style="font-size:13px">L'alignement par défaut vous dit ce qu'Excel a compris</text>
+
+          <rect x="8" y="30" width="222" height="122" rx="6" class="f-surf"/>
+          <rect x="8.5" y="30.5" width="221" height="121" rx="6" class="st"/>
+          <rect x="9" y="31" width="220" height="22" class="f-accs"/>
+          <text x="22" y="46" class="t-acc t-b">TEXTE — collé à gauche</text>
+          <rect x="22" y="62" width="194" height="24" class="f-soft"/>
+          <text x="30" y="78" class="t-ink">Clavier sans fil</text>
+          <rect x="22" y="90" width="194" height="24" class="f-soft"/>
+          <text x="30" y="106" class="t-ink">Paris</text>
+          <text x="22" y="132">Excel ne sait pas calculer avec.</text>
+          <text x="22" y="146">C'est un simple libellé.</text>
+
+          <rect x="248" y="30" width="222" height="122" rx="6" class="f-surf"/>
+          <rect x="248.5" y="30.5" width="221" height="121" rx="6" class="st"/>
+          <rect x="249" y="31" width="220" height="22" class="f-acc2s"/>
+          <text x="262" y="46" class="t-acc2 t-b">NOMBRE — collé à droite</text>
+          <rect x="262" y="62" width="194" height="24" class="f-soft"/>
+          <text x="448" y="78" text-anchor="end" class="t-ink">1 250</text>
+          <rect x="262" y="90" width="194" height="24" class="f-soft"/>
+          <text x="448" y="106" text-anchor="end" class="t-ink">39,90</text>
+          <text x="262" y="132">On peut additionner, multiplier,</text>
+          <text x="262" y="146">comparer, trier par valeur.</text>
+
+          <rect x="488" y="30" width="224" height="122" rx="6" class="f-surf"/>
+          <rect x="488.5" y="30.5" width="223" height="121" rx="6" class="st"/>
+          <rect x="489" y="31" width="222" height="22" class="f-warns"/>
+          <text x="502" y="46" class="t-warn t-b">DATE — un nombre déguisé</text>
+          <rect x="502" y="62" width="196" height="24" class="f-soft"/>
+          <text x="690" y="78" text-anchor="end" class="t-ink">12/03/2026</text>
+          <rect x="502" y="90" width="196" height="24" class="f-soft"/>
+          <text x="690" y="106" text-anchor="end" class="t-warn">46 093</text>
+          <text x="502" y="132">La même date, affichée en nombre :</text>
+          <text x="502" y="146">nombre de jours depuis 1900.</text>
+
+          <rect x="8" y="170" width="704" height="46" rx="6" class="f-crits"/>
+          <text x="22" y="190" class="t-crit t-b">LE DIAGNOSTIC QUI SAUVE</text>
+          <text x="22" y="208" class="t-ink">Un nombre collé à GAUCHE est du texte déguisé. SOMME l'ignore, et le total est faux sans message.</text>
+
+          <rect x="8" y="228" width="704" height="44" rx="6" class="f-accs"/>
+          <text x="22" y="248" class="t-acc t-b">POURQUOI LES DATES SONT DES NOMBRES</text>
+          <text x="22" y="266" class="t-ink">Pour pouvoir les soustraire : =B2-A2 donne des jours, et date+30 donne l'échéance.</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 5</b> Le test de l'alignement. Avant de chercher pourquoi une formule ne marche pas, regardez de quel côté la valeur est collée : c'est la cause dans un cas sur deux.</figcaption>
+    </figure>
+    <div class="note tip">
+      <h4>Comment réparer un nombre devenu texte</h4>
+      <p>Le plus souvent, un triangle vert apparaît dans le coin de la cellule : cliquez dessus → <em>Convertir en nombre</em>. Sinon, sélectionnez la colonne et faites <em>Données → Convertir → Terminer</em>. La cause habituelle : un espace invisible, ou une virgule là où Excel attend un point — ou l'inverse, selon vos paramètres régionaux.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">2.2</span><h2>La poignée de recopie</h2></div>
+    <p class="prose">Le petit carré en bas à droite de la sélection. C'est probablement la fonctionnalité la plus rentable d'Excel pour un débutant.</p>
+    <figure>
+      <div class="figbox">
+        <svg class="fig" viewBox="0 0 720 250" role="img" aria-label="La poignée de recopie et les séries qu'elle génère selon le contenu">
+          <text x="8" y="18" class="t-ink t-d" style="font-size:13px">Tirez la poignée : Excel devine la suite</text>
+
+          <text x="8" y="44" class="t-ink t-b">Une seule cellule sélectionnée</text>
+          <rect x="8" y="52" width="86" height="26" class="f-accs"/>
+          <rect x="8.5" y="52.5" width="85" height="25" class="st-acc"/>
+          <text x="20" y="69" class="t-ink">Janvier</text>
+          <rect x="88" y="72" width="8" height="8" class="f-acc"/>
+          <path d="M104 65 h26" class="st-acc"/><path d="M133 65 l-8 -4.5 v9 z" class="f-acc"/>
+          <g class="st"><rect x="142" y="52" width="86" height="26" class="f-surf"/><rect x="228" y="52" width="86" height="26" class="f-surf"/><rect x="314" y="52" width="86" height="26" class="f-surf"/><rect x="400" y="52" width="86" height="26" class="f-surf"/></g>
+          <text x="154" y="69">Février</text><text x="240" y="69">Mars</text><text x="326" y="69">Avril</text><text x="412" y="69">Mai</text>
+          <text x="500" y="69" class="t-acc">Excel connaît les mois et les jours</text>
+
+          <text x="8" y="112" class="t-ink t-b">Deux cellules sélectionnées</text>
+          <rect x="8" y="120" width="60" height="26" class="f-accs"/><rect x="68" y="120" width="60" height="26" class="f-accs"/>
+          <rect x="8.5" y="120.5" width="119" height="25" class="st-acc"/>
+          <text x="30" y="137" class="t-ink">10</text><text x="90" y="137" class="t-ink">20</text>
+          <rect x="122" y="140" width="8" height="8" class="f-acc"/>
+          <path d="M138 133 h26" class="st-acc"/><path d="M167 133 l-8 -4.5 v9 z" class="f-acc"/>
+          <g class="st"><rect x="176" y="120" width="60" height="26" class="f-surf"/><rect x="236" y="120" width="60" height="26" class="f-surf"/><rect x="296" y="120" width="60" height="26" class="f-surf"/><rect x="356" y="120" width="60" height="26" class="f-surf"/></g>
+          <text x="198" y="137">30</text><text x="258" y="137">40</text><text x="318" y="137">50</text><text x="378" y="137">60</text>
+          <text x="440" y="137" class="t-acc">L'écart entre les deux donne le pas</text>
+
+          <text x="8" y="180" class="t-ink t-b">Une formule</text>
+          <rect x="8" y="188" width="120" height="26" class="f-accs"/>
+          <rect x="8.5" y="188.5" width="119" height="25" class="st-acc"/>
+          <text x="20" y="205" class="t-acc">=B2*C2</text>
+          <rect x="122" y="208" width="8" height="8" class="f-acc"/>
+          <path d="M138 201 h26" class="st-acc"/><path d="M167 201 l-8 -4.5 v9 z" class="f-acc"/>
+          <g class="st"><rect x="176" y="188" width="120" height="26" class="f-surf"/><rect x="296" y="188" width="120" height="26" class="f-surf"/><rect x="416" y="188" width="120" height="26" class="f-surf"/></g>
+          <text x="188" y="205" class="t-acc">=B3*C3</text><text x="308" y="205" class="t-acc">=B4*C4</text><text x="428" y="205" class="t-acc">=B5*C5</text>
+          <text x="552" y="205" class="t-acc">Les références suivent</text>
+
+          <rect x="8" y="228" width="704" height="18" rx="4" class="f-soft"/>
+          <text x="22" y="241" class="t-ink">Double-cliquer sur la poignée recopie jusqu'en bas du tableau voisin, d'un coup.</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 6</b> Selon ce que contient la cellule, la poignée copie, incrémente ou adapte. Le <strong>double-clic</strong> sur la poignée est le geste à retenir : il recopie jusqu'à la fin de la colonne adjacente, sans viser à la souris.</figcaption>
+    </figure>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">2.3</span><h2>Format d'affichage contre valeur réelle</h2></div>
+    <p class="prose">Voici la distinction qui piège absolument tout le monde au début, et qui revient au module 13 sous forme d'écarts d'un centime.</p>
+    <div class="note key">
+      <h4>Le principe</h4>
+      <p>Une cellule a une <strong>valeur</strong> (ce qu'Excel stocke et calcule) et un <strong>format</strong> (ce que vous voyez). Le format ne change jamais la valeur. Si vous affichez <span class="inl">3,7</span> avec zéro décimale, vous voyez <span class="inl">4</span> — mais Excel continue de calculer avec 3,7.</p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th style="width:26%">Ce que vous voulez</th><th style="width:30%">Où le régler</th><th>Remarque</th></tr></thead>
+        <tbody>
+          <tr><td>Deux décimales, séparateur de milliers</td><td><span class="keys"><kbd>Ctrl</kbd><s>+</s><kbd>Maj</kbd><s>+</s><kbd>1</kbd></span></td><td>Le format le plus utilisé de tous</td></tr>
+          <tr><td>Pourcentage</td><td><span class="keys"><kbd>Ctrl</kbd><s>+</s><kbd>Maj</kbd><s>+</s><kbd>5</kbd></span></td><td>Attention : 0,15 devient 15 %, pas 0,15 %</td></tr>
+          <tr><td>Monnaie, date, personnalisé</td><td><span class="keys"><kbd>Ctrl</kbd><s>+</s><kbd>1</kbd></span></td><td>La boîte complète, à connaître par cœur</td></tr>
+          <tr><td>Élargir une colonne au contenu</td><td>Double-clic sur le bord de l'en-tête</td><td>Fait disparaître les <span class="inl">#####</span></td></tr>
+          <tr><td>Texte sur plusieurs lignes</td><td><span class="keys"><kbd>Alt</kbd><s>+</s><kbd>Entrée</kbd></span></td><td>Dans la cellule, pendant la saisie</td></tr>
+          <tr><td>Aligner un titre sur plusieurs colonnes</td><td><kbd>Ctrl</kbd> <kbd>1</kbd> → <em>Centrer sur plusieurs colonnes</em></td><td>Jamais « Fusionner les cellules », qui casse tout</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note trap">
+      <h4>Piège : les dièses ##### </h4>
+      <p>Ce n'est pas une erreur. C'est Excel qui vous dit que la colonne est trop étroite pour afficher le nombre en entier. Élargissez-la et tout revient. Il refuse d'afficher un nombre tronqué, parce qu'un chiffre coupé serait mensonger — contrairement au texte, qu'il accepte de rogner.</p>
+    </div>
+    <div class="note trap">
+      <h4>Piège : la fusion de cellules</h4>
+      <p>« Fusionner et centrer » paraît pratique et casse le tri, le filtre, le copier-coller et les tableaux croisés dynamiques. Utilisez <em>Centrer sur plusieurs colonnes</em> (dans <kbd>Ctrl</kbd> <kbd>1</kbd> → Alignement) : le rendu est identique, sans aucun des inconvénients.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">2.4</span><h2>Copier, coller, et le collage spécial</h2></div>
+    <p class="prose">Un copier-coller ordinaire emporte tout : valeur, formule, format, bordures. Le <em>collage spécial</em> permet de choisir ce qu'on emporte — et c'est souvent indispensable.</p>
+    <div class="grid g2">
+      <div class="card"><h3>Valeurs</h3><p>Colle le résultat, pas la formule. Le geste qui « fige » un calcul avant d'envoyer un fichier.</p><span class="tag a">le plus utile</span></div>
+      <div class="card"><h3>Formats</h3><p>Copie l'habillage seul. Équivalent du pinceau « Reproduire la mise en forme ».</p></div>
+      <div class="card"><h3>Transposé</h3><p>Bascule les lignes en colonnes. Utile une fois de temps en temps, spectaculaire ce jour-là.</p></div>
+      <div class="card"><h3>Opération</h3><p>Ajoute, soustrait ou multiplie la valeur copiée à la destination. L'astuce classique pour convertir une colonne entière en nombres.</p></div>
+    </div>
+    <p class="prose">Le raccourci à retenir : <span class="keys"><kbd>Ctrl</kbd><s>+</s><kbd>Alt</kbd><s>+</s><kbd>V</kbd></span> ouvre la boîte, puis une lettre choisit l'option (<kbd>V</kbd> pour Valeurs).</p>
+  </div>
+
+  <div class="exo">
+    <h4>Exercice 2</h4>
+    <ol class="steps">
+      <li>Créez un petit tableau : en <span class="inl">A1:D1</span>, les en-têtes <em>Produit, Quantité, Prix, Total</em>. Remplissez quatre lignes.</li>
+      <li>Tapez <span class="inl">Lundi</span> en <span class="inl">F1</span> et tirez la poignée sur sept cellules. Puis <span class="inl">1</span> et <span class="inl">3</span> en <span class="inl">G1:G2</span>, et tirez : observez le pas de 2.</li>
+      <li>Appliquez le format monétaire à la colonne Prix, puis mettez les en-têtes en gras avec un fond gris clair.</li>
+      <li>Tapez <span class="inl">1234,5</span> dans une cellule, réduisez à zéro décimale, puis regardez la barre de formule : la valeur n'a pas bougé.</li>
+      <li>Rétrécissez une colonne jusqu'à voir <span class="inl">#####</span>, puis double-cliquez sur le bord de son en-tête.</li>
+      <li>Copiez la colonne Total et collez-la en valeurs deux colonnes plus loin. Vérifiez dans la barre de formule qu'il n'y a plus de formule.</li>
+    </ol>
+  </div>
+  <button class="donebtn" data-done="b2" type="button" aria-pressed="false">Marquer le module 2 comme terminé</button>
+</section>
+
+<!-- ================= FEUILLE : PREMIÈRES FORMULES ================= -->
+<section class="sheet" id="sh-b3" data-cell="M3" data-formula="=MODULE(3;&quot;Vos premières formules&quot;)" data-tab="Premières formules" data-num="M3" role="tabpanel" hidden>
+  <div class="prose">
+    <div class="eyebrow"><b>Module 3</b> <span>·</span> 70 min <span>·</span> départ de zéro</div>
+    <h1>Vos premières formules</h1>
+    <p class="lede">Une formule commence toujours par <span class="inl">=</span>. C'est la seule règle absolue d'Excel. Tout le reste s'apprend par empilement, et ce module pose les fondations sur lesquelles reposeront les onze suivants.</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">3.1</span><h2>Anatomie d'une formule</h2></div>
+    <figure>
+      <div class="figbox">
+        <svg class="fig" viewBox="0 0 720 250" role="img" aria-label="Décomposition d'une formule Excel en signe égal, fonction, arguments et séparateurs">
+          <text x="8" y="18" class="t-ink t-d" style="font-size:13px">Lire une formule, morceau par morceau</text>
+
+          <text x="20" y="62" class="t-ink" style="font-family:var(--mono);font-size:19px">=</text>
+          <text x="38" y="62" class="t-acc t-b" style="font-family:var(--mono);font-size:19px">SOMME</text>
+          <text x="112" y="62" class="t-ink" style="font-family:var(--mono);font-size:19px">(</text>
+          <text x="126" y="62" class="t-acc2" style="font-family:var(--mono);font-size:19px">B2:B9</text>
+          <text x="196" y="62" class="t-ink" style="font-family:var(--mono);font-size:19px">;</text>
+          <text x="212" y="62" class="t-warn" style="font-family:var(--mono);font-size:19px">100</text>
+          <text x="256" y="62" class="t-ink" style="font-family:var(--mono);font-size:19px">)</text>
+
+          <path d="M24 74 v20 h-8" class="st2"/><text x="8" y="112">le signe égal : sans lui, Excel</text><text x="8" y="126">enregistre du texte, pas un calcul</text>
+
+          <path d="M70 74 v44 h84" class="st-acc"/><text x="160" y="122" class="t-acc t-b">le nom de la fonction</text>
+          <text x="160" y="138" class="t-acc">ce qu'elle sait faire : ici, additionner</text>
+
+          <path d="M150 74 v76 h150" class="st-acc2"/><text x="306" y="154" class="t-acc2 t-b">un argument : une plage</text>
+          <text x="306" y="170" class="t-acc2">de B2 jusqu'à B9, bornes comprises</text>
+
+          <path d="M200 74 v108 h180" class="st2"/><text x="386" y="186" class="t-ink t-b">le séparateur</text>
+          <text x="386" y="202" class="t-ink">point-virgule en Excel français, virgule en anglais</text>
+
+          <path d="M224 74 v134 h140" class="st2"/><text x="370" y="212" class="t-warn t-b">un autre argument</text>
+
+          <rect x="470" y="96" width="242" height="118" rx="6" class="f-soft"/>
+          <text x="486" y="118" class="t-ink t-b">Les quatre opérateurs</text>
+          <text x="486" y="140" class="t-acc">+ addition        - soustraction</text>
+          <text x="486" y="158" class="t-acc">* multiplication  / division</text>
+          <text x="486" y="176" class="t-acc">^ puissance</text>
+          <text x="486" y="200" class="t-ink">=B2*1,2 ajoute 20 % à la valeur de B2</text>
+
+          <rect x="8" y="228" width="704" height="18" rx="4" class="f-accs"/>
+          <text x="22" y="241" class="t-acc">Ne tapez pas les adresses : écrivez =SOMME( puis SÉLECTIONNEZ la plage. Zéro faute de frappe.</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 7</b> Une formule se lit de l'intérieur vers l'extérieur. Excel colore les plages en même temps qu'il les surligne dans la grille : servez-vous de ces couleurs pour vérifier que vous pointez au bon endroit.</figcaption>
+    </figure>
+    <div class="note key">
+      <h4>Pourquoi écrire <span class="inl">=B2*C2</span> plutôt que <span class="inl">=12*39</span></h4>
+      <p>Parce qu'une formule qui pointe des cellules se <strong>met à jour toute seule</strong>. Changez la quantité en B2, le total suit. Un nombre tapé en dur dans une formule est une bombe à retardement : personne ne le verra, et il restera faux pour toujours. C'est le principe qui fonde tout le reste du cours.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">3.2</span><h2>Les cinq fonctions à connaître en premier</h2></div>
+    <div class="formula">=<span class="fn">SOMME</span>(B2:B9)        <span class="cm">// additionne</span>
+=<span class="fn">MOYENNE</span>(B2:B9)      <span class="cm">// la moyenne, en ignorant les cellules vides</span>
+=<span class="fn">MIN</span>(B2:B9)          <span class="cm">// la plus petite valeur</span>
+=<span class="fn">MAX</span>(B2:B9)          <span class="cm">// la plus grande</span>
+=<span class="fn">NB</span>(B2:B9)           <span class="cm">// combien de NOMBRES — pas de textes</span>
+=<span class="fn">NBVAL</span>(B2:B9)        <span class="cm">// combien de cellules NON VIDES, texte compris</span></div>
+    <div class="note tip">
+      <h4>Astuce : la somme automatique</h4>
+      <p>Placez-vous sous une colonne de nombres et faites <span class="keys"><kbd>Alt</kbd><s>+</s><kbd>=</kbd></span> : Excel devine la plage et écrit la formule. Vérifiez quand même ce qu'il a sélectionné — il se trompe dès qu'il y a une ligne vide.</p>
+    </div>
+    <div class="note trap">
+      <h4>Piège : NB contre NBVAL</h4>
+      <p><code>NB</code> ne compte que les <strong>nombres</strong>. Sur une colonne de noms de clients, il renvoie 0, et beaucoup de débutants en concluent que leur fichier est vide. Pour compter des lignes remplies quelles qu'elles soient, c'est <code>NBVAL</code>.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">3.3</span><h2>Le dollar : références relatives et absolues</h2></div>
+    <p class="prose">C'est le concept qui bloque le plus de débutants, et il s'explique en une phrase : <strong>quand on recopie une formule, les références se décalent</strong>. Le symbole <span class="inl">$</span> sert à en empêcher une de bouger.</p>
+    <figure>
+      <div class="figbox">
+        <svg class="fig" viewBox="0 0 720 290" role="img" aria-label="Comparaison entre une référence relative qui se décale à la recopie et une référence absolue figée par le dollar">
+          <text x="8" y="18" class="t-crit t-d" style="font-size:12px">✕ SANS DOLLAR — la référence au taux glisse</text>
+          <rect x="8" y="28" width="330" height="146" rx="6" class="f-surf"/>
+          <rect x="8.5" y="28.5" width="329" height="145" rx="6" class="st-crit"/>
+          <rect x="9" y="29" width="328" height="22" class="f-head"/>
+          <text x="22" y="44" class="t-ink t-b">Prix HT</text><text x="150" y="44" class="t-ink t-b">Formule écrite</text><text x="272" y="44" class="t-ink t-b">Résultat</text>
+          <rect x="240" y="60" width="90" height="22" class="f-warns"/>
+          <text x="22" y="76">TVA →</text><text x="150" y="76" class="t-warn">E1 contient 0,20</text>
+          <text x="22" y="104">100</text><text x="150" y="104" class="t-acc">=A3*E1</text><text x="272" y="104" class="t-ink">20</text>
+          <text x="22" y="128">250</text><text x="150" y="128" class="t-crit">=A4*E2</text><text x="272" y="128" class="t-crit t-b">0</text>
+          <text x="22" y="152">80</text><text x="150" y="152" class="t-crit">=A5*E3</text><text x="272" y="152" class="t-crit t-b">0</text>
+          <text x="8" y="192" class="t-crit">En descendant, E1 devient E2 puis E3 — des cellules vides. Le calcul rend zéro, sans erreur affichée.</text>
+
+          <text x="382" y="18" class="t-acc t-d" style="font-size:12px">✓ AVEC DOLLAR — la référence reste clouée</text>
+          <rect x="382" y="28" width="330" height="146" rx="6" class="f-surf"/>
+          <rect x="382.5" y="28.5" width="329" height="145" rx="6" class="st-acc"/>
+          <rect x="383" y="29" width="328" height="22" class="f-head"/>
+          <text x="396" y="44" class="t-ink t-b">Prix HT</text><text x="524" y="44" class="t-ink t-b">Formule écrite</text><text x="646" y="44" class="t-ink t-b">Résultat</text>
+          <rect x="614" y="60" width="90" height="22" class="f-accs"/>
+          <text x="396" y="76">TVA →</text><text x="524" y="76" class="t-acc">E1 contient 0,20</text>
+          <text x="396" y="104">100</text><text x="524" y="104" class="t-acc">=A3*$E$1</text><text x="646" y="104" class="t-ink">20</text>
+          <text x="396" y="128">250</text><text x="524" y="128" class="t-acc">=A4*$E$1</text><text x="646" y="128" class="t-ink">50</text>
+          <text x="396" y="152">80</text><text x="524" y="152" class="t-acc">=A5*$E$1</text><text x="646" y="152" class="t-ink">16</text>
+          <text x="382" y="192" class="t-acc">Le $ fige ce qui le suit : colonne ou ligne.</text>
+
+          <rect x="8" y="210" width="704" height="70" rx="6" class="f-soft"/>
+          <text x="22" y="230" class="t-ink t-b">LES QUATRE ÉTATS, EN APPUYANT SUR F4</text>
+          <text x="22" y="252" class="t-acc">E1</text><text x="70" y="252">tout bouge</text>
+          <text x="180" y="252" class="t-acc">$E$1</text><text x="240" y="252">rien ne bouge</text>
+          <text x="360" y="252" class="t-acc">E$1</text><text x="420" y="252">la ligne est figée</text>
+          <text x="560" y="252" class="t-acc">$E1</text><text x="612" y="252">la colonne l'est</text>
+          <text x="22" y="270" class="t-ink">Pendant la saisie, placez le curseur sur la référence et appuyez sur F4 : Excel fait défiler ces quatre états.</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 8</b> La règle en une image. Dans 90 % des cas vous voudrez <span class="inl">$E$1</span> — un paramètre unique référencé partout. Les formes mixtes servent surtout aux tableaux à double entrée, où l'on recopie dans les deux sens.</figcaption>
+    </figure>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">3.4</span><h2>Le premier test logique : SI</h2></div>
+    <p class="prose">Une formule qui décide. C'est la porte d'entrée vers tout ce que fait un tableau de bord.</p>
+    <div class="formula">=<span class="fn">SI</span>( condition ; valeur_si_vrai ; valeur_si_faux )
+
+<span class="cm">// concrètement</span>
+=<span class="fn">SI</span>(B2&gt;=1000 ; <span class="ar">"Objectif atteint"</span> ; <span class="ar">"En retard"</span>)
+=<span class="fn">SI</span>(B2&gt;=1000 ; B2*0,05 ; 0)          <span class="cm">// une prime de 5 % au-delà de 1000</span>
+
+<span class="cm">// les opérateurs de comparaison</span>
+=   égal        &lt;&gt;  différent
+&gt;   supérieur   &gt;=  supérieur ou égal
+&lt;   inférieur   &lt;=  inférieur ou égal</div>
+    <div class="note trap">
+      <h4>Piège : les guillemets</h4>
+      <p>Tout texte écrit dans une formule doit être entre guillemets droits : <span class="inl">"En retard"</span>. Sans eux, Excel cherche une <em>plage nommée</em> portant ce nom, ne la trouve pas et renvoie <code>#NOM?</code>. Les nombres, eux, ne prennent jamais de guillemets — <span class="inl">"1000"</span> serait du texte, et la comparaison deviendrait fausse.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">3.5</span><h2>Les six messages d'erreur, et leur cause</h2></div>
+    <p class="prose">Une erreur n'est pas une panne : c'est Excel qui vous explique ce qui cloche. Encore faut-il traduire.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th style="width:16%">Message</th><th style="width:38%">Ce qu'il veut dire</th><th>Ce qu'on fait</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">#DIV/0!</td><td>Division par zéro, ou par une cellule vide</td><td>Envelopper dans <span class="inl">=SIERREUR(...;"")</span>, ou tester le diviseur</td></tr>
+          <tr><td class="mono">#VALEUR!</td><td>Un calcul sur du texte — souvent un nombre qui n'en est pas un</td><td>Vérifier l'alignement (module 2), convertir</td></tr>
+          <tr><td class="mono">#NOM?</td><td>Excel ne reconnaît pas un mot : fonction mal orthographiée, guillemets oubliés</td><td>Relire le nom de la fonction, vérifier les guillemets</td></tr>
+          <tr><td class="mono">#N/A</td><td>Une recherche n'a rien trouvé</td><td>Normal parfois ; prévoir une valeur de repli</td></tr>
+          <tr><td class="mono">#REF!</td><td>La cellule visée a été supprimée</td><td><kbd>Ctrl</kbd> <kbd>Z</kbd> immédiatement, puis refaire autrement</td></tr>
+          <tr><td class="mono">#####</td><td>Ce n'est pas une erreur : la colonne est trop étroite</td><td>Élargir la colonne</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note tip">
+      <h4>Le réflexe de débogage</h4>
+      <p>Sélectionnez un morceau de votre formule dans la barre de formule et appuyez sur <kbd>F9</kbd> : Excel remplace ce morceau par sa valeur, sous vos yeux. Vous voyez immédiatement lequel des bouts est fautif. <kbd>Échap</kbd> pour ressortir sans rien casser. C'est l'outil que les experts utilisent le plus, et presque personne ne l'apprend.</p>
+    </div>
+  </div>
+
+  <div class="exo">
+    <h4>Exercice 3</h4>
+    <ol class="steps">
+      <li>Reprenez votre tableau du module 2. En colonne Total, écrivez <span class="inl">=B2*C2</span> et recopiez par double-clic sur la poignée.</li>
+      <li>Sous la colonne Total, ajoutez <code>SOMME</code>, <code>MOYENNE</code>, <code>MIN</code>, <code>MAX</code>, et comparez <code>NB</code> et <code>NBVAL</code> sur la colonne Produit.</li>
+      <li>Mettez un taux de remise en <span class="inl">F1</span>. Écrivez <span class="inl">=D2*F1</span>, recopiez : constatez le zéro. Corrigez avec <kbd>F4</kbd> pour obtenir <span class="inl">$F$1</span>.</li>
+      <li>Ajoutez une colonne <em>Statut</em> avec <span class="inl">=SI(D2&gt;=500;"Gros";"Petit")</span>.</li>
+      <li>Provoquez volontairement chaque erreur : divisez par une cellule vide, additionnez du texte, écrivez <span class="inl">=SOMM(A1:A3)</span>, supprimez une colonne référencée. Vérifiez que vous reconnaissez chaque message.</li>
+      <li>Sélectionnez <span class="inl">D2*F1</span> dans la barre de formule et appuyez sur <kbd>F9</kbd> pour voir ce que vaut réellement ce morceau.</li>
+    </ol>
+  </div>
+  <button class="donebtn" data-done="b3" type="button" aria-pressed="false">Marquer le module 3 comme terminé</button>
+</section>
+
+
+<!-- ================= FEUILLE 1 : DONNÉES ================= -->
+<section class="sheet" id="sh-1" data-cell="M1" data-formula="=MODULE(4;&quot;Des données propres&quot;)" data-tab="Données" data-num="M4" role="tabpanel" hidden>
+  <div class="prose">
+    <div class="eyebrow"><b>Module 4</b> <span>·</span> 90 min</div>
     <h1>Des données que le dashboard peut digérer</h1>
     <p class="lede">80 % des dashboards ratés se jouent ici. Un tableau croisé dynamique ne rattrape jamais une base mal structurée — il la recopie en plus joli.</p>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">1.1</span><h2>Une ligne = un fait, une colonne = une variable</h2></div>
+    <div class="sechead"><span class="secnum">4.1</span><h2>Une ligne = un fait, une colonne = une variable</h2></div>
     <p class="prose">Le format que les humains lisent bien (mois en colonnes) est exactement celui qu'Excel exploite mal. Il faut une base « à plat » : chaque ligne raconte un événement complet.</p>
     <figure>
       <div class="figbox">
@@ -782,12 +1315,12 @@ svg.fig .dash{stroke-dasharray:4 3}
           <text x="388" y="238">et l'opération se rejoue toute seule au prochain import.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 3</b> Le « dépivotage ». Retenez le test : si ajouter un mois vous oblige à créer une colonne, votre base n'est pas une base — c'est déjà un rapport.</figcaption>
+      <figcaption><b>Figure 9</b> Le « dépivotage ». Retenez le test : si ajouter un mois vous oblige à créer une colonne, votre base n'est pas une base — c'est déjà un rapport.</figcaption>
     </figure>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">1.2</span><h2>Le tableau structuré, votre meilleur allié</h2></div>
+    <div class="sechead"><span class="secnum">4.2</span><h2>Le tableau structuré, votre meilleur allié</h2></div>
     <p class="prose">Sélectionnez une cellule de votre base, faites <span class="keys"><kbd>Ctrl</kbd><s>+</s><kbd>L</kbd></span> (<kbd>Ctrl</kbd>&nbsp;<kbd>T</kbd> en anglais), puis renommez-le immédiatement dans <em>Création de tableau → Nom du tableau</em>. Ce nom devient une adresse vivante.</p>
     <figure>
       <div class="figbox">
@@ -829,7 +1362,7 @@ svg.fig .dash{stroke-dasharray:4 3}
           <text x="22" y="246" class="t-ink">la source d'un TCD nommée « Ventes » absorbe les nouvelles lignes sans que vous ne retouchiez jamais la plage source.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 4</b> Références structurées. Un TCD branché sur <span class="inl">Ventes</span> se met à jour quand la table grandit ; un TCD branché sur <span class="inl">Feuil1!$A$1:$H$5000</span> ignore la ligne 5001.</figcaption>
+      <figcaption><b>Figure 10</b> Références structurées. Un TCD branché sur <span class="inl">Ventes</span> se met à jour quand la table grandit ; un TCD branché sur <span class="inl">Feuil1!$A$1:$H$5000</span> ignore la ligne 5001.</figcaption>
     </figure>
     <div class="note trap">
       <h4>Piège</h4>
@@ -838,7 +1371,7 @@ svg.fig .dash{stroke-dasharray:4 3}
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">1.3</span><h2>Nettoyer avec Power Query</h2></div>
+    <div class="sechead"><span class="secnum">4.3</span><h2>Nettoyer avec Power Query</h2></div>
     <p class="prose">Power Query (<em>Données → Obtenir des données</em>) enregistre vos manipulations comme une recette. Le mois prochain, nouveau fichier, même recette, un clic sur <em>Actualiser tout</em>.</p>
     <figure>
       <div class="figbox">
@@ -903,7 +1436,7 @@ svg.fig .dash{stroke-dasharray:4 3}
           <text x="576" y="290">à l'identique, dans l'ordre</text>
         </svg>
       </div>
-      <figcaption><b>Figure 5</b> L'éditeur Power Query. Le volet de droite est le cœur : c'est une macro lisible, modifiable étape par étape, que personne n'a besoin de savoir coder pour relire.</figcaption>
+      <figcaption><b>Figure 11</b> L'éditeur Power Query. Le volet de droite est le cœur : c'est une macro lisible, modifiable étape par étape, que personne n'a besoin de savoir coder pour relire.</figcaption>
     </figure>
     <h4>Les six transformations qui servent tout le temps</h4>
     <ul class="bul">
@@ -921,7 +1454,7 @@ svg.fig .dash{stroke-dasharray:4 3}
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">1.4</span><h2>Les cinq saletés à traquer</h2></div>
+    <div class="sechead"><span class="secnum">4.4</span><h2>Les cinq saletés à traquer</h2></div>
     <div class="grid g2">
       <div class="card"><h3>Cellules fusionnées</h3><p>Elles cassent le tri, le filtre, le TCD. Remplacez par <em>Centrer sur plusieurs colonnes</em> dans <kbd>Ctrl</kbd>&nbsp;<kbd>1</kbd> → Alignement.</p></div>
       <div class="card"><h3>Totaux au milieu de la base</h3><p>Un TCD les comptera comme des lignes. Les totaux se calculent, ils ne se stockent pas.</p></div>
@@ -933,7 +1466,7 @@ svg.fig .dash{stroke-dasharray:4 3}
   </div>
 
   <div class="exo">
-    <h4>Exercice 1</h4>
+    <h4>Exercice 4</h4>
     <ol class="steps">
       <li>Créez une feuille <span class="inl">SOURCE</span> et collez-y 200 lignes de ventes (ou vos propres données).</li>
       <li>Convertissez-la en tableau structuré avec <kbd>Ctrl</kbd>&nbsp;<kbd>L</kbd>, nommez-la <span class="inl">Ventes</span>.</li>
@@ -942,19 +1475,252 @@ svg.fig .dash{stroke-dasharray:4 3}
       <li>Ajoutez 10 lignes à la source, puis <kbd>Ctrl</kbd>&nbsp;<kbd>Alt</kbd>&nbsp;<kbd>F5</kbd>. Rien d'autre ne doit bouger de votre part.</li>
     </ol>
   </div>
-  <button class="donebtn" data-done="1" type="button" aria-pressed="false">Marquer le module 1 comme terminé</button>
+  <button class="donebtn" data-done="1" type="button" aria-pressed="false">Marquer le module 4 comme terminé</button>
 </section>
 
 <!-- ================= FEUILLE 2 : FORMULES ================= -->
-<section class="sheet" id="sh-2" data-cell="M2" data-formula="=MODULE(2;&quot;Formules qui portent le dashboard&quot;)" data-tab="Formules" data-num="M2" role="tabpanel" hidden>
+<section class="sheet" id="sh-2" data-cell="M2" data-formula="=MODULE(5;&quot;Formules qui portent le dashboard&quot;)" data-tab="Formules" data-num="M5" role="tabpanel" hidden>
   <div class="prose">
-    <div class="eyebrow"><b>Module 2</b> <span>·</span> 100 min</div>
-    <h1>Les huit formules qui portent un dashboard</h1>
-    <p class="lede">On n'a pas besoin de connaître 400 fonctions. Il en faut huit, bien comprises, et surtout savoir laquelle recalcule et laquelle ralentit tout.</p>
+    <div class="eyebrow"><b>Module 5</b> <span>·</span> 100 min</div>
+    <h1>Les formules qui portent un dashboard</h1>
+    <p class="lede">Excel compte plus de 500 fonctions. Une trentaine suffit à tout faire, à condition de savoir laquelle sert à quoi. Ce module les passe en revue par usage — lire une formule, traiter du texte, des dates, décider, agréger, chercher — avec le piège de chacune.</p>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">2.1</span><h2>RECHERCHEX : la fin de RECHERCHEV</h2></div>
+    <div class="sechead"><span class="secnum">5.1</span><h2>Comment Excel lit une formule</h2></div>
+    <p class="prose">Avant d'empiler les fonctions, il faut savoir dans quel ordre Excel calcule. Une parenthèse mal placée ne produit pas d'erreur : elle produit un résultat faux, ce qui est bien pire.</p>
+    <figure>
+      <div class="figbox">
+        <svg class="fig" viewBox="0 0 720 270" role="img" aria-label="Ordre de priorité des opérateurs et effet des parenthèses sur le résultat">
+          <text x="8" y="18" class="t-ink t-d" style="font-size:13px">L'ordre des opérations, et pourquoi il change tout</text>
+
+          <rect x="8" y="30" width="330" height="120" rx="6" class="f-crits"/>
+          <text x="24" y="52" class="t-crit t-b">✕ SANS PARENTHÈSES</text>
+          <text x="24" y="76" class="t-ink" style="font-size:14px">=100 + 20 * 3</text>
+          <text x="24" y="98">La multiplication passe avant l'addition.</text>
+          <text x="24" y="116">Excel calcule 20 × 3 = 60, puis 100 + 60.</text>
+          <text x="24" y="140" class="t-crit t-b">Résultat : 160</text>
+
+          <rect x="382" y="30" width="330" height="120" rx="6" class="f-accs"/>
+          <text x="398" y="52" class="t-acc t-b">✓ AVEC PARENTHÈSES</text>
+          <text x="398" y="76" class="t-ink" style="font-size:14px">=(100 + 20) * 3</text>
+          <text x="398" y="98">Les parenthèses forcent l'addition d'abord.</text>
+          <text x="398" y="116">Excel calcule 120, puis × 3.</text>
+          <text x="398" y="140" class="t-acc t-b">Résultat : 360</text>
+
+          <text x="8" y="180" class="t-ink t-b">La hiérarchie complète, du plus prioritaire au moins prioritaire</text>
+          <g>
+            <rect x="8" y="190" width="108" height="30" rx="5" class="f-acc"/>
+            <text x="62" y="209" text-anchor="middle" class="t-on t-b">( )</text>
+            <rect x="124" y="190" width="108" height="30" rx="5" class="f-accs"/>
+            <text x="178" y="209" text-anchor="middle" class="t-acc t-b">^ puissance</text>
+            <rect x="240" y="190" width="108" height="30" rx="5" class="f-accs"/>
+            <text x="294" y="209" text-anchor="middle" class="t-acc t-b">* et /</text>
+            <rect x="356" y="190" width="108" height="30" rx="5" class="f-soft"/>
+            <text x="410" y="209" text-anchor="middle" class="t-ink t-b">+ et −</text>
+            <rect x="472" y="190" width="108" height="30" rx="5" class="f-soft"/>
+            <text x="526" y="209" text-anchor="middle" class="t-ink t-b">&amp; concaténation</text>
+            <rect x="588" y="190" width="124" height="30" rx="5" class="f-soft"/>
+            <text x="650" y="209" text-anchor="middle" class="t-ink t-b">= &lt; &gt; comparaison</text>
+          </g>
+
+          <rect x="8" y="234" width="704" height="28" rx="5" class="f-acc2s"/>
+          <text x="24" y="252" class="t-acc2">Dans le doute, mettez des parenthèses : elles ne coûtent rien et rendent la formule lisible par le suivant.</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 12</b> La règle est celle des mathématiques, avec la concaténation et les comparaisons en bout de chaîne. C'est pourquoi <span class="inl">=A1&gt;B1&amp;"x"</span> ne fait pas ce qu'on croit : la concaténation se fait avant la comparaison.</figcaption>
+    </figure>
+    <div class="note key">
+      <h4>Nommer une cellule pour la rendre lisible</h4>
+      <p>Sélectionnez une cellule, tapez un nom dans la zone Nom, validez. <span class="inl">=Prix*TauxTVA</span> se relit dix fois plus vite que <span class="inl">=B4*$H$2</span>, et le nom ne se décale jamais à la recopie — il joue le rôle d'un <span class="inl">$</span> permanent. <kbd>Ctrl</kbd> <kbd>F3</kbd> ouvre le gestionnaire, <kbd>F3</kbd> colle un nom dans une formule.</p>
+    </div>
+    <div class="note tip">
+      <h4>Imbriquer sans se perdre</h4>
+      <p>Une fonction peut servir d'argument à une autre : <span class="inl">=ARRONDI(MOYENNE(B2:B9);2)</span>. Excel calcule toujours de l'intérieur vers l'extérieur. Pour vérifier une imbrication, sélectionnez la partie interne dans la barre de formule et appuyez sur <kbd>F9</kbd> : vous voyez sa valeur avant de continuer.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">5.2</span><h2>Le texte : découper, nettoyer, recomposer</h2></div>
+    <p class="prose">Les données arrivent rarement dans le bon format. Une colonne « Nom Prénom », un code produit collé à sa référence, des espaces en trop : ces fonctions réparent tout cela.</p>
+    <figure>
+      <div class="figbox">
+        <svg class="fig" viewBox="0 0 720 250" role="img" aria-label="Découpage d'une chaîne de caractères avec GAUCHE, STXT et DROITE">
+          <text x="8" y="18" class="t-ink t-d" style="font-size:13px">Découper une référence : FR-2026-00841</text>
+
+          <g>
+            <rect x="60" y="34" width="120" height="34" rx="5" class="f-accs"/>
+            <rect x="180" y="34" width="150" height="34" rx="5" class="f-acc2s"/>
+            <rect x="330" y="34" width="180" height="34" rx="5" class="f-warns"/>
+            <rect x="60.5" y="34.5" width="449" height="33" rx="5" class="st2"/>
+          </g>
+          <text x="120" y="56" text-anchor="middle" class="t-acc t-b" style="font-size:15px">FR</text>
+          <text x="255" y="56" text-anchor="middle" class="t-acc2 t-b" style="font-size:15px">-2026-</text>
+          <text x="420" y="56" text-anchor="middle" class="t-warn t-b" style="font-size:15px">00841</text>
+
+          <text x="60" y="84">position 1-2</text><text x="200" y="84">position 4-7</text><text x="380" y="84">les 5 derniers</text>
+
+          <rect x="8" y="100" width="340" height="30" rx="5" class="f-surf"/>
+          <rect x="8.5" y="100.5" width="339" height="29" rx="5" class="st-acc"/>
+          <text x="22" y="120" class="t-acc">=GAUCHE(A2;2)</text><text x="200" y="120" class="t-ink">→ "FR"</text>
+
+          <rect x="8" y="136" width="340" height="30" rx="5" class="f-surf"/>
+          <rect x="8.5" y="136.5" width="339" height="29" rx="5" class="st-acc2"/>
+          <text x="22" y="156" class="t-acc2">=STXT(A2;4;4)</text><text x="200" y="156" class="t-ink">→ "2026"</text>
+
+          <rect x="8" y="172" width="340" height="30" rx="5" class="f-surf"/>
+          <rect x="8.5" y="172.5" width="339" height="29" rx="5" class="st2"/>
+          <text x="22" y="192" class="t-warn">=DROITE(A2;5)</text><text x="200" y="192" class="t-ink">→ "00841"</text>
+
+          <rect x="368" y="100" width="344" height="102" rx="6" class="f-soft"/>
+          <text x="384" y="120" class="t-ink t-b">Quand la position varie</text>
+          <text x="384" y="140">=TROUVE("-";A2) renvoie la position du 1er tiret.</text>
+          <text x="384" y="158">On la passe alors à GAUCHE ou STXT :</text>
+          <text x="384" y="178" class="t-acc">=GAUCHE(A2 ; TROUVE("-";A2)-1)</text>
+          <text x="384" y="196">CHERCHE fait pareil mais ignore la casse.</text>
+
+          <rect x="8" y="216" width="704" height="28" rx="5" class="f-accs"/>
+          <text x="22" y="234" class="t-acc">Plus simple encore sur Excel 365 : =FRACTIONNER.TEXTE(A2;"-") renvoie les trois morceaux d'un coup.</text>
+        </svg>
+      </div>
+      <figcaption><b>Figure 13</b> <code>GAUCHE</code>, <code>STXT</code> et <code>DROITE</code> découpent par position ; <code>TROUVE</code> localise un séparateur quand la position n'est pas fixe. Attention : ces fonctions renvoient toujours du <strong>texte</strong>, même sur des chiffres — ajoutez <span class="inl">*1</span> ou <code>CNUM</code> si vous devez calculer ensuite.</figcaption>
+    </figure>
+    <div class="formula"><span class="cm">// nettoyer</span>
+=<span class="fn">SUPPRESPACE</span>(A2)                 <span class="cm">// enlève les espaces en trop, garde ceux du milieu</span>
+=<span class="fn">EPURAGE</span>(A2)                     <span class="cm">// enlève les caractères non imprimables d'un export</span>
+=<span class="fn">SUBSTITUE</span>(A2 ; <span class="ar">"."</span> ; <span class="ar">","</span>)      <span class="cm">// remplace toutes les occurrences</span>
+
+<span class="cm">// recomposer</span>
+=A2 &amp; <span class="ar">" "</span> &amp; B2                     <span class="cm">// l'esperluette colle deux textes</span>
+=<span class="fn">CONCAT</span>(A2:D2)                    <span class="cm">// colle toute une plage</span>
+=<span class="fn">JOINDRE.TEXTE</span>(<span class="ar">" - "</span> ; VRAI ; A2:D2) <span class="cm">// avec séparateur, en ignorant les vides</span>
+
+<span class="cm">// transformer</span>
+=<span class="fn">MAJUSCULE</span>(A2)  =<span class="fn">MINUSCULE</span>(A2)  =<span class="fn">NOMPROPRE</span>(A2)
+=<span class="fn">NBCAR</span>(A2)                       <span class="cm">// combien de caractères</span>
+=<span class="fn">TEXTE</span>(A2 ; <span class="ar">"jj/mm/aaaa"</span>)         <span class="cm">// forcer un affichage DANS du texte</span>
+=<span class="fn">CNUM</span>(A2)                        <span class="cm">// texte qui ressemble à un nombre → vrai nombre</span></div>
+    <div class="note trap">
+      <h4>Piège : le faux doublon</h4>
+      <p><span class="inl">"Dupont "</span> et <span class="inl">"Dupont"</span> sont deux valeurs différentes pour Excel — et pour un TCD, deux lignes distinctes. Avant toute analyse, passez vos colonnes de texte à <code>SUPPRESPACE</code>. C'est la cause numéro un des totaux qui ne tombent pas juste.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">5.3</span><h2>Les dates : compter, décaler, extraire</h2></div>
+    <p class="prose">Rappel du module 2 : une date est un nombre. C'est ce qui permet tous les calculs qui suivent.</p>
+    <figure>
+      <div class="figbox">
+        <svg class="fig" viewBox="0 0 720 240" role="img" aria-label="Calculs de dates : échéance, ancienneté, jours ouvrés et fin de mois">
+          <text x="8" y="18" class="t-ink t-d" style="font-size:13px">Quatre questions de tous les jours, et leur formule</text>
+
+          <rect x="8" y="30" width="348" height="88" rx="6" class="f-surf"/>
+          <rect x="8.5" y="30.5" width="347" height="87" rx="6" class="st"/>
+          <text x="24" y="50" class="t-ink t-b">« Quelle est l'échéance à 45 jours ? »</text>
+          <text x="24" y="72" class="t-acc">=A2 + 45</text>
+          <text x="24" y="94">Une date plus un nombre donne une date.</text>
+          <text x="24" y="110">Rien de plus à savoir.</text>
+
+          <rect x="364" y="30" width="348" height="88" rx="6" class="f-surf"/>
+          <rect x="364.5" y="30.5" width="347" height="87" rx="6" class="st"/>
+          <text x="380" y="50" class="t-ink t-b">« Combien de jours ouvrés d'ici là ? »</text>
+          <text x="380" y="72" class="t-acc">=NB.JOURS.OUVRES(A2 ; B2 ; Feries)</text>
+          <text x="380" y="94">Exclut samedis, dimanches et la plage</text>
+          <text x="380" y="110">de jours fériés qu'on lui donne.</text>
+
+          <rect x="8" y="128" width="348" height="88" rx="6" class="f-surf"/>
+          <rect x="8.5" y="128.5" width="347" height="87" rx="6" class="st"/>
+          <text x="24" y="148" class="t-ink t-b">« Quel est le dernier jour du mois ? »</text>
+          <text x="24" y="170" class="t-acc">=FIN.MOIS(A2 ; 0)</text>
+          <text x="24" y="192">0 = ce mois-ci, 1 = le mois prochain,</text>
+          <text x="24" y="208">-1 = le mois dernier.</text>
+
+          <rect x="364" y="128" width="348" height="88" rx="6" class="f-surf"/>
+          <rect x="364.5" y="128.5" width="347" height="87" rx="6" class="st"/>
+          <text x="380" y="148" class="t-ink t-b">« Quelle ancienneté en années ? »</text>
+          <text x="380" y="170" class="t-acc">=DATEDIF(A2 ; AUJOURDHUI() ; "y")</text>
+          <text x="380" y="192">"y" années, "m" mois, "d" jours.</text>
+          <text x="380" y="208">Fonction non documentée, mais bien là.</text>
+
+          <rect x="8" y="226" width="704" height="12" rx="4" class="f-warns"/>
+        </svg>
+      </div>
+      <figcaption><b>Figure 14</b> Quatre besoins qui reviennent sans cesse. <code>AUJOURDHUI()</code> se recalcule à chaque ouverture du fichier — pratique pour un tableau de bord, dangereux si vous vouliez figer une date : dans ce cas, <kbd>Ctrl</kbd> <kbd>;</kbd> insère la date du jour en valeur.</figcaption>
+    </figure>
+    <div class="formula"><span class="cm">// extraire un morceau</span>
+=<span class="fn">ANNEE</span>(A2)   =<span class="fn">MOIS</span>(A2)   =<span class="fn">JOUR</span>(A2)
+=<span class="fn">JOURSEM</span>(A2 ; 2)              <span class="cm">// 1 = lundi … 7 = dimanche avec le type 2</span>
+=<span class="fn">NO.SEMAINE</span>(A2 ; 21)           <span class="cm">// numéro de semaine ISO, celui des entreprises</span>
+=<span class="fn">TEXTE</span>(A2 ; <span class="ar">"mmmm"</span>)             <span class="cm">// le mois en toutes lettres, en TEXTE</span>
+
+<span class="cm">// reconstruire</span>
+=<span class="fn">DATE</span>(2026 ; 3 ; 12)
+=<span class="fn">MOIS.DECALER</span>(A2 ; 3)           <span class="cm">// +3 mois, sans casser les fins de mois</span>
+=<span class="fn">SERIE.JOUR.OUVRE</span>(A2 ; 10 ; Feries)  <span class="cm">// 10 jours ouvrés plus tard</span></div>
+    <div class="note trap">
+      <h4>Piège : trier par mois en toutes lettres</h4>
+      <p><span class="inl">=TEXTE(A2;"mmmm")</span> produit du <strong>texte</strong>. Un tri classera alors « avril » avant « janvier », par ordre alphabétique. Pour un dashboard, gardez une colonne date réelle pour le tri et n'utilisez le libellé que pour l'affichage — ou laissez le TCD grouper les dates lui-même.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">5.4</span><h2>La logique : décider, combiner, rattraper</h2></div>
+    <div class="formula"><span class="cm">// combiner plusieurs conditions</span>
+=<span class="fn">SI</span>(<span class="fn">ET</span>(B2&gt;=1000 ; C2=<span class="ar">"Pro"</span>) ; <span class="ar">"Prioritaire"</span> ; <span class="ar">"Standard"</span>)
+=<span class="fn">SI</span>(<span class="fn">OU</span>(B2&gt;5000 ; C2=<span class="ar">"VIP"</span>) ; <span class="ar">"Suivi rapproché"</span> ; <span class="ar">""</span>)
+
+<span class="cm">// plusieurs cas : lisible, au lieu de SI imbriqués en cascade</span>
+=<span class="fn">SI.CONDITIONS</span>( B2&gt;=10000 ; <span class="ar">"A"</span> ;
+                B2&gt;=5000  ; <span class="ar">"B"</span> ;
+                B2&gt;=1000  ; <span class="ar">"C"</span> ;
+                VRAI      ; <span class="ar">"D"</span> )      <span class="cm">// VRAI joue le rôle du "sinon"</span>
+
+<span class="cm">// une valeur parmi une liste</span>
+=<span class="fn">SI.MULTIPLE</span>( C2 ; <span class="ar">"Nord"</span>;1 ; <span class="ar">"Sud"</span>;2 ; <span class="ar">"Est"</span>;3 ; 0 )
+
+<span class="cm">// neutraliser une erreur</span>
+=<span class="fn">SIERREUR</span>( B2/C2 ; 0 )              <span class="cm">// attrape TOUTES les erreurs</span>
+=<span class="fn">SI.NON.DISP</span>( <span class="fn">RECHERCHEX</span>(...) ; <span class="ar">"Inconnu"</span> )  <span class="cm">// n'attrape que #N/A</span></div>
+    <div class="note trap">
+      <h4>Piège : SIERREUR qui cache la poussière</h4>
+      <p><code>SIERREUR</code> masque <strong>toutes</strong> les erreurs, y compris celles qui signalent un vrai problème — une faute de frappe, une plage décalée. Sur un dashboard, préférez <code>SI.NON.DISP</code> quand vous ne voulez neutraliser qu'une recherche infructueuse : les autres erreurs continueront de vous alerter, et c'est ce que vous voulez.</p>
+    </div>
+    <div class="note tip">
+      <h4>L'ordre compte dans SI.CONDITIONS</h4>
+      <p>Les conditions sont évaluées de haut en bas, et la première vraie l'emporte. Si vous mettez <span class="inl">B2&gt;=1000</span> en premier, tout le monde sera classé « C ». Allez toujours du plus restrictif au plus large.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">5.5</span><h2>Maths, statistiques et arrondis</h2></div>
+    <div class="formula"><span class="cm">// arrondir — voir le module 13 pour les conséquences comptables</span>
+=<span class="fn">ARRONDI</span>(A2;2)  =<span class="fn">ARRONDI.SUP</span>(A2;0)  =<span class="fn">ARRONDI.INF</span>(A2;0)
+=<span class="fn">ARRONDI.AU.MULTIPLE</span>(A2;50)     <span class="cm">// au palier de 50 le plus proche</span>
+=<span class="fn">ENT</span>(A2)      =<span class="fn">MOD</span>(A2;7)     =<span class="fn">ABS</span>(A2)
+
+<span class="cm">// la fonction la plus sous-estimée d'Excel</span>
+=<span class="fn">SOMMEPROD</span>(Qte ; Prix)            <span class="cm">// multiplie ligne à ligne PUIS additionne</span>
+=<span class="fn">SOMMEPROD</span>((Region=<span class="ar">"Ouest"</span>)*(Gamme=<span class="ar">"Pro"</span>)*CA)  <span class="cm">// somme conditionnelle</span>
+
+<span class="cm">// classements et distribution</span>
+=<span class="fn">RANG</span>(B2 ; Ventes ; 0)            <span class="cm">// 0 = décroissant</span>
+=<span class="fn">GRANDE.VALEUR</span>(Ventes ; 3)       <span class="cm">// la 3e plus grande</span>
+=<span class="fn">PETITE.VALEUR</span>(Ventes ; 1)
+=<span class="fn">MEDIANE</span>(Ventes)                 <span class="cm">// souvent plus juste que la moyenne</span>
+=<span class="fn">ECARTYPE.PEARSON</span>(Ventes)        <span class="cm">// la dispersion</span>
+=<span class="fn">CENTILE.INCLURE</span>(Ventes ; 0,9)   <span class="cm">// le seuil des 10 % du haut</span></div>
+    <div class="note key">
+      <h4>Moyenne ou médiane ?</h4>
+      <p>Sur des paniers d'achat, un seul client à 80 000 € tire la moyenne vers le haut et donne une image fausse du client typique. La <strong>médiane</strong> — la valeur qui coupe la population en deux — résiste à ces valeurs extrêmes. Affichez les deux côte à côte : leur écart est en soi une information sur la concentration de votre activité.</p>
+    </div>
+    <div class="note tip">
+      <h4>Pourquoi apprendre SOMMEPROD</h4>
+      <p>Elle fait en une formule ce qui demanderait une colonne intermédiaire : un chiffre d'affaires total sans colonne « Total » par ligne. Et les conditions écrites en multiplication de tests — <span class="inl">(A=1)*(B=2)</span> — fonctionnent dans toutes les versions d'Excel, là où <code>SOMME.SI.ENS</code> ne gère pas certains cas comme les critères sur résultat de formule.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">5.6</span><h2>RECHERCHEX : la fin de RECHERCHEV</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 260" role="img" aria-label="Schéma de la fonction RECHERCHEX : valeur cherchée, tableau de recherche, tableau renvoyé">
@@ -998,7 +1764,7 @@ svg.fig .dash{stroke-dasharray:4 3}
           <text x="22" y="238">elle cherche à gauche comme à droite · aucun n° de colonne à compter · insensible aux insertions</text>
         </svg>
       </div>
-      <figcaption><b>Figure 6</b> <code>RECHERCHEX</code> raisonne en colonnes entières, pas en décalage numérique. C'est ce qui la rend insensible aux insertions de colonnes — la première cause de dashboards silencieusement faux.</figcaption>
+      <figcaption><b>Figure 15</b> <code>RECHERCHEX</code> raisonne en colonnes entières, pas en décalage numérique. C'est ce qui la rend insensible aux insertions de colonnes — la première cause de dashboards silencieusement faux.</figcaption>
     </figure>
     <div class="formula"><span class="cm">// dans la table Ventes, ramener la gamme du produit</span>
 =<span class="fn">RECHERCHEX</span>([@Code] ; Produits[Code] ; Produits[Gamme] ; <span class="ar">"Inconnu"</span>)
@@ -1012,7 +1778,7 @@ svg.fig .dash{stroke-dasharray:4 3}
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">2.2</span><h2>SOMME.SI.ENS : agréger sous conditions</h2></div>
+    <div class="sechead"><span class="secnum">5.7</span><h2>SOMME.SI.ENS : agréger sous conditions</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 240" role="img" aria-label="Schéma de SOMME.SI.ENS avec deux critères filtrant les lignes additionnées">
@@ -1050,7 +1816,7 @@ svg.fig .dash{stroke-dasharray:4 3}
           <text x="532" y="212">12 400 + 4 100 + 6 700</text>
         </svg>
       </div>
-      <figcaption><b>Figure 7</b> Les critères se cumulent en ET, jamais en OU. Pour un OU, additionnez deux <code>SOMME.SI.ENS</code> — ou passez au TCD, qui fait ça nativement.</figcaption>
+      <figcaption><b>Figure 16</b> Les critères se cumulent en ET, jamais en OU. Pour un OU, additionnez deux <code>SOMME.SI.ENS</code> — ou passez au TCD, qui fait ça nativement.</figcaption>
     </figure>
     <div class="formula">=<span class="fn">SOMME.SI.ENS</span>(Ventes[CA] ; Ventes[Région] ; <span class="ar">$B$2</span> ; Ventes[Gamme] ; <span class="ar">$B$3</span>)
 
@@ -1062,7 +1828,7 @@ svg.fig .dash{stroke-dasharray:4 3}
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">2.3</span><h2>Les formules dynamiques : une formule, plusieurs cellules</h2></div>
+    <div class="sechead"><span class="secnum">5.8</span><h2>Les formules dynamiques : une formule, plusieurs cellules</h2></div>
     <p class="prose">Depuis Excel 2021, une formule peut renvoyer un bloc entier de résultats, qui se « déverse » dans les cellules voisines. C'est ce qui permet des listes de filtres ou des tops qui grandissent tout seuls.</p>
     <figure>
       <div class="figbox">
@@ -1111,7 +1877,7 @@ svg.fig .dash{stroke-dasharray:4 3}
           <text x="22" y="238" class="t-ink">C'est exactement ce qu'il faut pour alimenter une liste déroulante qui grandit avec les données (module 5).</text>
         </svg>
       </div>
-      <figcaption><b>Figure 8</b> Le déversement (<em>spill</em>). La formule vit dans une seule cellule ; le bloc affiché s'adapte. <code>E2#</code> désigne ce bloc entier — à utiliser partout où vous auriez figé une plage.</figcaption>
+      <figcaption><b>Figure 17</b> Le déversement (<em>spill</em>). La formule vit dans une seule cellule ; le bloc affiché s'adapte. <code>E2#</code> désigne ce bloc entier — à utiliser partout où vous auriez figé une plage.</figcaption>
     </figure>
     <div class="formula">=<span class="fn">UNIQUE</span>(Ventes[Région])                              <span class="cm">// la liste des valeurs distinctes</span>
 =<span class="fn">TRIER</span>(<span class="fn">UNIQUE</span>(Ventes[Région]))                       <span class="cm">// …triée</span>
@@ -1130,7 +1896,7 @@ svg.fig .dash{stroke-dasharray:4 3}
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">2.4</span><h2>Vocabulaire FR / EN</h2></div>
+    <div class="sechead"><span class="secnum">5.9</span><h2>Vocabulaire FR / EN</h2></div>
     <p class="prose">Tous les tutoriels du web sont en anglais. Voici la table de conversion des fonctions qui reviennent dans un dashboard :</p>
     <div class="tablewrap">
       <table>
@@ -1158,7 +1924,7 @@ svg.fig .dash{stroke-dasharray:4 3}
   </div>
 
   <div class="exo">
-    <h4>Exercice 2</h4>
+    <h4>Exercice 5</h4>
     <ol class="steps">
       <li>Dans une feuille <span class="inl">CALCULS</span>, créez deux cellules de saisie : région en <span class="inl">B1</span>, gamme en <span class="inl">B2</span>.</li>
       <li>Construisez le KPI <em>CA filtré</em> avec <code>SOMME.SI.ENS</code>, et sa variation vs la même période N-1.</li>
@@ -1166,20 +1932,20 @@ svg.fig .dash{stroke-dasharray:4 3}
       <li>Ajoutez une gamme inexistante dans la table Produits et vérifiez que votre <code>RECHERCHEX</code> affiche « Inconnu » au lieu de <code>#N/A</code>.</li>
     </ol>
   </div>
-  <button class="donebtn" data-done="2" type="button" aria-pressed="false">Marquer le module 2 comme terminé</button>
+  <button class="donebtn" data-done="2" type="button" aria-pressed="false">Marquer le module 5 comme terminé</button>
 </section>
 
 
 <!-- ================= FEUILLE 3 : TCD ================= -->
-<section class="sheet" id="sh-3" data-cell="M3" data-formula="=MODULE(3;&quot;TCD et modèle de données&quot;)" data-tab="TCD" data-num="M3" role="tabpanel" hidden>
+<section class="sheet" id="sh-3" data-cell="M3" data-formula="=MODULE(6;&quot;TCD et modèle de données&quot;)" data-tab="TCD" data-num="M6" role="tabpanel" hidden>
   <div class="prose">
-    <div class="eyebrow"><b>Module 3</b> <span>·</span> 110 min</div>
+    <div class="eyebrow"><b>Module 6</b> <span>·</span> 110 min</div>
     <h1>Le tableau croisé dynamique, moteur du dashboard</h1>
     <p class="lede">Le TCD n'est pas un objet de présentation. C'est le calculateur qu'on cache dans une feuille technique, et dont on ne montre que les graphiques.</p>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">3.1</span><h2>Quatre zones, et c'est tout</h2></div>
+    <div class="sechead"><span class="secnum">6.1</span><h2>Quatre zones, et c'est tout</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 300" role="img" aria-label="Les quatre zones d'un tableau croisé dynamique : filtres, colonnes, lignes, valeurs, et le résultat produit">
@@ -1242,7 +2008,7 @@ svg.fig .dash{stroke-dasharray:4 3}
           <text x="300" y="280">VALEURS = ce qui se cumule (des nombres). Jamais l'inverse.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 9</b> Les quatre zones. Si vous glissez un champ texte dans VALEURS, Excel bascule en <em>Nombre</em> d'occurrences — utile pour compter des commandes, désastreux quand on croyait sommer un CA.</figcaption>
+      <figcaption><b>Figure 18</b> Les quatre zones. Si vous glissez un champ texte dans VALEURS, Excel bascule en <em>Nombre</em> d'occurrences — utile pour compter des commandes, désastreux quand on croyait sommer un CA.</figcaption>
     </figure>
     <ol class="steps">
       <li>Cliquez dans le tableau <span class="inl">Ventes</span> → <em>Insertion → Tableau croisé dynamique</em>.</li>
@@ -1254,7 +2020,7 @@ svg.fig .dash{stroke-dasharray:4 3}
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">3.2</span><h2>Le modèle en étoile</h2></div>
+    <div class="sechead"><span class="secnum">6.2</span><h2>Le modèle en étoile</h2></div>
     <p class="prose">Une table de faits au centre, des tables de dimensions autour, reliées par une clé. Ce schéma vaut pour Excel comme pour Power BI, et il évite l'immense majorité des <code>RECHERCHEX</code> en cascade.</p>
     <figure>
       <div class="figbox">
@@ -1304,7 +2070,7 @@ svg.fig .dash{stroke-dasharray:4 3}
           <text x="360" y="264" text-anchor="middle" class="t-warn">Un doublon dans Produits[Code] et Excel refuse la relation.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 10</b> Le schéma en étoile. Un seul TCD peut alors croiser le CA (table Ventes) par Gamme (table Produits) et par Trimestre (table Calendrier) — sans qu'aucune de ces colonnes n'existe dans la table Ventes.</figcaption>
+      <figcaption><b>Figure 19</b> Le schéma en étoile. Un seul TCD peut alors croiser le CA (table Ventes) par Gamme (table Produits) et par Trimestre (table Calendrier) — sans qu'aucune de ces colonnes n'existe dans la table Ventes.</figcaption>
     </figure>
     <div class="note key">
       <h4>Pourquoi une table Calendrier séparée</h4>
@@ -1313,7 +2079,7 @@ svg.fig .dash{stroke-dasharray:4 3}
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">3.3</span><h2>Mesures : les calculs qui suivent le filtre</h2></div>
+    <div class="sechead"><span class="secnum">6.3</span><h2>Mesures : les calculs qui suivent le filtre</h2></div>
     <p class="prose">Une mesure (Power Pivot) se recalcule dans le contexte de chaque cellule du TCD. C'est ce qui permet d'écrire « % de croissance » une seule fois, et de le voir juste par région, par mois, par gamme, et au total.</p>
     <div class="formula"><span class="cm">// Données → Mesures → Nouvelle mesure. Syntaxe DAX, virgule comme séparateur.</span>
 CA           := <span class="fn">SUM</span>(Ventes[CA])
@@ -1336,7 +2102,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="exo">
-    <h4>Exercice 3</h4>
+    <h4>Exercice 6</h4>
     <ol class="steps">
       <li>Créez la table <span class="inl">Calendrier</span> : une colonne Date du 01/01/2023 au 31/12/2025, puis <span class="inl">=ANNEE([@Date])</span>, <span class="inl">=TEXTE([@Date];"mmmm")</span>, <span class="inl">="T"&amp;ARRONDI.SUP(MOIS([@Date])/3;0)</span>.</li>
       <li>Ajoutez les trois tables au modèle, puis créez les relations Ventes[Date]→Calendrier[Date] et Ventes[Code]→Produits[Code].</li>
@@ -1344,19 +2110,19 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
       <li>Montez un TCD : Trimestre en lignes, Gamme en colonnes, <span class="inl">Croissance %</span> en valeurs. Vérifiez que le total général est juste — c'est le test qui révèle une mesure mal écrite.</li>
     </ol>
   </div>
-  <button class="donebtn" data-done="3" type="button" aria-pressed="false">Marquer le module 3 comme terminé</button>
+  <button class="donebtn" data-done="3" type="button" aria-pressed="false">Marquer le module 6 comme terminé</button>
 </section>
 
 <!-- ================= FEUILLE 4 : GRAPHIQUES ================= -->
-<section class="sheet" id="sh-4" data-cell="M4" data-formula="=MODULE(4;&quot;Choisir et régler les graphiques&quot;)" data-tab="Graphiques" data-num="M4" role="tabpanel" hidden>
+<section class="sheet" id="sh-4" data-cell="M4" data-formula="=MODULE(7;&quot;Choisir et régler les graphiques&quot;)" data-tab="Graphiques" data-num="M7" role="tabpanel" hidden>
   <div class="prose">
-    <div class="eyebrow"><b>Module 4</b> <span>·</span> 80 min</div>
+    <div class="eyebrow"><b>Module 7</b> <span>·</span> 80 min</div>
     <h1>Choisir le bon graphique, puis le dépouiller</h1>
     <p class="lede">Un graphique répond à une question précise. Commencez par écrire la question en une phrase — le type de graphique en découle presque toujours mécaniquement.</p>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">4.1</span><h2>La matrice de choix</h2></div>
+    <div class="sechead"><span class="secnum">7.1</span><h2>La matrice de choix</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 300" role="img" aria-label="Matrice de choix du type de graphique selon l'intention : comparer, suivre une évolution, décomposer, distribuer, corréler">
@@ -1432,12 +2198,12 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="22" y="280" class="t-ink">le 3D · le camembert à plus de 3 parts · l'axe tronqué sur des barres · le double axe sans nécessité</text>
         </svg>
       </div>
-      <figcaption><b>Figure 11</b> Cinq intentions, cinq formes. En cas d'hésitation entre barres et courbe : si l'axe horizontal est du temps, c'est une courbe ; sinon, ce sont des barres triées.</figcaption>
+      <figcaption><b>Figure 20</b> Cinq intentions, cinq formes. En cas d'hésitation entre barres et courbe : si l'axe horizontal est du temps, c'est une courbe ; sinon, ce sont des barres triées.</figcaption>
     </figure>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">4.2</span><h2>Le dépouillement</h2></div>
+    <div class="sechead"><span class="secnum">7.2</span><h2>Le dépouillement</h2></div>
     <p class="prose">Un graphique Excel par défaut contient une demi-douzaine d'éléments qui ne portent aucune information. Les retirer double la lisibilité, sans rien ajouter.</p>
     <figure>
       <div class="figbox">
@@ -1468,7 +2234,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="384" y="242" class="t-acc">titre = conclusion · tri · étiquettes · 1 couleur</text>
         </svg>
       </div>
-      <figcaption><b>Figure 12</b> Même donnée, deux lectures. Le changement décisif n'est pas esthétique : c'est le <strong>titre</strong>. Écrivez la conclusion, pas la description de l'axe.</figcaption>
+      <figcaption><b>Figure 21</b> Même donnée, deux lectures. Le changement décisif n'est pas esthétique : c'est le <strong>titre</strong>. Écrivez la conclusion, pas la description de l'axe.</figcaption>
     </figure>
     <h4>Checklist de dépouillement</h4>
     <ul class="bul">
@@ -1482,7 +2248,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">4.3</span><h2>Trois formes à connaître</h2></div>
+    <div class="sechead"><span class="secnum">7.3</span><h2>Trois formes à connaître</h2></div>
     <div class="grid g3">
       <div class="card"><h3>Combiné + axe secondaire</h3><p>Barres pour le CA, courbe pour la marge %. <em>Insertion → Graphique combiné</em>. À réserver aux cas où les deux unités sont vraiment différentes — sinon on triche.</p><span class="tag b">CA vs taux</span></div>
       <div class="card"><h3>Cascade (waterfall)</h3><p>Montre comment on passe du CA N-1 au CA N, contribution par contribution. <em>Insertion → Cascade</em>, puis clic droit sur les barres de total → <em>Définir comme total</em>.</p><span class="tag b">expliquer un écart</span></div>
@@ -1499,7 +2265,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="exo">
-    <h4>Exercice 4</h4>
+    <h4>Exercice 7</h4>
     <ol class="steps">
       <li>Depuis votre TCD, créez un graphique croisé dynamique en barres horizontales du CA par produit.</li>
       <li>Triez en décroissant, dépouillez selon la checklist, et écrivez un titre qui énonce une conclusion.</li>
@@ -1507,19 +2273,19 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
       <li>Enregistrez le premier comme modèle et appliquez-le à un troisième graphique.</li>
     </ol>
   </div>
-  <button class="donebtn" data-done="4" type="button" aria-pressed="false">Marquer le module 4 comme terminé</button>
+  <button class="donebtn" data-done="4" type="button" aria-pressed="false">Marquer le module 7 comme terminé</button>
 </section>
 
 <!-- ================= FEUILLE 5 : INTERACTIVITÉ ================= -->
-<section class="sheet" id="sh-5" data-cell="M5" data-formula="=MODULE(5;&quot;Rendre le dashboard interactif&quot;)" data-tab="Interactivité" data-num="M5" role="tabpanel" hidden>
+<section class="sheet" id="sh-5" data-cell="M5" data-formula="=MODULE(8;&quot;Rendre le dashboard interactif&quot;)" data-tab="Interactivité" data-num="M8" role="tabpanel" hidden>
   <div class="prose">
-    <div class="eyebrow"><b>Module 5</b> <span>·</span> 80 min</div>
+    <div class="eyebrow"><b>Module 8</b> <span>·</span> 80 min</div>
     <h1>Un tableau de bord qu'on pilote au doigt</h1>
     <p class="lede">C'est ce qui sépare un rapport d'un outil : le lecteur pose ses propres questions sans vous appeler.</p>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">5.1</span><h2>Segments et chronologies</h2></div>
+    <div class="sechead"><span class="secnum">8.1</span><h2>Segments et chronologies</h2></div>
     <p class="prose">Un segment est un filtre visuel branché sur un ou plusieurs TCD. La fonction décisive s'appelle <em>Connexions de rapport</em> : c'est elle qui fait qu'un seul clic repilote tout le dashboard.</p>
     <figure>
       <div class="figbox">
@@ -1573,7 +2339,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="444" y="282" class="t-warn">Sans connexion de rapport : un seul bouge.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 13</b> Un segment, trois TCD, trois visuels. Sur le dashboard, on ne voit que la colonne de gauche et celle de droite — la colonne du milieu vit sur une feuille masquée.</figcaption>
+      <figcaption><b>Figure 22</b> Un segment, trois TCD, trois visuels. Sur le dashboard, on ne voit que la colonne de gauche et celle de droite — la colonne du milieu vit sur une feuille masquée.</figcaption>
     </figure>
     <ol class="steps">
       <li>Cliquez dans un TCD → <em>Analyse du TCD → Insérer un segment</em>, cochez Région et Gamme.</li>
@@ -1585,7 +2351,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">5.2</span><h2>Quand le segment ne suffit pas</h2></div>
+    <div class="sechead"><span class="secnum">8.2</span><h2>Quand le segment ne suffit pas</h2></div>
     <div class="grid g2">
       <div class="card"><h3>Liste déroulante dynamique</h3><p><em>Données → Validation des données → Liste</em>, et comme source <span class="inl">=$D$1#</span> pointant vers un <code>UNIQUE</code>. La liste grandit avec les données, sans maintenance.</p></div>
       <div class="card"><h3>Cases à cocher</h3><p>Excel 365 : <em>Insertion → Case à cocher</em> — la cellule vaut VRAI/FAUX, directement exploitable dans un <code>SI</code> ou un <code>FILTRE</code>.</p></div>
@@ -1605,7 +2371,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="exo">
-    <h4>Exercice 5</h4>
+    <h4>Exercice 8</h4>
     <ol class="steps">
       <li>Insérez un segment Région et une chronologie sur Calendrier[Date].</li>
       <li>Connectez-les à tous vos TCD, puis vérifiez en cliquant : les six visuels doivent bouger d'un bloc.</li>
@@ -1613,20 +2379,20 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
       <li>Rendez le titre principal dynamique.</li>
     </ol>
   </div>
-  <button class="donebtn" data-done="5" type="button" aria-pressed="false">Marquer le module 5 comme terminé</button>
+  <button class="donebtn" data-done="5" type="button" aria-pressed="false">Marquer le module 8 comme terminé</button>
 </section>
 
 
 <!-- ================= FEUILLE 6 : DESIGN ================= -->
-<section class="sheet" id="sh-6" data-cell="M6" data-formula="=MODULE(6;&quot;Mise en forme et composition&quot;)" data-tab="Design" data-num="M6" role="tabpanel" hidden>
+<section class="sheet" id="sh-6" data-cell="M6" data-formula="=MODULE(9;&quot;Mise en forme et composition&quot;)" data-tab="Design" data-num="M9" role="tabpanel" hidden>
   <div class="prose">
-    <div class="eyebrow"><b>Module 6</b> <span>·</span> 90 min</div>
+    <div class="eyebrow"><b>Module 9</b> <span>·</span> 90 min</div>
     <h1>Composer la page, guider l'œil</h1>
     <p class="lede">À ce stade tout fonctionne. Il reste à faire en sorte qu'on comprenne en huit secondes — durée réelle d'attention d'un lecteur de dashboard.</p>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">6.1</span><h2>Une grille, pas un collage</h2></div>
+    <div class="sechead"><span class="secnum">9.1</span><h2>Une grille, pas un collage</h2></div>
     <p class="prose">Le secret d'un dashboard Excel qui ne ressemble pas à du bricolage tient en une manipulation : réduire la largeur de toutes les colonnes à 2 pixels, et composer par fusion de blocs. Vous obtenez une grille de mise en page, comme en PAO.</p>
     <figure>
       <div class="figbox">
@@ -1674,7 +2440,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="530" y="290">le détail, pour ceux qui creusent</text>
         </svg>
       </div>
-      <figcaption><b>Figure 14</b> Trame, composition, parcours. Coin haut-gauche = ce qu'on retient si on ne lit rien d'autre. Ne perdez pas cette place avec un logo.</figcaption>
+      <figcaption><b>Figure 23</b> Trame, composition, parcours. Coin haut-gauche = ce qu'on retient si on ne lit rien d'autre. Ne perdez pas cette place avec un logo.</figcaption>
     </figure>
     <h4>Le ménage indispensable, feuille Dashboard</h4>
     <ul class="bul">
@@ -1686,7 +2452,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">6.2</span><h2>La mise en forme conditionnelle, avec parcimonie</h2></div>
+    <div class="sechead"><span class="secnum">9.2</span><h2>La mise en forme conditionnelle, avec parcimonie</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 802 240" role="img" aria-label="Quatre types de mise en forme conditionnelle : barres de données, nuances de couleurs, jeux d'icônes, règle par formule">
@@ -1734,7 +2500,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="548" y="190">Le $ sur la colonne, pas sur</text><text x="548" y="204">la ligne : c'est ce qui fait</text><text x="548" y="218">déteindre la règle sur toute la ligne.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 15</b> Quatre outils, quatre usages distincts. La règle par formule est la seule qui permette de colorer une ligne entière d'après la valeur d'une seule colonne — d'où la référence mixte <span class="inl">$D2</span>.</figcaption>
+      <figcaption><b>Figure 24</b> Quatre outils, quatre usages distincts. La règle par formule est la seule qui permette de colorer une ligne entière d'après la valeur d'une seule colonne — d'où la référence mixte <span class="inl">$D2</span>.</figcaption>
     </figure>
     <div class="note trap">
       <h4>Piège : les règles qui se multiplient</h4>
@@ -1743,7 +2509,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">6.3</span><h2>La couleur : une seule décision</h2></div>
+    <div class="sechead"><span class="secnum">9.3</span><h2>La couleur : une seule décision</h2></div>
     <div class="grid g3">
       <div class="card"><h3>Un accent</h3><p>Une seule couleur saturée, celle de la marque. Elle sert à désigner ce qu'il faut regarder — donc jamais plus de 10 % de la surface.</p><span class="tag a">désigner</span></div>
       <div class="card"><h3>Des neutres</h3><p>Trois gris suffisent : fond, bloc, texte secondaire. Tout ce qui n'est pas le sujet du moment est gris.</p><span class="tag">structurer</span></div>
@@ -1765,7 +2531,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="exo">
-    <h4>Exercice 6</h4>
+    <h4>Exercice 9</h4>
     <ol class="steps">
       <li>Sur votre feuille Dashboard : trame de colonnes à 2 px, quadrillage et en-têtes masqués, fond uni.</li>
       <li>Composez quatre tuiles de KPI alignées sur la trame, avec le chiffre en gros et la variation en petit dessous.</li>
@@ -1774,19 +2540,19 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
       <li>Reculez d'un mètre de l'écran. Si vous ne savez pas où regarder en premier, il y a trop de couleur.</li>
     </ol>
   </div>
-  <button class="donebtn" data-done="6" type="button" aria-pressed="false">Marquer le module 6 comme terminé</button>
+  <button class="donebtn" data-done="6" type="button" aria-pressed="false">Marquer le module 9 comme terminé</button>
 </section>
 
 <!-- ================= FEUILLE 7 : AUTOMATISATION ================= -->
-<section class="sheet" id="sh-7" data-cell="M7" data-formula="=MODULE(7;&quot;Automatiser et livrer&quot;)" data-tab="Automatisation" data-num="M7" role="tabpanel" hidden>
+<section class="sheet" id="sh-7" data-cell="M7" data-formula="=MODULE(10;&quot;Automatiser et livrer&quot;)" data-tab="Automatisation" data-num="M10" role="tabpanel" hidden>
   <div class="prose">
-    <div class="eyebrow"><b>Module 7</b> <span>·</span> 70 min</div>
+    <div class="eyebrow"><b>Module 10</b> <span>·</span> 70 min</div>
     <h1>Automatiser, protéger, livrer</h1>
     <p class="lede">Le vrai test d'un dashboard : que quelqu'un d'autre l'ouvre dans six mois, clique une fois, et obtienne des chiffres à jour sans vous appeler.</p>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">7.1</span><h2>La chaîne d'actualisation</h2></div>
+    <div class="sechead"><span class="secnum">10.1</span><h2>La chaîne d'actualisation</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 200" role="img" aria-label="Ordre d'actualisation : requêtes, modèle, tableaux croisés, graphiques, avec les réglages associés">
@@ -1814,12 +2580,12 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="24" y="186" class="t-warn">Analyse du TCD → Options → Données : ☑ Actualiser à l'ouverture, « éléments à conserver » = Aucun.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 16</b> L'ordre compte : un TCD actualisé avant sa requête source affiche les chiffres du mois dernier. <kbd>Ctrl</kbd>&nbsp;<kbd>Alt</kbd>&nbsp;<kbd>F5</kbd> (<em>Actualiser tout</em>) respecte cet ordre ; <kbd>Alt</kbd>&nbsp;<kbd>F5</kbd> n'actualise que l'objet sélectionné.</figcaption>
+      <figcaption><b>Figure 25</b> L'ordre compte : un TCD actualisé avant sa requête source affiche les chiffres du mois dernier. <kbd>Ctrl</kbd>&nbsp;<kbd>Alt</kbd>&nbsp;<kbd>F5</kbd> (<em>Actualiser tout</em>) respecte cet ordre ; <kbd>Alt</kbd>&nbsp;<kbd>F5</kbd> n'actualise que l'objet sélectionné.</figcaption>
     </figure>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">7.2</span><h2>Un bouton Actualiser</h2></div>
+    <div class="sechead"><span class="secnum">10.2</span><h2>Un bouton Actualiser</h2></div>
     <p class="prose">Trois lignes de VBA valent mieux qu'une consigne écrite dans un coin. Enregistrez le classeur en <span class="inl">.xlsm</span>, ouvrez l'éditeur avec <kbd>Alt</kbd>&nbsp;<kbd>F11</kbd>, insérez un module :</p>
     <div class="formula"><span class="fn">Sub</span> ActualiserTout()
     <span class="cm">' évite le clignotement pendant l'opération</span>
@@ -1838,7 +2604,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">7.3</span><h2>Checklist de livraison</h2></div>
+    <div class="sechead"><span class="secnum">10.3</span><h2>Checklist de livraison</h2></div>
     <div class="grid g2">
       <div class="card"><h3>Alléger</h3><p>Requêtes intermédiaires en <em>Connexion seule</em>. Supprimer les feuilles de travail mortes. <kbd>Ctrl</kbd>&nbsp;<kbd>Fin</kbd> doit s'arrêter à la dernière vraie cellule — sinon supprimez les lignes fantômes et enregistrez.</p></div>
       <div class="card"><h3>Protéger</h3><p><em>Révision → Protéger la feuille</em>, cocher uniquement « Utiliser les segments » et « Utiliser les tableaux croisés dynamiques ». Masquer les feuilles TCD et CALCULS (<em>clic droit sur l'onglet → Masquer</em>).</p></div>
@@ -1851,7 +2617,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
     </div>
   </div>
 
-  <button class="donebtn" data-done="7" type="button" aria-pressed="false">Marquer le module 7 comme terminé</button>
+  <button class="donebtn" data-done="7" type="button" aria-pressed="false">Marquer le module 10 comme terminé</button>
 </section>
 
 <!-- ================= FEUILLE PROJET ================= -->
@@ -1945,7 +2711,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
         <line x1="165" y1="349" x2="705" y2="349" class="st"/><line x1="165" y1="373" x2="705" y2="373" class="st"/>
       </svg>
     </div>
-    <figcaption><b>Figure 17</b> Le livrable. Rien dessus n'est saisi à la main : chaque chiffre vient d'un TCD, chaque TCD d'une requête, chaque requête d'un dossier de fichiers sources.</figcaption>
+    <figcaption><b>Figure 26</b> Le livrable. Rien dessus n'est saisi à la main : chaque chiffre vient d'un TCD, chaque TCD d'une requête, chaque requête d'un dossier de fichiers sources.</figcaption>
   </figure>
 
   <div class="sec">
@@ -1984,15 +2750,15 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
 
 
 <!-- ================= FEUILLE 8 : ANALYSE & SCÉNARIOS ================= -->
-<section class="sheet" id="sh-9" data-cell="M8" data-formula="=MODULE(8;&quot;Analyse et scénarios&quot;)" data-tab="Scénarios" data-num="M8" role="tabpanel" hidden>
+<section class="sheet" id="sh-9" data-cell="M8" data-formula="=MODULE(11;&quot;Analyse et scénarios&quot;)" data-tab="Scénarios" data-num="M11" role="tabpanel" hidden>
   <div class="prose">
-    <div class="eyebrow"><b>Module 8</b> <span>·</span> 80 min <span>·</span> pour aller plus loin</div>
+    <div class="eyebrow"><b>Module 11</b> <span>·</span> 80 min <span>·</span> pour aller plus loin</div>
     <h1>Faire parler le modèle : sensibilité, scénarios, prévision</h1>
     <p class="lede">Un dashboard dit ce qui s'est passé. Ces quatre outils lui font dire ce qui se passerait si — sans une seule ligne de code.</p>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">8.1</span><h2>Valeur cible : remonter la formule à l'envers</h2></div>
+    <div class="sechead"><span class="secnum">11.1</span><h2>Valeur cible : remonter la formule à l'envers</h2></div>
     <p class="prose">Vous savez calculer une mensualité à partir d'un capital. La valeur cible fait l'inverse : quel capital pour une mensualité de 1 200 € ? <em>Données → Analyse de scénarios → Valeur cible</em>.</p>
     <ul class="bul">
       <li><strong>Cellule à définir</strong> : celle qui contient la <em>formule</em> (la mensualité).</li>
@@ -2006,7 +2772,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">8.2</span><h2>Table de données : toute la sensibilité d'un coup</h2></div>
+    <div class="sechead"><span class="secnum">11.2</span><h2>Table de données : toute la sensibilité d'un coup</h2></div>
     <p class="prose">L'outil le plus sous-utilisé d'Excel. Il recalcule votre modèle entier pour chaque croisement de deux hypothèses, et pose le résultat dans une grille.</p>
     <figure>
       <div class="figbox">
@@ -2075,7 +2841,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="8" y="282" class="t-warn">La grille est une formule matricielle : on ne peut pas modifier une seule de ses cellules, seulement la recréer en entier.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 18</b> Table à deux variables. Le coin haut-gauche pointe la formule à observer ; la première ligne et la première colonne portent les hypothèses. Une mise en forme conditionnelle par nuances transforme la grille en carte de risque.</figcaption>
+      <figcaption><b>Figure 27</b> Table à deux variables. Le coin haut-gauche pointe la formule à observer ; la première ligne et la première colonne portent les hypothèses. Une mise en forme conditionnelle par nuances transforme la grille en carte de risque.</figcaption>
     </figure>
     <div class="note tip">
       <h4>Astuce : une seule variable, plusieurs sorties</h4>
@@ -2084,7 +2850,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">8.3</span><h2>Scénarios et Solveur</h2></div>
+    <div class="sechead"><span class="secnum">11.3</span><h2>Scénarios et Solveur</h2></div>
     <div class="grid g2">
       <div class="card">
         <h3>Gestionnaire de scénarios</h3>
@@ -2104,7 +2870,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">8.4</span><h2>Prévision : la tendance, avec son incertitude</h2></div>
+    <div class="sechead"><span class="secnum">11.4</span><h2>Prévision : la tendance, avec son incertitude</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 776 250" role="img" aria-label="Courbe historique prolongée par une prévision encadrée d'un intervalle de confiance">
@@ -2137,7 +2903,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="50" y="240">Sous le capot : =PREVISION.ETS(date ; valeurs ; dates ; saisonnalité) et PREVISION.ETS.CONFINT pour l'intervalle.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 19</b> <em>Données → Feuille de prévision</em> produit en un clic la courbe, l'intervalle et le tableau de valeurs. L'algorithme (lissage exponentiel triple) détecte la saisonnalité seul — mais il ne connaît aucun événement futur : une réforme tarifaire ou un confinement ne sont pas dans les données.</figcaption>
+      <figcaption><b>Figure 28</b> <em>Données → Feuille de prévision</em> produit en un clic la courbe, l'intervalle et le tableau de valeurs. L'algorithme (lissage exponentiel triple) détecte la saisonnalité seul — mais il ne connaît aucun événement futur : une réforme tarifaire ou un confinement ne sont pas dans les données.</figcaption>
     </figure>
     <div class="note trap">
       <h4>Piège</h4>
@@ -2146,7 +2912,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="exo">
-    <h4>Exercice 8</h4>
+    <h4>Exercice 11</h4>
     <ol class="steps">
       <li>Construisez le modèle de prêt (capital, taux, durée, <code>VPM</code>) sur une feuille <span class="inl">SIMULATION</span>.</li>
       <li>Montez la table à deux variables taux × durée, puis appliquez des nuances de couleurs.</li>
@@ -2155,19 +2921,19 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
       <li>Sur votre historique de CA mensuel, lancez une feuille de prévision à 6 mois et reportez la courbe sur le dashboard.</li>
     </ol>
   </div>
-  <button class="donebtn" data-done="9" type="button" aria-pressed="false">Marquer le module 8 comme terminé</button>
+  <button class="donebtn" data-done="9" type="button" aria-pressed="false">Marquer le module 11 comme terminé</button>
 </section>
 
 <!-- ================= FEUILLE 9 : PERFORMANCE & AUDIT ================= -->
-<section class="sheet" id="sh-10" data-cell="M9" data-formula="=MODULE(9;&quot;Performance et audit&quot;)" data-tab="Performance" data-num="M9" role="tabpanel" hidden>
+<section class="sheet" id="sh-10" data-cell="M9" data-formula="=MODULE(12;&quot;Performance et audit&quot;)" data-tab="Performance" data-num="M12" role="tabpanel" hidden>
   <div class="prose">
-    <div class="eyebrow"><b>Module 9</b> <span>·</span> 70 min <span>·</span> pour aller plus loin</div>
+    <div class="eyebrow"><b>Module 12</b> <span>·</span> 70 min <span>·</span> pour aller plus loin</div>
     <h1>Un classeur rapide, et des chiffres qu'on peut défendre</h1>
     <p class="lede">Deux compétences que personne n'enseigne et que tout le monde finit par réclamer : faire qu'un classeur cesse de ramer, et pouvoir prouver qu'un chiffre est juste.</p>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">9.1</span><h2>Où part le temps de recalcul</h2></div>
+    <div class="sechead"><span class="secnum">12.1</span><h2>Où part le temps de recalcul</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 290" role="img" aria-label="Les principales causes de lenteur d'un classeur Excel et leur correction">
@@ -2204,7 +2970,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="22" y="277" class="t-acc2">Diagnostic : Formules → Options de calcul → Manuel, puis F9 en regardant la barre d'état.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 20</b> Les largeurs de barres représentent la fréquence relative de chaque cause, pas un temps mesuré : l'ordre est ce qui compte. Traitez-les de haut en bas, en remesurant à chaque étape.</figcaption>
+      <figcaption><b>Figure 29</b> Les largeurs de barres représentent la fréquence relative de chaque cause, pas un temps mesuré : l'ordre est ce qui compte. Traitez-les de haut en bas, en remesurant à chaque étape.</figcaption>
     </figure>
     <div class="note key">
       <h4>Le mode de calcul manuel</h4>
@@ -2213,7 +2979,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">9.2</span><h2>Auditer une formule qu'on n'a pas écrite</h2></div>
+    <div class="sechead"><span class="secnum">12.2</span><h2>Auditer une formule qu'on n'a pas écrite</h2></div>
     <ul class="bul">
       <li><strong>Repérer les antécédents / dépendants</strong> (<em>Formules → Audit de formules</em>) : des flèches montrent d'où vient et où va la valeur. <kbd>Ctrl</kbd>&nbsp;<kbd>[</kbd> et <kbd>Ctrl</kbd>&nbsp;<kbd>]</kbd> font la même chose au clavier.</li>
       <li><strong>Évaluer la formule</strong> : déroule le calcul étape par étape. Plus lent que <kbd>F9</kbd> sur une portion, mais il montre l'ordre d'évaluation.</li>
@@ -2224,7 +2990,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">9.3</span><h2>Les cellules de contrôle</h2></div>
+    <div class="sechead"><span class="secnum">12.3</span><h2>Les cellules de contrôle</h2></div>
     <p class="prose">La pratique qui distingue un classeur professionnel : chaque étape porte un contrôle qui doit valoir zéro. Si un seul passe au rouge, le dashboard entier se signale comme non fiable.</p>
     <figure>
       <div class="figbox">
@@ -2264,7 +3030,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="490" y="208" class="t-crit">"⚠ "&amp;NB.SI(...)&amp;" contrôle(s) en échec")</text>
         </svg>
       </div>
-      <figcaption><b>Figure 21</b> Trois contrôles suffisent le plus souvent : le compte de lignes, la somme d'un montant de bout en bout, et le nombre de clés orphelines. Un seul voyant sur le dashboard les résume — et c'est lui qu'on regarde avant de citer un chiffre en réunion.</figcaption>
+      <figcaption><b>Figure 30</b> Trois contrôles suffisent le plus souvent : le compte de lignes, la somme d'un montant de bout en bout, et le nombre de clés orphelines. Un seul voyant sur le dashboard les résume — et c'est lui qu'on regarde avant de citer un chiffre en réunion.</figcaption>
     </figure>
     <div class="note tip">
       <h4>Astuce</h4>
@@ -2273,7 +3039,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="exo">
-    <h4>Exercice 9</h4>
+    <h4>Exercice 12</h4>
     <ol class="steps">
       <li>Mesurez le temps de recalcul de votre classeur : calcul manuel, <kbd>F9</kbd>, lecture de la barre d'état.</li>
       <li>Cherchez les plages entières (<kbd>Ctrl</kbd>&nbsp;<kbd>F</kbd> sur <span class="inl">A:A</span>) et les volatiles (<span class="inl">DECALER</span>, <span class="inl">INDIRECT</span>), remplacez-les, remesurez.</li>
@@ -2282,19 +3048,19 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
       <li>Cassez volontairement une donnée source et vérifiez que le voyant passe au rouge.</li>
     </ol>
   </div>
-  <button class="donebtn" data-done="10" type="button" aria-pressed="false">Marquer le module 9 comme terminé</button>
+  <button class="donebtn" data-done="10" type="button" aria-pressed="false">Marquer le module 12 comme terminé</button>
 </section>
 
 <!-- ================= FEUILLE : FINANCE ================= -->
-<section class="sheet" id="sh-11" data-cell="M10" data-formula="=MODULE(10;&quot;Finance&quot;)" data-tab="Finance" data-num="M10" role="tabpanel" hidden>
+<section class="sheet" id="sh-11" data-cell="M10" data-formula="=MODULE(13;&quot;Finance&quot;)" data-tab="Finance" data-num="M13" role="tabpanel" hidden>
   <div class="prose">
-    <div class="eyebrow"><b>Module 10</b> <span>·</span> 2 h 30 <span>·</span> spécialisation métier</div>
+    <div class="eyebrow"><b>Module 13</b> <span>·</span> 2 h 30 <span>·</span> spécialisation métier</div>
     <h1>Finance : valeur temps, emprunts, trésorerie</h1>
     <p class="lede">Excel est l'outil du financier depuis quarante ans, et c'est précisément pour cela qu'on y trouve tant de modèles faux. Ce module couvre les fonctions natives et, surtout, les endroits exacts où elles trompent.</p>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">10.1</span><h2>Le socle : arrondir, signer, dater</h2></div>
+    <div class="sechead"><span class="secnum">13.1</span><h2>Le socle : arrondir, signer, dater</h2></div>
     <p class="prose">Trois réglages avant toute formule. Ils ne se voient pas, et ce sont eux qui décident si le total tombe juste.</p>
     <figure>
       <div class="figbox">
@@ -2327,7 +3093,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="8" y="248" class="t-warn">Jamais l'option « précision au format affiché » : elle détruit les données source.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 22</b> L'écart d'un centime ne vient pas d'un bug d'Excel, mais d'une confusion entre le format d'affichage et la valeur stockée. En facturation, TVA et paie, on arrondit explicitement, à chaque ligne.</figcaption>
+      <figcaption><b>Figure 31</b> L'écart d'un centime ne vient pas d'un bug d'Excel, mais d'une confusion entre le format d'affichage et la valeur stockée. En facturation, TVA et paie, on arrondit explicitement, à chaque ligne.</figcaption>
     </figure>
 
     <h4>Les bases de calcul des jours</h4>
@@ -2356,7 +3122,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">10.2</span><h2>La valeur temps de l'argent</h2></div>
+    <div class="sechead"><span class="secnum">13.2</span><h2>La valeur temps de l'argent</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 280" role="img" aria-label="Comparaison entre VAN sur périodes régulières et VAN.PAIEMENTS sur dates réelles pour les mêmes flux">
@@ -2397,7 +3163,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="22" y="268" class="t-ink">Le TRI suppose un replacement des flux à ce même taux, irréaliste s'il est élevé. TRIM le corrige.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 23</b> Deux erreurs se cumulent dans <code>VAN</code> : elle actualise le flux initial, et elle suppose des périodes égales. Sur cet exemple, l'écart avec le calcul correct atteint 25 500 € — 12 % de la valeur.</figcaption>
+      <figcaption><b>Figure 32</b> Deux erreurs se cumulent dans <code>VAN</code> : elle actualise le flux initial, et elle suppose des périodes égales. Sur cet exemple, l'écart avec le calcul correct atteint 25 500 € — 12 % de la valeur.</figcaption>
     </figure>
     <div class="formula"><span class="cm">// Flux à dates réelles — le cas normal</span>
 =<span class="fn">VAN.PAIEMENTS</span>(taux ; Flux[Montant] ; Flux[Date])
@@ -2417,7 +3183,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">10.3</span><h2>Emprunts et échéanciers</h2></div>
+    <div class="sechead"><span class="secnum">13.3</span><h2>Emprunts et échéanciers</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 250" role="img" aria-label="Décomposition d'une mensualité constante entre intérêts et capital sur la durée du prêt">
@@ -2439,7 +3205,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="8" y="238" class="t-ink">Sur les cinq premières années, près de la moitié de chaque mensualité ne rembourse rien.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 24</b> La mensualité est constante, sa composition ne l'est pas. <code>INTPER</code> et <code>PRINCPER</code> donnent les deux parts pour n'importe quelle période — indispensable pour les charges financières d'un compte de résultat prévisionnel.</figcaption>
+      <figcaption><b>Figure 33</b> La mensualité est constante, sa composition ne l'est pas. <code>INTPER</code> et <code>PRINCPER</code> donnent les deux parts pour n'importe quelle période — indispensable pour les charges financières d'un compte de résultat prévisionnel.</figcaption>
     </figure>
     <figure>
       <div class="figbox">
@@ -2471,7 +3237,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="22" y="223" class="t-ink">Même capital, même taux, même durée : du simple au double sur les intérêts.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 25</b> L'annuité constante est le mode par défaut des crédits aux particuliers ; l'amortissement constant coûte moins cher mais pèse davantage au début ; l'in fine ne se justifie que lorsqu'un placement adossé rapporte plus que le taux du prêt.</figcaption>
+      <figcaption><b>Figure 34</b> L'annuité constante est le mode par défaut des crédits aux particuliers ; l'amortissement constant coûte moins cher mais pèse davantage au début ; l'in fine ne se justifie que lorsqu'un placement adossé rapporte plus que le taux du prêt.</figcaption>
     </figure>
     <div class="formula"><span class="cm">// Les six fonctions de la famille — toutes liées par la même équation</span>
 =<span class="fn">VPM</span>(taux/12 ; durée*12 ; -capital)            <span class="cm">// la mensualité</span>
@@ -2493,7 +3259,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">10.4</span><h2>Trésorerie et besoin en fonds de roulement</h2></div>
+    <div class="sechead"><span class="secnum">13.4</span><h2>Trésorerie et besoin en fonds de roulement</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 260" role="img" aria-label="Plan de trésorerie sur douze mois : flux mensuels en barres et position cumulée en courbe, avec un point bas sous zéro">
@@ -2531,7 +3297,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="8" y="252" class="t-ink">Courbe cumulée : <tspan class="t-acc t-b">=SOMME($C$2:C2)</tspan> — le premier $ ancre le départ, le second suit.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 26</b> Une entreprise rentable peut mourir d'un point bas de trésorerie. Le flux mensuel ne dit rien à lui seul : c'est la <strong>position cumulée</strong> qui révèle le besoin de financement.</figcaption>
+      <figcaption><b>Figure 35</b> Une entreprise rentable peut mourir d'un point bas de trésorerie. Le flux mensuel ne dit rien à lui seul : c'est la <strong>position cumulée</strong> qui révèle le besoin de financement.</figcaption>
     </figure>
     <figure>
       <div class="figbox">
@@ -2563,7 +3329,7 @@ Marge %      := <span class="fn">DIVIDE</span>([CA] - <span class="fn">SUMX</spa
           <text x="8" y="238" class="t-ink">BFR = stocks + créances clients − dettes fournisseurs, exprimé en jours de CA pour se comparer.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 27</b> Gagner 10 jours de DSO sur un CA de 12 M€ libère environ 330 k€ de trésorerie, immédiatement et sans emprunter. C'est le levier le moins coûteux d'une direction financière — et celui qu'on regarde en dernier.</figcaption>
+      <figcaption><b>Figure 36</b> Gagner 10 jours de DSO sur un CA de 12 M€ libère environ 330 k€ de trésorerie, immédiatement et sans emprunter. C'est le levier le moins coûteux d'une direction financière — et celui qu'on regarde en dernier.</figcaption>
     </figure>
     <div class="formula">DSO = créances clients TTC / CA TTC * 365      <span class="cm">// délai moyen de règlement client</span>
 DPO = dettes fournisseurs TTC / achats TTC * 365
@@ -2575,7 +3341,7 @@ BFR en jours de CA = BFR / CA * 365</div>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">10.5</span><h2>Point mort et levier opérationnel</h2></div>
+    <div class="sechead"><span class="secnum">13.5</span><h2>Point mort et levier opérationnel</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 250" role="img" aria-label="Graphique du point mort : charges fixes, charges variables, chiffre d'affaires et zone de profit">
@@ -2611,7 +3377,7 @@ BFR en jours de CA = BFR / CA * 365</div>
           <text x="8" y="238" class="t-warn">Levier : au-delà du point mort, chaque euro de CA rapporte 0,40 € de résultat. En dessous, il en coûte autant.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 28</b> Le point mort n'est pas qu'un seuil : c'est un changement de régime. Une entreprise à fortes charges fixes — industrie, logiciel, hôtellerie — bascule très vite du rouge au vert, et inversement.</figcaption>
+      <figcaption><b>Figure 37</b> Le point mort n'est pas qu'un seuil : c'est un changement de régime. Une entreprise à fortes charges fixes — industrie, logiciel, hôtellerie — bascule très vite du rouge au vert, et inversement.</figcaption>
     </figure>
     <div class="tablewrap">
       <table>
@@ -2631,7 +3397,7 @@ BFR en jours de CA = BFR / CA * 365</div>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">10.6</span><h2>Budget contre réel : décomposer l'écart</h2></div>
+    <div class="sechead"><span class="secnum">13.6</span><h2>Budget contre réel : décomposer l'écart</h2></div>
     <p class="prose">« On est à −180 k€ sur le budget » ne se pilote pas. Décomposer l'écart en prix, volume et mix transforme un constat en trois décisions distinctes.</p>
     <figure>
       <div class="figbox">
@@ -2674,7 +3440,7 @@ BFR en jours de CA = BFR / CA * 365</div>
           <text x="8" y="234" class="t-ink">Le volume manque mais le prix a tenu : la vraie question est pourquoi 230 k de volume en moins.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 29</b> Le graphique en cascade (<em>Insertion → Cascade</em>, puis clic droit sur les totaux → <em>Définir comme total</em>) est fait exactement pour cela. L'effet mix est le plus souvent oublié, et c'est souvent lui qui explique une marge qui s'érode à CA constant.</figcaption>
+      <figcaption><b>Figure 38</b> Le graphique en cascade (<em>Insertion → Cascade</em>, puis clic droit sur les totaux → <em>Définir comme total</em>) est fait exactement pour cela. L'effet mix est le plus souvent oublié, et c'est souvent lui qui explique une marge qui s'érode à CA constant.</figcaption>
     </figure>
     <div class="formula"><span class="cm">// Décomposition classique, prix et volume, par produit puis sommée</span>
 Effet volume = (Qté_réelle - Qté_budget) * Prix_budget
@@ -2686,7 +3452,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">10.7</span><h2>Les contrôles finance</h2></div>
+    <div class="sechead"><span class="secnum">13.7</span><h2>Les contrôles finance</h2></div>
     <div class="tablewrap">
       <table>
         <thead><tr><th style="width:38%">Le contrôle</th><th>Ce qu'il attrape</th></tr></thead>
@@ -2703,7 +3469,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
   </div>
 
   <div class="exo">
-    <h4>Exercice 10 — Finance</h4>
+    <h4>Exercice 13 — Finance</h4>
     <ol class="steps">
       <li>Montez un échéancier complet sur 240 lignes avec <code>INTPER</code> et <code>PRINCPER</code>, et vérifiez que le capital restant dû final vaut 0 à 0,01 € près.</li>
       <li>Comparez les trois modes de remboursement de la figure sur le même capital : produisez le coût total d'intérêts de chacun.</li>
@@ -2714,20 +3480,20 @@ Effet mix    = écart_total - effet_volume - effet_prix
       <li>Décomposez l'écart budget/réel en effets prix, volume et mix, et vérifiez que leur somme retombe sur l'écart global.</li>
     </ol>
   </div>
-  <button class="donebtn" data-done="10f" type="button" aria-pressed="false">Marquer le module 10 comme terminé</button>
+  <button class="donebtn" data-done="10f" type="button" aria-pressed="false">Marquer le module 13 comme terminé</button>
 </section>
 
 
 <!-- ================= FEUILLE : COMPTABILITÉ ================= -->
-<section class="sheet" id="sh-12" data-cell="M11" data-formula="=MODULE(11;&quot;Comptabilité&quot;)" data-tab="Comptabilité" data-num="M11" role="tabpanel" hidden>
+<section class="sheet" id="sh-12" data-cell="M11" data-formula="=MODULE(14;&quot;Comptabilité&quot;)" data-tab="Comptabilité" data-num="M14" role="tabpanel" hidden>
   <div class="prose">
-    <div class="eyebrow"><b>Module 11</b> <span>·</span> 2 h 30 <span>·</span> spécialisation métier</div>
+    <div class="eyebrow"><b>Module 14</b> <span>·</span> 2 h 30 <span>·</span> spécialisation métier</div>
     <h1>Comptabilité : de l'écriture aux états</h1>
     <p class="lede">Un export comptable est la base de données la mieux structurée qu'on puisse recevoir : une ligne par écriture, des colonnes normalisées, un contrôle d'équilibre intégré. Encore faut-il ne jamais y toucher à la main.</p>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">11.1</span><h2>Le FEC, et pourquoi il est votre meilleure source</h2></div>
+    <div class="sechead"><span class="secnum">14.1</span><h2>Le FEC, et pourquoi il est votre meilleure source</h2></div>
     <p class="prose">Le Fichier des Écritures Comptables est normalisé : mêmes colonnes, mêmes noms, quel que soit le logiciel. C'est une aubaine — un seul modèle Power Query fonctionne chez tous vos clients.</p>
     <figure>
       <div class="figbox">
@@ -2765,7 +3531,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
           <text x="498" y="240">l'exercice déclaré</text>
         </svg>
       </div>
-      <figcaption><b>Figure 30</b> Les colonnes du FEC. <code>CompAuxNum</code> est celle qu'on oublie : elle porte le compte auxiliaire — le client ou le fournisseur — ce qui évite une jointure et permet un âge des créances directement depuis le FEC.</figcaption>
+      <figcaption><b>Figure 39</b> Les colonnes du FEC. <code>CompAuxNum</code> est celle qu'on oublie : elle porte le compte auxiliaire — le client ou le fournisseur — ce qui évite une jointure et permet un âge des créances directement depuis le FEC.</figcaption>
     </figure>
     <div class="note trap">
       <h4>Piège : le séparateur décimal</h4>
@@ -2774,7 +3540,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">11.2</span><h2>Du grand livre aux états</h2></div>
+    <div class="sechead"><span class="secnum">14.2</span><h2>Du grand livre aux états</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 280" role="img" aria-label="Du grand livre à la balance puis aux états financiers par regroupement des classes comptables">
@@ -2824,7 +3590,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
           <text x="8" y="266">Pas de SI imbriqués pour les regroupements : une table à deux colonnes + RECHERCHEX.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 31</b> La chaîne comptable dans Excel. Le regroupement se lit dans le numéro de compte, mais passez toujours par une table de correspondance plutôt que par la première décimale : les sous-comptes réservent des surprises, et le plan change plus souvent que vos formules.</figcaption>
+      <figcaption><b>Figure 40</b> La chaîne comptable dans Excel. Le regroupement se lit dans le numéro de compte, mais passez toujours par une table de correspondance plutôt que par la première décimale : les sous-comptes réservent des surprises, et le plan change plus souvent que vos formules.</figcaption>
     </figure>
     <div class="formula"><span class="cm">// Solde d'un compte, sens débiteur positif</span>
 =<span class="fn">SOMME.SI.ENS</span>(Ec[Debit];Ec[CompteNum];[@Compte]) - <span class="fn">SOMME.SI.ENS</span>(Ec[Credit];Ec[CompteNum];[@Compte])
@@ -2844,7 +3610,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">11.3</span><h2>Les soldes intermédiaires de gestion</h2></div>
+    <div class="sechead"><span class="secnum">14.3</span><h2>Les soldes intermédiaires de gestion</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 260" role="img" aria-label="Cascade des soldes intermédiaires de gestion, du chiffre d'affaires au résultat net">
@@ -2901,12 +3667,12 @@ Effet mix    = écart_total - effet_volume - effet_prix
           <text x="22" y="247" class="t-ink">La valeur ajoutée mesure ce que l'entreprise crée ; l'EBE, ce qu'elle en garde. C'est lui qu'on regarde.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 32</b> Chaque barre descend du solde précédent : le graphique en cascade d'Excel le fait nativement. Les deux soldes en bleu sont des paliers — clic droit sur la barre → <em>Définir comme total</em> pour qu'ils repartent de zéro.</figcaption>
+      <figcaption><b>Figure 41</b> Chaque barre descend du solde précédent : le graphique en cascade d'Excel le fait nativement. Les deux soldes en bleu sont des paliers — clic droit sur la barre → <em>Définir comme total</em> pour qu'ils repartent de zéro.</figcaption>
     </figure>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">11.4</span><h2>Rapprochement bancaire et lettrage</h2></div>
+    <div class="sechead"><span class="secnum">14.4</span><h2>Rapprochement bancaire et lettrage</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 270" role="img" aria-label="Rapprochement entre le journal de banque et le relevé, avec les écarts expliqués">
@@ -2939,7 +3705,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
           <text x="22" y="254" class="t-ink">=[@Date]&amp;"|"&amp;ARRONDI([@Montant];2) puis NB.SI.ENS : un compte à 2 signale un doublon.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 33</b> Les deux soldes ne sont jamais égaux, et c'est normal : ce sont les <em>écarts expliqués</em> qui prouvent le rapprochement. Un écart résiduel non justifié, même de quelques centimes, signale une écriture manquante ou une double saisie.</figcaption>
+      <figcaption><b>Figure 42</b> Les deux soldes ne sont jamais égaux, et c'est normal : ce sont les <em>écarts expliqués</em> qui prouvent le rapprochement. Un écart résiduel non justifié, même de quelques centimes, signale une écriture manquante ou une double saisie.</figcaption>
     </figure>
     <div class="note tip">
       <h4>Astuce : rapprocher quand les montants ne correspondent pas un à un</h4>
@@ -2948,7 +3714,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">11.5</span><h2>Immobilisations et amortissements</h2></div>
+    <div class="sechead"><span class="secnum">14.5</span><h2>Immobilisations et amortissements</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 240" role="img" aria-label="Comparaison des dotations aux amortissements en mode linéaire et en mode dégressif sur cinq ans">
@@ -2986,7 +3752,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
           <text x="22" y="230" class="t-ink">Le dégressif bascule en linéaire dès que celui-ci devient plus favorable : c'est ce que fait AMORDEGRC.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 34</b> Dégressif contre linéaire. Le basculement automatique en fin de vie n'est pas une subtilité : c'est une règle fiscale, et la recalculer à la main produit presque toujours une dotation fausse sur les deux derniers exercices.</figcaption>
+      <figcaption><b>Figure 43</b> Dégressif contre linéaire. Le basculement automatique en fin de vie n'est pas une subtilité : c'est une règle fiscale, et la recalculer à la main produit presque toujours une dotation fausse sur les deux derniers exercices.</figcaption>
     </figure>
     <div class="tablewrap">
       <table>
@@ -3004,7 +3770,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">11.6</span><h2>TVA : le circuit et son contrôle</h2></div>
+    <div class="sechead"><span class="secnum">14.6</span><h2>TVA : le circuit et son contrôle</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 240" role="img" aria-label="Circuit de la TVA collectée et déductible aboutissant à la TVA à décaisser, avec son contrôle">
@@ -3040,7 +3806,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
           <text x="22" y="230" class="t-ink">Recalculer la TVA collectée depuis les bases par taux doit retomber sur le solde du 44571.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 35</b> Un écart au contrôle de cohérence signale presque toujours une facture saisie au mauvais taux, ou un produit exonéré traité comme taxable. Le réconcilier chaque mois évite de le découvrir au moment du contrôle fiscal.</figcaption>
+      <figcaption><b>Figure 44</b> Un écart au contrôle de cohérence signale presque toujours une facture saisie au mauvais taux, ou un produit exonéré traité comme taxable. Le réconcilier chaque mois évite de le découvrir au moment du contrôle fiscal.</figcaption>
     </figure>
     <div class="note key">
       <h4>Les cas qui cassent le contrôle</h4>
@@ -3049,7 +3815,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">11.7</span><h2>La clôture : le cut-off</h2></div>
+    <div class="sechead"><span class="secnum">14.7</span><h2>La clôture : le cut-off</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 230" role="img" aria-label="Frise du cut-off de clôture : rattachement des charges et produits au bon exercice">
@@ -3078,7 +3844,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
           <text x="60" y="208" class="t-crit">PRODUIT CONSTATÉ D'AVANCE ←</text>
         </svg>
       </div>
-      <figcaption><b>Figure 36</b> Le cut-off est le premier poste qu'ouvre un commissaire aux comptes, parce que c'est le plus simple à manipuler : décaler une facture d'un jour change le résultat de l'exercice. Chacune de ces quatre écritures mérite sa propre ligne de contrôle.</figcaption>
+      <figcaption><b>Figure 45</b> Le cut-off est le premier poste qu'ouvre un commissaire aux comptes, parce que c'est le plus simple à manipuler : décaler une facture d'un jour change le résultat de l'exercice. Chacune de ces quatre écritures mérite sa propre ligne de contrôle.</figcaption>
     </figure>
     <div class="tablewrap">
       <table>
@@ -3097,7 +3863,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
   </div>
 
   <div class="exo">
-    <h4>Exercice 11 — Comptabilité</h4>
+    <h4>Exercice 14 — Comptabilité</h4>
     <ol class="steps">
       <li>Importez un FEC dans Power Query : forcez les types, convertissez <code>EcritureDate</code> en vraie date, et les montants en décimal avec les bons paramètres régionaux.</li>
       <li>Posez le contrôle d'équilibre global, puis celui par <code>PieceRef</code> — listez les pièces déséquilibrées s'il y en a.</li>
@@ -3108,20 +3874,20 @@ Effet mix    = écart_total - effet_volume - effet_prix
       <li>Recalculez la TVA collectée depuis les bases par taux et réconciliez-la avec le solde du compte 44571.</li>
     </ol>
   </div>
-  <button class="donebtn" data-done="11c" type="button" aria-pressed="false">Marquer le module 11 comme terminé</button>
+  <button class="donebtn" data-done="11c" type="button" aria-pressed="false">Marquer le module 14 comme terminé</button>
 </section>
 
 
 <!-- ================= FEUILLE : ASSURANCE ================= -->
-<section class="sheet" id="sh-13" data-cell="M12" data-formula="=MODULE(12;&quot;Assurance&quot;)" data-tab="Assurance" data-num="M12" role="tabpanel" hidden>
+<section class="sheet" id="sh-13" data-cell="M12" data-formula="=MODULE(15;&quot;Assurance&quot;)" data-tab="Assurance" data-num="M15" role="tabpanel" hidden>
   <div class="prose">
-    <div class="eyebrow"><b>Module 12</b> <span>·</span> 2 h 30 <span>·</span> spécialisation métier</div>
+    <div class="eyebrow"><b>Module 15</b> <span>·</span> 2 h 30 <span>·</span> spécialisation métier</div>
     <h1>Assurance : primes, sinistres, rentabilité</h1>
     <p class="lede">Toute la difficulté tient en une phrase : la prime est encaissée d'avance, le sinistre arrive plus tard, et parfois beaucoup plus tard. Tous les indicateurs du métier découlent de ce décalage.</p>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">12.1</span><h2>Le cycle, et pourquoi il impose ses règles</h2></div>
+    <div class="sechead"><span class="secnum">15.1</span><h2>Le cycle, et pourquoi il impose ses règles</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 250" role="img" aria-label="Frise du cycle d'un contrat d'assurance et d'un sinistre, de la souscription au règlement final">
@@ -3168,12 +3934,12 @@ Effet mix    = écart_total - effet_volume - effet_prix
           <text x="22" y="240" class="t-ink">À la clôture on connaît les primes, pas la charge finale. Tout l'art est d'estimer ce qui n'est pas payé.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 37</b> En assurance de biens, le dossier se solde souvent dans l'année ; en responsabilité civile ou en construction, il peut rester ouvert dix ans. Plus la branche est « longue », plus l'estimation pèse dans le résultat — et plus le S/P d'un exercice récent est incertain.</figcaption>
+      <figcaption><b>Figure 46</b> En assurance de biens, le dossier se solde souvent dans l'année ; en responsabilité civile ou en construction, il peut rester ouvert dix ans. Plus la branche est « longue », plus l'estimation pèse dans le résultat — et plus le S/P d'un exercice récent est incertain.</figcaption>
     </figure>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">12.2</span><h2>Les primes : émise, acquise, non acquise</h2></div>
+    <div class="sechead"><span class="secnum">15.2</span><h2>Les primes : émise, acquise, non acquise</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 230" role="img" aria-label="Prorata temporis : une prime annuelle répartie entre l'exercice en cours et le suivant">
@@ -3201,7 +3967,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
           <text x="8" y="222" class="t-warn">Rapporter les sinistres aux primes ÉMISES au lieu des ACQUISES fausse le S/P du portefeuille.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 38</b> Le prorata temporis. La part non acquise (PANE, provision pour primes non acquises) n'est pas un produit de l'exercice : c'est une dette envers l'assuré pour la couverture restant à fournir.</figcaption>
+      <figcaption><b>Figure 47</b> Le prorata temporis. La part non acquise (PANE, provision pour primes non acquises) n'est pas un produit de l'exercice : c'est une dette envers l'assuré pour la couverture restant à fournir.</figcaption>
     </figure>
     <figure>
       <div class="figbox">
@@ -3239,7 +4005,7 @@ Effet mix    = écart_total - effet_volume - effet_prix
           <text x="8" y="232" class="t-ink">Un S/P sur primes émises paraît meilleur qu'il n'est, d'autant plus que la croissance est forte.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 39</b> Tant que la collecte progresse, les primes acquises restent en retard sur les primes émises. Un ratio bâti sur les émises flatte mécaniquement les exercices de croissance et masque une dégradation technique.</figcaption>
+      <figcaption><b>Figure 48</b> Tant que la collecte progresse, les primes acquises restent en retard sur les primes émises. Un ratio bâti sur les émises flatte mécaniquement les exercices de croissance et masque une dégradation technique.</figcaption>
     </figure>
     <div class="formula"><span class="cm">// Prime acquise sur l'exercice, contrat par contrat</span>
 =[@Prime] * <span class="fn">FRACTION.ANNEE</span>( <span class="fn">MAX</span>([@Début];Hyp_DebutEx) ; <span class="fn">MIN</span>([@Fin];Hyp_FinEx) ; 1 )
@@ -3252,7 +4018,7 @@ Primes émises = Primes acquises + PANE clôture - PANE ouverture</div>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">12.3</span><h2>Les sinistres : charge, provisions, cadence</h2></div>
+    <div class="sechead"><span class="secnum">15.3</span><h2>Les sinistres : charge, provisions, cadence</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 250" role="img" aria-label="Décomposition de la charge de sinistres entre paiements et variation de provisions">
@@ -3293,7 +4059,7 @@ Primes émises = Primes acquises + PANE clôture - PANE ouverture</div>
           <text x="22" y="240" class="t-ink">Charge = payés + PSAP clôture − PSAP ouverture. Une PSAP sous-estimée charge l'exercice suivant.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 40</b> La charge n'est pas le décaissement. Les deux provisions se compensent partiellement, et c'est leur <em>variation</em> qui entre au résultat — d'où l'importance de toujours disposer des deux, à l'ouverture comme à la clôture.</figcaption>
+      <figcaption><b>Figure 49</b> La charge n'est pas le décaissement. Les deux provisions se compensent partiellement, et c'est leur <em>variation</em> qui entre au résultat — d'où l'importance de toujours disposer des deux, à l'ouverture comme à la clôture.</figcaption>
     </figure>
     <figure>
       <div class="figbox">
@@ -3322,12 +4088,12 @@ Primes émises = Primes acquises + PANE clôture - PANE ouverture</div>
           <text x="22" y="246" class="t-ink">Cette courbe dit quelle part de la charge finale est visible, et combien il reste à provisionner.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 41</b> Trois branches, trois rythmes. Sur une branche longue, un S/P d'exercice récent repose à plus de moitié sur de l'estimation : le commenter comme un chiffre définitif est une faute d'analyse, pas une approximation.</figcaption>
+      <figcaption><b>Figure 50</b> Trois branches, trois rythmes. Sur une branche longue, un S/P d'exercice récent repose à plus de moitié sur de l'estimation : le commenter comme un chiffre définitif est une faute d'analyse, pas une approximation.</figcaption>
     </figure>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">12.4</span><h2>Les ratios, et ce qu'ils cachent</h2></div>
+    <div class="sechead"><span class="secnum">15.4</span><h2>Les ratios, et ce qu'ils cachent</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 250" role="img" aria-label="Ratio combiné par produit d'assurance, décomposé entre sinistralité et frais, avec le seuil de rentabilité à cent pour cent">
@@ -3361,7 +4127,7 @@ Primes émises = Primes acquises + PANE clôture - PANE ouverture</div>
           <text x="22" y="234" class="t-ink">S/P = charge sinistres / primes acquises · Ratio combiné = S/P + taux de frais</text>
         </svg>
       </div>
-      <figcaption><b>Figure 42</b> Deux produits à 103 % et 105 % n'appellent pas la même décision : l'Auto souffre de sinistralité avec des frais lourds, la Santé a des frais faibles mais une sinistralité très élevée. Le levier n'est pas au même endroit.</figcaption>
+      <figcaption><b>Figure 51</b> Deux produits à 103 % et 105 % n'appellent pas la même décision : l'Auto souffre de sinistralité avec des frais lourds, la Santé a des frais faibles mais une sinistralité très élevée. Le levier n'est pas au même endroit.</figcaption>
     </figure>
     <figure>
       <div class="figbox">
@@ -3396,7 +4162,7 @@ Primes émises = Primes acquises + PANE clôture - PANE ouverture</div>
           <text x="8" y="222" class="t-ink">Affichez les deux composantes à côté du ratio, et jamais un S/P sans son volume de primes.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 43</b> La décomposition fréquence × coût moyen est le premier réflexe d'analyse. Une hausse de fréquence appelle de la prévention et de la franchise ; une hausse de coût moyen appelle une révision tarifaire. Les deux remèdes sont incompatibles.</figcaption>
+      <figcaption><b>Figure 52</b> La décomposition fréquence × coût moyen est le premier réflexe d'analyse. Une hausse de fréquence appelle de la prévention et de la franchise ; une hausse de coût moyen appelle une révision tarifaire. Les deux remèdes sont incompatibles.</figcaption>
     </figure>
     <div class="formula"><span class="cm">// Les ratios, tous rapportés aux primes ACQUISES</span>
 S/P              =<span class="fn">SI</span>(primes_acquises=0 ; <span class="ar">""</span> ; charge_sinistres / primes_acquises)
@@ -3413,7 +4179,7 @@ S/P net          =(charge - part_réassureur) / (primes_acquises - primes_cédé
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">12.5</span><h2>Le portefeuille : entrées, sorties, rétention</h2></div>
+    <div class="sechead"><span class="secnum">15.5</span><h2>Le portefeuille : entrées, sorties, rétention</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 240" role="img" aria-label="Évolution du nombre de contrats en portefeuille entre l'ouverture et la clôture, en cascade">
@@ -3457,7 +4223,7 @@ S/P net          =(charge - part_réassureur) / (primes_acquises - primes_cédé
           <text x="22" y="232" class="t-ink">Taux de rétention = 1 − (résiliations assuré / contrats venus à échéance) = 1 − 1 640 / 16 900 = 90,3 %</text>
         </svg>
       </div>
-      <figcaption><b>Figure 44</b> Le portefeuille progresse de 450 contrats — mais il a fallu en souscrire 3 120 pour cela. Le coût d'acquisition rapporté à la croissance nette est l'indicateur que ce graphique rend visible, et que le solde seul masque complètement.</figcaption>
+      <figcaption><b>Figure 53</b> Le portefeuille progresse de 450 contrats — mais il a fallu en souscrire 3 120 pour cela. Le coût d'acquisition rapporté à la croissance nette est l'indicateur que ce graphique rend visible, et que le solde seul masque complètement.</figcaption>
     </figure>
     <div class="note trap">
       <h4>Piège : le dénominateur du taux de rétention</h4>
@@ -3466,7 +4232,7 @@ S/P net          =(charge - part_réassureur) / (primes_acquises - primes_cédé
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">12.6</span><h2>De la prime pure à la prime payée</h2></div>
+    <div class="sechead"><span class="secnum">15.6</span><h2>De la prime pure à la prime payée</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 250" role="img" aria-label="Construction de la prime commerciale à partir de la prime pure, par ajout des chargements et taxes">
@@ -3515,7 +4281,7 @@ S/P net          =(charge - part_réassureur) / (primes_acquises - primes_cédé
           </g>
         </svg>
       </div>
-      <figcaption><b>Figure 45</b> La prime pure ne représente ici que 67 % du montant payé. C'est la raison pour laquelle un ratio combiné se compare toujours à primes <em>acquises hors taxes</em> : mélanger du TTC et du HT décale l'indicateur de plusieurs points.</figcaption>
+      <figcaption><b>Figure 54</b> La prime pure ne représente ici que 67 % du montant payé. C'est la raison pour laquelle un ratio combiné se compare toujours à primes <em>acquises hors taxes</em> : mélanger du TTC et du HT décale l'indicateur de plusieurs points.</figcaption>
     </figure>
     <div class="note key">
       <h4>Segmenter sans surajuster</h4>
@@ -3524,7 +4290,7 @@ S/P net          =(charge - part_réassureur) / (primes_acquises - primes_cédé
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">12.7</span><h2>Réassurance, et contrôles du métier</h2></div>
+    <div class="sechead"><span class="secnum">15.7</span><h2>Réassurance, et contrôles du métier</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 210" role="img" aria-label="Fonctionnement d'un traité en excédent de sinistre par tranches">
@@ -3549,7 +4315,7 @@ S/P net          =(charge - part_réassureur) / (primes_acquises - primes_cédé
           <text x="80" y="190" class="t-warn">Au-delà de 10,5 M€, l'assureur reprend tout : c'est le trou de couverture à surveiller.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 46</b> Un traité en excédent de sinistre se modélise en Excel avec des <code>MIN</code> et <code>MAX</code> emboîtés : <span class="inl">=MIN(MAX(sinistre-priorité;0);portée)</span> donne la part de chaque tranche. Le piège reste la limite supérieure du programme, souvent oubliée dans les simulations.</figcaption>
+      <figcaption><b>Figure 55</b> Un traité en excédent de sinistre se modélise en Excel avec des <code>MIN</code> et <code>MAX</code> emboîtés : <span class="inl">=MIN(MAX(sinistre-priorité;0);portée)</span> donne la part de chaque tranche. Le piège reste la limite supérieure du programme, souvent oubliée dans les simulations.</figcaption>
     </figure>
     <div class="tablewrap">
       <table>
@@ -3568,7 +4334,7 @@ S/P net          =(charge - part_réassureur) / (primes_acquises - primes_cédé
   </div>
 
   <div class="exo">
-    <h4>Exercice 12 — Assurance</h4>
+    <h4>Exercice 15 — Assurance</h4>
     <ol class="steps">
       <li>Sur un portefeuille de 200 contrats aux dates d'effet quelconques, calculez primes émises, primes acquises et PANE de clôture, puis vérifiez l'équation des primes.</li>
       <li>Construisez la charge de sinistres à partir des payés et des deux PSAP, et présentez-la en graphique en cascade.</li>
@@ -3579,7 +4345,7 @@ S/P net          =(charge - part_réassureur) / (primes_acquises - primes_cédé
       <li>Posez les sept contrôles du tableau sur une feuille <span class="inl">CONTROLES</span>, et branchez le voyant du dashboard dessus.</li>
     </ol>
   </div>
-  <button class="donebtn" data-done="12a" type="button" aria-pressed="false">Marquer le module 12 comme terminé</button>
+  <button class="donebtn" data-done="12a" type="button" aria-pressed="false">Marquer le module 15 comme terminé</button>
 </section>
 
 
@@ -3597,7 +4363,7 @@ S/P net          =(charge - part_réassureur) / (primes_acquises - primes_cédé
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">13.1</span><h2>Faut-il vraiment du VBA ?</h2></div>
+    <div class="sechead"><span class="secnum">16.1</span><h2>Faut-il vraiment du VBA ?</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 280" role="img" aria-label="Arbre de décision : quand utiliser Power Query, une mesure, une formule ou du VBA">
@@ -3646,12 +4412,12 @@ S/P net          =(charge - part_réassureur) / (primes_acquises - primes_cédé
           <text x="22" y="266" class="t-ink">résultat non reproductible si personne ne réexécute. Power Query ou une mesure : ils gagnent toujours.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 47</b> L'arbre de décision. En assurance et en finance, la question n'est pas « est-ce faisable en VBA » — presque tout l'est — mais « ce résultat sera-t-il reproductible et défendable dans dix-huit mois ».</figcaption>
+      <figcaption><b>Figure 56</b> L'arbre de décision. En assurance et en finance, la question n'est pas « est-ce faisable en VBA » — presque tout l'est — mais « ce résultat sera-t-il reproductible et défendable dans dix-huit mois ».</figcaption>
     </figure>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">13.2</span><h2>Le socle : dix lignes de discipline</h2></div>
+    <div class="sechead"><span class="secnum">16.2</span><h2>Le socle : dix lignes de discipline</h2></div>
     <div class="formula"><span class="cm">' En haut de CHAQUE module. Sans ça, une faute de frappe crée</span>
 <span class="cm">' silencieusement une variable vide, et le calcul rend zéro sans broncher.</span>
 <span class="fn">Option Explicit</span>
@@ -3675,7 +4441,7 @@ S/P net          =(charge - part_réassureur) / (primes_acquises - primes_cédé
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">13.3</span><h2>La règle de performance : travailler en mémoire</h2></div>
+    <div class="sechead"><span class="secnum">16.3</span><h2>La règle de performance : travailler en mémoire</h2></div>
     <p class="prose">Chaque lecture ou écriture dans une cellule traverse la frontière entre VBA et le moteur Excel. Sur 100 000 lignes, c'est 100 000 allers-retours. La solution tient en trois lignes : tout lire d'un coup, calculer dans un tableau, tout réécrire d'un coup.</p>
     <div class="formula"><span class="cm">' ✕ LENT — un aller-retour par cellule</span>
 <span class="fn">For</span> k = 2 <span class="fn">To</span> 100000
@@ -3701,7 +4467,7 @@ Application.DisplayAlerts = <span class="fn">False</span></div>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">13.4</span><h2>L'architecture d'un outil défendable</h2></div>
+    <div class="sechead"><span class="secnum">16.4</span><h2>L'architecture d'un outil défendable</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 720 290" role="img" aria-label="Architecture en quatre couches d'un classeur de calcul : hypothèses, données, moteur, restitution, avec journal d'audit transversal">
@@ -3742,12 +4508,12 @@ Application.DisplayAlerts = <span class="fn">False</span></div>
           <text x="8" y="282" class="t-ink">Une feuille et un préfixe par couche (Hyp_, Dat_, Res_) : le nom dit d'où vient la cellule.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 48</b> Les quatre couches plus le journal. Un classeur de calcul utilisé en production relève de l'<em>End User Computing</em> : il doit être inventorié, versionné et testé comme une petite application — cette séparation est ce qui rend l'exercice possible.</figcaption>
+      <figcaption><b>Figure 57</b> Les quatre couches plus le journal. Un classeur de calcul utilisé en production relève de l'<em>End User Computing</em> : il doit être inventorié, versionné et testé comme une petite application — cette séparation est ce qui rend l'exercice possible.</figcaption>
     </figure>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">13.5</span><h2>Assurance — triangle de liquidation et Chain-Ladder</h2></div>
+    <div class="sechead"><span class="secnum">16.5</span><h2>Assurance — triangle de liquidation et Chain-Ladder</h2></div>
     <p class="prose">Le calcul de provisionnement le plus répandu. On observe des sinistres payés cumulés par année de survenance et année de développement, on en déduit des facteurs de passage, et on prolonge jusqu'à l'ultime.</p>
     <figure>
       <div class="figbox">
@@ -3804,7 +4570,7 @@ Application.DisplayAlerts = <span class="fn">False</span></div>
           <text x="380" y="248" class="t-crit">Provision = Ultime − dernier montant payé observé.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 49</b> Chain-Ladder sur un triangle cumulé. La méthode suppose que les cadences de règlement sont stables d'une année sur l'autre — hypothèse à vérifier avant de s'en servir, et à documenter dans les hypothèses.</figcaption>
+      <figcaption><b>Figure 58</b> Chain-Ladder sur un triangle cumulé. La méthode suppose que les cadences de règlement sont stables d'une année sur l'autre — hypothèse à vérifier avant de s'en servir, et à documenter dans les hypothèses.</figcaption>
     </figure>
     <div class="formula"><span class="fn">Option Explicit</span>
 
@@ -3857,7 +4623,7 @@ Application.DisplayAlerts = <span class="fn">False</span></div>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">13.6</span><h2>Assurance — tarification vie sur table de mortalité</h2></div>
+    <div class="sechead"><span class="secnum">16.6</span><h2>Assurance — tarification vie sur table de mortalité</h2></div>
     <p class="prose">Une fonction personnalisée (UDF) utilisable directement dans une cellule : prime unique d'un capital décès temporaire, actualisée, à partir d'une table de survivants <span class="inl">l(x)</span>.</p>
     <div class="formula"><span class="cm">' lxTable : une colonne de survivants, ligne 1 = âge 0, ligne 2 = âge 1, etc.</span>
 <span class="cm">' x : âge à la souscription · n : durée en années · i : taux technique annuel</span>
@@ -3888,7 +4654,7 @@ Application.DisplayAlerts = <span class="fn">False</span></div>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">13.7</span><h2>Finance — échéancier d'emprunt généré en mémoire</h2></div>
+    <div class="sechead"><span class="secnum">16.7</span><h2>Finance — échéancier d'emprunt généré en mémoire</h2></div>
     <div class="formula"><span class="fn">Sub</span> GenererEcheancier()
     <span class="fn">Dim</span> capital <span class="fn">As Double</span>, tauxAnnuel <span class="fn">As Double</span>, nMois <span class="fn">As Long</span>
     <span class="fn">With</span> ThisWorkbook
@@ -3935,8 +4701,8 @@ Application.DisplayAlerts = <span class="fn">False</span></div>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">13.8</span><h2>Finance — consolider cinquante fichiers</h2></div>
-    <p class="prose">Le cas où le VBA reste pertinent : des fichiers de format identique, déposés chaque mois, à empiler avec traçabilité de l'origine de chaque ligne. (Si le format est stable et propre, Power Query le fait mieux — voir la figure 47.)</p>
+    <div class="sechead"><span class="secnum">16.8</span><h2>Finance — consolider cinquante fichiers</h2></div>
+    <p class="prose">Le cas où le VBA reste pertinent : des fichiers de format identique, déposés chaque mois, à empiler avec traçabilité de l'origine de chaque ligne. (Si le format est stable et propre, Power Query le fait mieux — voir la figure 56.)</p>
     <div class="formula"><span class="fn">Sub</span> ConsoliderDossier()
     <span class="fn">Dim</span> chemin <span class="fn">As String</span>, fichier <span class="fn">As String</span>
     chemin = ThisWorkbook.Names(<span class="ar">"Hyp_DossierSource"</span>).RefersToRange.Value
@@ -3976,7 +4742,7 @@ Application.DisplayAlerts = <span class="fn">False</span></div>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">13.9</span><h2>Simulation Monte-Carlo : charge annuelle d'un portefeuille</h2></div>
+    <div class="sechead"><span class="secnum">16.9</span><h2>Simulation Monte-Carlo : charge annuelle d'un portefeuille</h2></div>
     <figure>
       <div class="figbox">
         <svg class="fig" viewBox="0 0 738 250" role="img" aria-label="Histogramme de la charge simulée d'un portefeuille avec repères de moyenne et de quantile 99,5 %">
@@ -4015,7 +4781,7 @@ Application.DisplayAlerts = <span class="fn">False</span></div>
           <text x="50" y="246" class="t-warn">Chiffres d'illustration, produits par le code ci-dessous avec les hypothèses indiquées.</text>
         </svg>
       </div>
-      <figcaption><b>Figure 50</b> Modèle fréquence × coût : un tirage de Poisson pour le nombre de sinistres, un tirage lognormal pour chaque montant. La lognormale est préférée à la normale parce qu'elle ne produit jamais de sinistre négatif et qu'elle a une queue épaisse.</figcaption>
+      <figcaption><b>Figure 59</b> Modèle fréquence × coût : un tirage de Poisson pour le nombre de sinistres, un tirage lognormal pour chaque montant. La lognormale est préférée à la normale parce qu'elle ne produit jamais de sinistre négatif et qu'elle a une queue épaisse.</figcaption>
     </figure>
     <div class="formula"><span class="fn">Option Explicit</span>
 
@@ -4081,7 +4847,7 @@ Application.DisplayAlerts = <span class="fn">False</span></div>
   </div>
 
   <div class="sec">
-    <div class="sechead"><span class="secnum">13.10</span><h2>Erreurs, journal, et ce que le contrôle viendra lire</h2></div>
+    <div class="sechead"><span class="secnum">16.10</span><h2>Erreurs, journal, et ce que le contrôle viendra lire</h2></div>
     <div class="formula"><span class="fn">Sub</span> CalculerProvisions()
     <span class="fn">Dim</span> t0 <span class="fn">As Double</span>: t0 = Timer
     <span class="fn">On Error GoTo</span> Echec
@@ -4137,7 +4903,7 @@ Echec:
   <div class="exo">
     <h4>Exercice VBA</h4>
     <ol class="steps">
-      <li>Montez un classeur à quatre couches (figure 48) avec une feuille <span class="inl">JOURNAL</span> et les noms <span class="inl">Hyp_*</span>, <span class="inl">Dat_*</span>, <span class="inl">Res_*</span>.</li>
+      <li>Montez un classeur à quatre couches (figure 57) avec une feuille <span class="inl">JOURNAL</span> et les noms <span class="inl">Hyp_*</span>, <span class="inl">Dat_*</span>, <span class="inl">Res_*</span>.</li>
       <li>Saisissez un triangle cumulé 5 × 5, implémentez <code>FacteursChainLadder</code> et vérifiez vos facteurs à la main sur la première colonne.</li>
       <li>Ajoutez le contrôle « chaque ligne du triangle est croissante » et faites échouer la macro proprement si ce n'est pas le cas.</li>
       <li>Écrivez l'échéancier d'emprunt en mémoire, et vérifiez que le capital restant dû final est nul à 0,01 € près.</li>
@@ -4252,6 +5018,9 @@ Echec:
     book:'<path d="M5 5.5A2 2 0 0 1 7 4h12v14H7a2 2 0 0 0-2 2z"/><path d="M5 18.5V5.5"/>',
     shield:'<path d="M12 3.5 19 6v5.5c0 4.2-2.9 7.4-7 9-4.1-1.6-7-4.8-7-9V6z"/>',
     code:'<path d="M9 8 5 12l4 4"/><path d="m15 8 4 4-4 4"/>',
+    eye:'<path d="M2.5 12S6 6 12 6s9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.6"/>',
+    type:'<path d="M5 6.5V5h14v1.5"/><path d="M12 5.5v13"/><path d="M9 18.5h6"/>',
+    sigma:'<path d="M17.5 5.5h-11l6.2 6.5-6.2 6.5h11"/>',
     keyboard:'<rect x="2.5" y="6" width="19" height="12" rx="2.2"/><path d="M6.5 10h.01M10 10h.01M13.5 10h.01M17 10h.01M8 14h8"/>'
   };
   function icon(n){
@@ -4262,13 +5031,14 @@ Echec:
   var sheets = $$(".sheet");
   var GROUPS = [
     { label:null, from:0, to:0 },
-    { label:"Fondamentaux", from:1, to:7 },
-    { label:"Mise en pratique", from:8, to:8 },
-    { label:"Approfondissement", from:9, to:10 },
-    { label:"Spécialisations métier", from:11, to:13 },
-    { label:"Outils", from:14, to:15 }
+    { label:"Démarrer de zéro", from:1, to:3 },
+    { label:"Construire un dashboard", from:4, to:10 },
+    { label:"Mise en pratique", from:11, to:11 },
+    { label:"Approfondissement", from:12, to:13 },
+    { label:"Spécialisations métier", from:14, to:16 },
+    { label:"Outils", from:17, to:18 }
   ];
-  var ICONS = ["home","data","fx","table","chart","sliders","layout","refresh","flag","target","gauge","trend","book","shield","code","keyboard"];
+  var ICONS = ["home","eye","type","fx","data","sigma","table","chart","sliders","layout","refresh","flag","target","gauge","trend","book","shield","code","keyboard"];
 
   var done = {};
   try{ done = JSON.parse(store.get("xl-progress","{}")) || {}; }catch(e){ done = {}; }
@@ -4359,22 +5129,24 @@ Echec:
 
   /* ---------------- cartes du sommaire ---------------- */
   var mods = [
-    [1,"Module 1","Des données propres","Format long, tableaux structurés, Power Query, les cinq saletés à traquer."],
-    [2,"Module 2","Les formules du dashboard","RECHERCHEX, SOMME.SI.ENS, FILTRE, UNIQUE, LET, et le lexique FR/EN."],
-    [3,"Module 3","TCD et modèle de données","Les quatre zones, le schéma en étoile, les mesures DAX."],
-    [4,"Module 4","Graphiques","Choisir la bonne forme, puis retirer tout ce qui n'informe pas."],
-    [5,"Module 5","Interactivité","Segments connectés, chronologies, listes dynamiques, titres vivants."],
-    [6,"Module 6","Mise en forme et composition","Trame de colonnes, parcours de l'œil, MFC, formats personnalisés."],
-    [7,"Module 7","Automatiser et livrer","Chaîne d'actualisation, bouton VBA, protection, checklist."],
-    [8,"Projet","Dashboard commercial","Douze étapes qui rejouent tout le parcours, jusqu'au livrable."],
-    [9,"Module 8","Analyse et scénarios","Valeur cible, tables de sensibilité, scénarios, Solveur, prévision."],
-    [10,"Module 9","Performance et audit","Pourquoi un classeur rame, comment auditer, les cellules de contrôle."],
-    [11,"Module 10","Finance","Valeur temps, VAN et TRI, emprunts, trésorerie et BFR, point mort, écarts."],
-    [12,"Module 11","Comptabilité","FEC, balance et états, SIG, rapprochement bancaire, amortissements, TVA."],
-    [13,"Module 12","Assurance","Primes acquises, PANE, charge et cadence, ratios, portefeuille, réassurance."],
-    [14,"Volet VBA","Assurance et finance","Chain-Ladder, tarification vie, échéancier, Monte-Carlo, piste d'audit."]
-  ];
-  var modList = $("#modlist");
+    [1,"Module 1","Découvrir Excel","L'interface, le vocabulaire, se déplacer, enregistrer sans se tromper de format."],
+    [2,"Module 2","Saisir et mettre en forme","Les trois types de contenu, la poignée de recopie, format contre valeur, collage spécial."],
+    [3,"Module 3","Vos premières formules","Le signe égal, SOMME et MOYENNE, le dollar, SI, et les six messages d'erreur."],
+    [4,"Module 4","Des données propres","Format long, tableaux structurés, Power Query, les cinq saletés à traquer."],
+    [5,"Module 5","Les formules du dashboard","Texte, dates, logique, recherche, agrégats conditionnels, formules dynamiques."],
+    [6,"Module 6","TCD et modèle de données","Les quatre zones, le schéma en étoile, les mesures DAX."],
+    [7,"Module 7","Graphiques","Choisir la bonne forme, puis retirer tout ce qui n'informe pas."],
+    [8,"Module 8","Interactivité","Segments connectés, chronologies, listes dynamiques, titres vivants."],
+    [9,"Module 9","Mise en forme et composition","Trame de colonnes, parcours de l'œil, MFC, formats personnalisés."],
+    [10,"Module 10","Automatiser et livrer","Chaîne d'actualisation, bouton VBA, protection, checklist."],
+    [11,"Projet","Dashboard commercial","Douze étapes qui rejouent tout le parcours, jusqu'au livrable."],
+    [12,"Module 11","Analyse et scénarios","Valeur cible, tables de sensibilité, scénarios, Solveur, prévision."],
+    [13,"Module 12","Performance et audit","Pourquoi un classeur rame, comment auditer, les cellules de contrôle."],
+    [14,"Module 13","Finance","Valeur temps, VAN et TRI, emprunts, trésorerie et BFR, point mort, écarts."],
+    [15,"Module 14","Comptabilité","FEC, balance et états, SIG, rapprochement bancaire, amortissements, TVA."],
+    [16,"Module 15","Assurance","Primes acquises, PANE, charge et cadence, ratios, portefeuille, réassurance."],
+    [17,"Volet VBA","Assurance et finance","Chain-Ladder, tarification vie, échéancier, Monte-Carlo, piste d'audit."]
+  ]; var modList = $("#modlist");
   if(modList){
     modList.innerHTML = "";
     mods.forEach(function(m){

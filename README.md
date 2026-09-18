@@ -1,8 +1,9 @@
 ﻿# Atelier Dashboard Excel
 
 Formation web autonome pour construire des tableaux de bord Excel dynamiques :
-12 modules, un projet fil rouge, un volet VBA orienté assurance et finance,
-50 schémas dessinés en SVG et un catalogue de 135 raccourcis clavier filtrable.
+15 modules — des tout premiers pas jusqu'aux volets métier —, un projet fil
+rouge, un volet VBA assurance-finance, 59 schémas dessinés en SVG et un
+catalogue de 135 raccourcis clavier filtrable.
 
 Une seule page, aucune dépendance à installer, aucun script externe :
 le seul appel réseau est la feuille de styles Google Fonts.
@@ -12,22 +13,24 @@ le seul appel réseau est la feuille de styles Google Fonts.
 | Feuille | Sujet |
 |---|---|
 | Parcours | Anatomie d'un dashboard, chaîne de production, jeu de données fil rouge |
-| M1 · Données | Format long, tableaux structurés, Power Query, nettoyage |
-| M2 · Formules | RECHERCHEX, SOMME.SI.ENS, FILTRE / UNIQUE / TRIER, LET, lexique FR-EN |
-| M3 · TCD | Les quatre zones, modèle en étoile, mesures DAX |
-| M4 · Graphiques | Matrice de choix, dépouillement, combiné / cascade / sparklines |
-| M5 · Interactivité | Segments connectés, chronologies, listes dynamiques, titres vivants |
-| M6 · Design | Trame de colonnes, parcours de l'œil, mise en forme conditionnelle, formats |
-| M7 · Automatisation | Chaîne d'actualisation, bouton VBA, protection, livraison |
+| M1 · Découvrir Excel | Interface, vocabulaire, se déplacer, enregistrer au bon format |
+| M2 · Saisir et mettre en forme | Types de contenu, poignée de recopie, format contre valeur, collage spécial |
+| M3 · Premières formules | Le signe égal, SOMME, le dollar, SI, les six messages d'erreur |
+| M4 · Données | Format long, tableaux structurés, Power Query, nettoyage |
+| M5 · Formules | Lecture d'une formule, texte, dates, logique, maths, recherche, dynamiques |
+| M6 · TCD | Les quatre zones, modèle en étoile, mesures DAX |
+| M7 · Graphiques | Matrice de choix, dépouillement, combiné / cascade / sparklines |
+| M8 · Interactivité | Segments connectés, chronologies, listes dynamiques, titres vivants |
+| M9 · Design | Trame de colonnes, parcours de l'œil, mise en forme conditionnelle, formats |
+| M10 · Automatisation | Chaîne d'actualisation, bouton VBA, protection, livraison |
 | Projet | Dashboard commercial en douze étapes |
-| M8 · Scénarios | Valeur cible, tables de sensibilité, scénarios, Solveur, prévision |
-| M9 · Performance | Causes de lenteur, audit de formules, cellules de contrôle |
-| M10 · Finance | Arrondis et bases de jours, VAN/TRI, emprunts, trésorerie et BFR, point mort, écarts |
-| M11 · Comptabilité | FEC, balance et états, SIG, rapprochement bancaire, amortissements, TVA, clôture |
-| M12 · Assurance | Primes émise et acquise, PANE, charge et cadence, ratios, portefeuille, tarification, réassurance |
+| M11 · Scénarios | Valeur cible, tables de sensibilité, scénarios, Solveur, prévision |
+| M12 · Performance | Causes de lenteur, audit de formules, cellules de contrôle |
+| M13 · Finance | Arrondis et bases de jours, VAN/TRI, emprunts, trésorerie, point mort, écarts |
+| M14 · Comptabilité | FEC, balance et états, SIG, rapprochement bancaire, amortissements, TVA |
+| M15 · Assurance | Primes acquises, PANE, charge et cadence, ratios, portefeuille, réassurance |
 | VBA | Chain-Ladder, tarification vie, échéancier, Monte-Carlo, piste d'audit |
-| Raccourcis | 135 raccourcis, recherche plein texte et filtres par catégorie |
-
+| Raccourcis | 135 raccourcis filtrables, plus un entraîneur interactif au clavier |
 ## Développement local
 
 Aucun outillage requis. Servir le dossier suffit :
