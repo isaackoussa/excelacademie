@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Atelier Dashboard Excel">
-  <rect width="64" height="64" rx="15" fill="#4A55E8"/>
-  <path d="M19 46V30" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
-  <path d="M32 46V20" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
-  <path d="M45 46v-10" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" opacity="0.59"/>
+  <rect width="64" height="64" rx="12" fill="#1B4D3E"/>
+  <path d="M19 46V30" stroke="#F7F7F4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M32 46V20" stroke="#F7F7F4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M45 46v-10" stroke="#F7F7F4" stroke-width="5" stroke-linecap="round" opacity="0.59"/>
 </svg>
