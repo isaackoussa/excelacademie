@@ -1,8 +1,8 @@
-# Atelier Dashboard Excel
+﻿# Atelier Dashboard Excel
 
 Formation web autonome pour construire des tableaux de bord Excel dynamiques :
-9 modules, un projet fil rouge, un volet VBA orienté assurance et finance,
-25 schémas dessinés en SVG et un catalogue de 135 raccourcis clavier filtrable.
+10 modules, un projet fil rouge, un volet VBA orienté assurance et finance,
+31 schémas dessinés en SVG et un catalogue de 135 raccourcis clavier filtrable.
 
 Une seule page, aucune dépendance à installer, aucun script externe :
 le seul appel réseau est la feuille de styles Google Fonts.
@@ -22,6 +22,7 @@ le seul appel réseau est la feuille de styles Google Fonts.
 | Projet | Dashboard commercial en douze étapes |
 | M8 · Scénarios | Valeur cible, tables de sensibilité, scénarios, Solveur, prévision |
 | M9 · Performance | Causes de lenteur, audit de formules, cellules de contrôle |
+| M10 · Métiers | Arrondis et dates, VAN/TRI et trésorerie, balance et états, S/P et ratio combiné |
 | VBA | Chain-Ladder, tarification vie, échéancier, Monte-Carlo, piste d'audit |
 | Raccourcis | 135 raccourcis, recherche plein texte et filtres par catégorie |
 
