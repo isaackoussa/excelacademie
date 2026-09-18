@@ -1,6 +1,18 @@
 # Site statique : aucune étape de build, on publie le dossier tel quel.
+# Seule exception : la fonction qui porte l'inscription à la liste.
 [build]
   publish = "."
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Le dossier des fonctions est publié avec le reste : on le rend inatteignable.
+[[redirects]]
+  from = "/netlify/*"
+  to = "/index.html"
+  status = 404
+  force = true
 
 [[headers]]
   for = "/*"
@@ -19,3 +31,9 @@
   for = "/favicon.svg"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+# La réponse d'inscription ne doit jamais être mise en cache.
+[[headers]]
+  for = "/api/subscribe"
+  [headers.values]
+    Cache-Control = "no-store"

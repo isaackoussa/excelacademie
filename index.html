@@ -20,6 +20,7 @@ body{ margin:0; }
 img{ max-width:100%; }
 [hidden]{ display:none !important; }
 </style>
+
 <title>Atelier Dashboard Excel</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -896,12 +897,176 @@ kbd{border-radius:5px;border-width:1px;border-bottom-width:1px;box-shadow:none;b
   .card{padding-left:14px}
 }
 
+/* ---- barrière mail : le module est là, il attend une adresse ---- */
+.sheet[data-lock="1"] > *{display:none}
+.sheet[data-lock="1"] > .lockpane{display:flex}
+.lockpane{
+  display:flex;flex-direction:column;gap:0;max-width:var(--mw,72ch);
+}
+.lock-k{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);display:flex;align-items:center;gap:8px;
+  padding-bottom:14px;border-bottom:1px solid var(--line);
+}
+.lock-k svg{width:13px;height:13px;flex:none}
+.lock-t{font-family:var(--disp);font-size:clamp(26px,3.4vw,36px);font-weight:600;letter-spacing:-.03em;line-height:1.14;margin:26px 0 0}
+.lock-d{font-size:16.5px;line-height:1.65;color:var(--ink-2);margin:14px 0 0;max-width:60ch}
+.lock-l{margin:26px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.lock-l li{
+  padding:13px 0 13px 26px;border-bottom:1px solid var(--line);position:relative;
+  font-size:14.5px;line-height:1.55;color:var(--ink-2);
+}
+.lock-l li::before{
+  content:"";position:absolute;left:1px;top:19px;width:11px;height:5.5px;
+  border-left:1.6px solid var(--accent);border-bottom:1.6px solid var(--accent);
+  transform:rotate(-45deg);
+}
+.lock-l li b{color:var(--ink);font-weight:600}
+
+/* ---- le formulaire, partout où il sert ---- */
+.gform{display:flex;flex-direction:column;gap:0;margin:30px 0 0;border-top:1px solid var(--line-strong)}
+.gform.plain{border-top:0;margin-top:18px}
+.gline{display:flex;flex-wrap:wrap;gap:0}
+.gfield{flex:1 1 220px;min-width:0;display:flex;flex-direction:column;border-bottom:1px solid var(--line);padding:14px 0 12px}
+.gfield + .gfield{margin-left:0;padding-left:20px;border-left:1px solid var(--line)}
+.gfield label{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:7px;
+}
+.gfield input[type="text"],.gfield input[type="email"]{
+  font:inherit;font-size:16px;color:var(--ink);background:none;border:0;padding:0;width:100%;
+  border-radius:0;-webkit-appearance:none;appearance:none;
+}
+.gfield input::placeholder{color:var(--line-strong)}
+.gfield input:focus{outline:none}
+.gfield:focus-within label{color:var(--accent)}
+.gfield[data-bad="1"]{border-bottom-color:var(--crit)}
+.gfield[data-bad="1"] label{color:var(--crit)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+
+.gcheck{display:flex;gap:12px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.gcheck input{
+  flex:none;margin:2px 0 0;width:16px;height:16px;-webkit-appearance:none;appearance:none;
+  border:1px solid var(--line-strong);border-radius:3px;background:none;cursor:pointer;
+  display:grid;place-items:center;transition:border-color .16s var(--ease),background .16s var(--ease);
+}
+.gcheck input:checked{background:var(--accent);border-color:var(--accent)}
+.gcheck input:checked::after{content:"";width:8px;height:4.5px;border-left:2px solid var(--paper);border-bottom:2px solid var(--paper);transform:rotate(-45deg) translate(1px,-1px)}
+.gcheck span{font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.gcheck[data-bad="1"] input{border-color:var(--crit)}
+
+.gbar{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:20px 0 0}
+.gbtn{
+  font-family:var(--ui);font-weight:600;font-size:13.5px;letter-spacing:.02em;cursor:pointer;
+  background:var(--ink);color:var(--paper);border:0;border-radius:7px;padding:12px 22px;
+  display:inline-flex;align-items:center;gap:9px;transition:opacity .18s var(--ease);
+}
+.gbtn:hover{opacity:.82}
+.gbtn[disabled]{opacity:.45;cursor:default}
+.gbtn svg{width:15px;height:15px}
+.gbtn.ghost{background:none;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-strong)}
+.gbtn.danger{background:none;color:var(--crit);box-shadow:inset 0 0 0 1px var(--crit)}
+.gsmall{font-size:12.5px;line-height:1.55;color:var(--muted);max-width:52ch}
+.gsmall a{color:var(--accent)}
+.gmsg{font-size:13.5px;line-height:1.55;padding:14px 0 0;color:var(--muted)}
+.gmsg[data-k="bad"]{color:var(--crit)}
+.gmsg[data-k="ok"]{color:var(--accent)}
+.gmsg:empty{display:none}
+.gspin{display:inline-block;width:13px;height:13px;border:1.7px solid currentColor;border-right-color:transparent;border-radius:50%;animation:gsp .7s linear infinite}
+@keyframes gsp{to{transform:rotate(360deg)}}
+
+/* ---- cadenas dans la navigation ---- */
+.navitem .lk{width:12px;height:12px;flex:none;margin-left:auto;color:var(--line-strong)}
+.navitem.done .lk{display:none}
+
+/* ---- rappel discret en bas d'un module libre ---- */
+.relance{
+  margin-top:8px;padding:24px 0 0;border-top:1px solid var(--line-strong);
+  display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;
+}
+.relance-t{flex:1 1 260px;min-width:0}
+.relance-t b{display:block;font-family:var(--disp);font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
+.relance-t span{font-size:14px;line-height:1.6;color:var(--ink-2)}
+
+/* ---- écran profil ---- */
+.pf-id{display:flex;align-items:center;gap:20px;padding:0 0 26px;border-bottom:1px solid var(--line-strong)}
+.pf-av{
+  flex:none;width:68px;height:68px;border-radius:50%;display:grid;place-items:center;
+  background:var(--accent);color:var(--paper);
+  font-family:var(--disp);font-size:24px;font-weight:600;letter-spacing:.01em;
+}
+.pf-who{min-width:0;flex:1 1 auto}
+.pf-who b{display:block;font-family:var(--disp);font-size:clamp(21px,2.6vw,26px);font-weight:600;letter-spacing:-.025em;line-height:1.2}
+.pf-who span{display:block;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:5px;word-break:break-all}
+.pf-rank{
+  flex:none;text-align:right;font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);
+}
+.pf-rank b{display:block;font-family:var(--disp);font-size:26px;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-transform:none}
+
+.pf-nums{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid var(--line)}
+.pf-nums div{flex:1 1 130px;padding:20px 20px 20px 0;border-right:1px solid var(--line)}
+.pf-nums div:last-child{border-right:0}
+.pf-nums span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.pf-nums b{display:block;font-family:var(--disp);font-size:27px;font-weight:600;letter-spacing:-.025em;margin-top:7px}
+
+.pf-rows{border-top:1px solid var(--line)}
+.pf-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:17px 0;border-bottom:1px solid var(--line)}
+.pf-row .t{flex:1 1 240px;min-width:0}
+.pf-row .t b{display:block;font-size:14.5px;font-weight:600;margin-bottom:4px}
+.pf-row .t span{display:block;font-size:13px;line-height:1.55;color:var(--muted)}
+.pf-row .a{flex:none;display:flex;gap:10px;flex-wrap:wrap}
+
+.sw{
+  flex:none;width:40px;height:23px;border-radius:999px;border:1px solid var(--line-strong);
+  background:none;cursor:pointer;padding:0;position:relative;transition:background .18s var(--ease),border-color .18s var(--ease);
+}
+.sw::after{
+  content:"";position:absolute;top:2px;left:2px;width:17px;height:17px;border-radius:50%;
+  background:var(--line-strong);transition:transform .18s var(--ease),background .18s var(--ease);
+}
+.sw[aria-checked="true"]{background:var(--accent);border-color:var(--accent)}
+.sw[aria-checked="true"]::after{transform:translateX(17px);background:var(--paper)}
+
+.pf-cert{border-top:1px solid var(--line-strong);margin-top:6px;padding-top:26px}
+.attest{
+  border:1px solid var(--line-strong);padding:clamp(22px,4vw,40px);text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:0;background:var(--paper);
+}
+.attest .a-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.attest .a-t{font-family:var(--disp);font-size:clamp(22px,3vw,30px);font-weight:600;letter-spacing:-.025em;margin-top:16px;line-height:1.2}
+.attest .a-n{font-family:var(--disp);font-size:clamp(24px,3.4vw,34px);font-weight:600;color:var(--accent);margin-top:22px;letter-spacing:-.02em}
+.attest .a-r{width:54px;height:1px;background:var(--line-strong);margin:22px 0}
+.attest .a-d{font-size:14px;line-height:1.65;color:var(--ink-2);max-width:46ch}
+.attest .a-s{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:24px;letter-spacing:.04em}
+.attest.locked{border-style:dashed;color:var(--muted)}
+.attest.locked .a-n{color:var(--line-strong)}
+
+@media (max-width:640px){
+  .gfield + .gfield{padding-left:0;border-left:0}
+  .pf-id{flex-wrap:wrap;gap:16px}
+  .pf-rank{text-align:left}
+  .pf-nums div{flex:1 1 44%;padding-right:14px}
+}
+
+@media print{
+  .sidebar,.topbar,.scrim,.pf-noprint{display:none!important}
+  .mainwrap,main,.sheet{padding:0!important;margin:0!important}
+  .attest{border-color:#444}
+}
+
+/* ---- animations coupées depuis le profil ---- */
+:root[data-anim="off"] *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important}
 }
 </style>
 </head>
-<body><div class="app">
+<body>
+
+
+<div class="app">
   <aside class="sidebar" id="sidebar" aria-label="Navigation du cours">
     <div class="brand">
       <div class="logo">
@@ -1171,6 +1336,81 @@ kbd{border-radius:5px;border-width:1px;border-bottom-width:1px;box-shadow:none;b
     <div class="note key">
       <h4>Comment le score est calculé</h4>
       <p>Chaque module terminé vaut <strong>100 XP</strong>. Un quiz réussi — au moins trois bonnes réponses sur quatre — en ajoute <strong>60</strong>, un quiz raté <strong>20</strong> : vous gardez quelque chose même quand ça se passe mal. Un niveau se gagne tous les 400 XP. Rien n'est envoyé nulle part : tout vit dans le stockage local de ce navigateur, et une navigation privée repart de zéro.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEUILLE : PROFIL ================= -->
+<section class="sheet" id="sh-profil" data-cell="PRO" data-formula="=PROFIL()" data-tab="Mon profil" data-num="&#9679;" role="tabpanel" hidden>
+  <div class="prose">
+    <div class="eyebrow"><b>Compte</b> <span>·</span> identité, accès, données</div>
+    <h1>Mon profil</h1>
+    <p class="lede">Votre identité d'apprenant, l'adresse qui ouvre les modules réservés, et ce que vous pouvez emporter ou effacer. Rien ne part ailleurs sans votre accord.</p>
+  </div>
+
+  <div class="pf-id">
+    <div class="pf-av" id="pf-av">?</div>
+    <div class="pf-who">
+      <b id="pf-nom">Invité</b>
+      <span id="pf-mail">aucune adresse enregistrée</span>
+    </div>
+    <div class="pf-rank">
+      Niveau
+      <b id="pf-niv">1</b>
+    </div>
+  </div>
+
+  <div class="pf-nums">
+    <div><span>Modules</span><b id="pf-mod">0</b></div>
+    <div><span>XP</span><b id="pf-xp">0</b></div>
+    <div><span>Quiz</span><b id="pf-quiz">0</b></div>
+    <div><span>Score moyen</span><b id="pf-moy">&#8212;</b></div>
+  </div>
+
+  <div class="sec pf-noprint">
+    <div class="sechead"><span class="secnum">01</span><h2>Identité</h2></div>
+    <div id="pf-ident"></div>
+  </div>
+
+  <div class="sec pf-noprint">
+    <div class="sechead"><span class="secnum">02</span><h2>Accès et courrier</h2></div>
+    <div id="pf-acces"></div>
+  </div>
+
+  <div class="sec pf-noprint">
+    <div class="sechead"><span class="secnum">03</span><h2>Préférences</h2></div>
+    <div class="pf-rows">
+      <div class="pf-row">
+        <div class="t"><b>Thème sombre</b><span>Suit votre système tant que vous n'y touchez pas.</span></div>
+        <div class="a"><button type="button" class="sw" id="pf-sw-theme" role="switch" aria-checked="false" aria-label="Thème sombre"></button></div>
+      </div>
+      <div class="pf-row">
+        <div class="t"><b>Animations réduites</b><span>Coupe les apparitions et les transitions de la page.</span></div>
+        <div class="a"><button type="button" class="sw" id="pf-sw-anim" role="switch" aria-checked="false" aria-label="Animations réduites"></button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">04</span><h2>Attestation</h2></div>
+    <div class="pf-cert" id="pf-cert"></div>
+  </div>
+
+  <div class="sec pf-noprint">
+    <div class="sechead"><span class="secnum">05</span><h2>Vos données</h2></div>
+    <div class="pf-rows">
+      <div class="pf-row">
+        <div class="t"><b>Exporter ma progression</b><span>Un fichier JSON avec vos modules validés, vos scores et votre identité.</span></div>
+        <div class="a"><button type="button" class="gbtn ghost" id="pf-export">Télécharger</button></div>
+      </div>
+      <div class="pf-row">
+        <div class="t"><b>Tout effacer</b><span>Progression, scores, identité et préférences de ce navigateur. Irréversible ici — votre inscription chez l'hébergeur du courrier reste, elle se résilie depuis n'importe quel message reçu.</span></div>
+        <div class="a"><button type="button" class="gbtn danger" id="pf-reset">Effacer</button></div>
+      </div>
+    </div>
+    <div class="note">
+      <h4>Où vivent ces informations</h4>
+      <p>Votre progression, vos scores et vos préférences tiennent dans le <strong>stockage local de ce navigateur</strong> : ils ne suivent ni un autre appareil, ni une navigation privée, et personne d'autre ne les voit. Seuls votre <strong>prénom et votre adresse</strong> quittent la page, une fois, au moment où vous ouvrez les modules réservés — vers la liste de diffusion, et nulle part ailleurs.</p>
     </div>
   </div>
 </section>
@@ -5461,6 +5701,8 @@ Echec:
     eye:'<path d="M2.5 12S6 6 12 6s9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.6"/>',
     type:'<path d="M5 6.5V5h14v1.5"/><path d="M12 5.5v13"/><path d="M9 18.5h6"/>',
     sigma:'<path d="M17.5 5.5h-11l6.2 6.5-6.2 6.5h11"/>',
+    user:'<circle cx="12" cy="8" r="3.8"/><path d="M4.8 20c.6-3.6 3.6-5.6 7.2-5.6s6.6 2 7.2 5.6"/>',
+    lock:'<rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/>',
     keyboard:'<rect x="2.5" y="6" width="19" height="12" rx="2.2"/><path d="M6.5 10h.01M10 10h.01M13.5 10h.01M17 10h.01M8 14h8"/>'
   };
   function icon(n){
@@ -5470,15 +5712,15 @@ Echec:
   /* ---------------- feuilles et navigation ---------------- */
   var sheets = $$(".sheet");
   var GROUPS = [
-    { label:null, from:0, to:1 },
-    { label:"Démarrer de zéro", from:2, to:4 },
-    { label:"Construire un dashboard", from:5, to:11 },
-    { label:"Mise en pratique", from:12, to:12 },
-    { label:"Approfondissement", from:13, to:14 },
-    { label:"Spécialisations métier", from:15, to:17 },
-    { label:"Outils", from:18, to:19 }
+    { label:null, from:0, to:2 },
+    { label:"Démarrer de zéro", from:3, to:5 },
+    { label:"Construire un dashboard", from:6, to:12 },
+    { label:"Mise en pratique", from:13, to:13 },
+    { label:"Approfondissement", from:14, to:15 },
+    { label:"Spécialisations métier", from:16, to:18 },
+    { label:"Outils", from:19, to:20 }
   ];
-  var ICONS = ["home","target","eye","type","fx","data","sigma","table","chart","sliders","layout","refresh","flag","gauge","gauge","trend","book","shield","code","keyboard"];
+  var ICONS = ["home","target","user","eye","type","fx","data","sigma","table","chart","sliders","layout","refresh","flag","gauge","gauge","trend","book","shield","code","keyboard"];
 
   var done = {};
   try{ done = JSON.parse(store.get("xl-progress","{}")) || {}; }catch(e){ done = {}; }
@@ -5519,7 +5761,8 @@ Echec:
     var h1 = $("h1", s), kick = $(".eyebrow", s);
     crumbTitle.textContent = h1 ? h1.textContent : s.dataset.tab;
     crumbKicker.textContent = kick ? kick.textContent.split("·")[0].trim() : s.dataset.tab;
-    store.set("xl-sheet", String(i));
+    store.set("xl-sheet2", String(i));
+    if(s.id === "sh-profil" && typeof majProfil === "function") majProfil();
     if(navItems[i]) navItems[i].scrollIntoView({ block:"nearest" });
     if(anchor){
       requestAnimationFrame(function(){
@@ -5558,6 +5801,7 @@ Echec:
     });
     if(typeof majProgression === "function") majProgression();
     if(typeof heroReprise === "function") heroReprise();
+    if(typeof majProfil === "function") majProfil();
   }
 
   doneBtns.forEach(function(btn){
@@ -5571,23 +5815,23 @@ Echec:
 
   /* ---------------- cartes du sommaire ---------------- */
   var mods = [
-    [2,"Module 1","Découvrir Excel","L'interface, le vocabulaire, se déplacer, enregistrer sans se tromper de format."],
-    [3,"Module 2","Saisir et mettre en forme","Les trois types de contenu, la poignée de recopie, format contre valeur, collage spécial."],
-    [4,"Module 3","Vos premières formules","Le signe égal, SOMME et MOYENNE, le dollar, SI, et les six messages d'erreur."],
-    [5,"Module 4","Des données propres","Format long, tableaux structurés, Power Query, les cinq saletés à traquer."],
-    [6,"Module 5","Les formules du dashboard","Texte, dates, logique, recherche, agrégats conditionnels, formules dynamiques."],
-    [7,"Module 6","TCD et modèle de données","Les quatre zones, le schéma en étoile, les mesures DAX."],
-    [8,"Module 7","Graphiques","Choisir la bonne forme, puis retirer tout ce qui n'informe pas."],
-    [9,"Module 8","Interactivité","Segments connectés, chronologies, listes dynamiques, titres vivants."],
-    [10,"Module 9","Mise en forme et composition","Trame de colonnes, parcours de l'œil, MFC, formats personnalisés."],
-    [11,"Module 10","Automatiser et livrer","Chaîne d'actualisation, bouton VBA, protection, checklist."],
-    [12,"Projet","Dashboard commercial","Douze étapes qui rejouent tout le parcours, jusqu'au livrable."],
-    [13,"Module 11","Analyse et scénarios","Valeur cible, tables de sensibilité, scénarios, Solveur, prévision."],
-    [14,"Module 12","Performance et audit","Pourquoi un classeur rame, comment auditer, les cellules de contrôle."],
-    [15,"Module 13","Finance","Valeur temps, VAN et TRI, emprunts, trésorerie et BFR, point mort, écarts."],
-    [16,"Module 14","Comptabilité","FEC, balance et états, SIG, rapprochement bancaire, amortissements, TVA."],
-    [17,"Module 15","Assurance","Primes acquises, PANE, charge et cadence, ratios, portefeuille, réassurance."],
-    [18,"Volet VBA","Assurance et finance","Chain-Ladder, tarification vie, échéancier, Monte-Carlo, piste d'audit."]
+    [3,"Module 1","Découvrir Excel","L'interface, le vocabulaire, se déplacer, enregistrer sans se tromper de format."],
+    [4,"Module 2","Saisir et mettre en forme","Les trois types de contenu, la poignée de recopie, format contre valeur, collage spécial."],
+    [5,"Module 3","Vos premières formules","Le signe égal, SOMME et MOYENNE, le dollar, SI, et les six messages d'erreur."],
+    [6,"Module 4","Des données propres","Format long, tableaux structurés, Power Query, les cinq saletés à traquer."],
+    [7,"Module 5","Les formules du dashboard","Texte, dates, logique, recherche, agrégats conditionnels, formules dynamiques."],
+    [8,"Module 6","TCD et modèle de données","Les quatre zones, le schéma en étoile, les mesures DAX."],
+    [9,"Module 7","Graphiques","Choisir la bonne forme, puis retirer tout ce qui n'informe pas."],
+    [10,"Module 8","Interactivité","Segments connectés, chronologies, listes dynamiques, titres vivants."],
+    [11,"Module 9","Mise en forme et composition","Trame de colonnes, parcours de l'œil, MFC, formats personnalisés."],
+    [12,"Module 10","Automatiser et livrer","Chaîne d'actualisation, bouton VBA, protection, checklist."],
+    [13,"Projet","Dashboard commercial","Douze étapes qui rejouent tout le parcours, jusqu'au livrable."],
+    [14,"Module 11","Analyse et scénarios","Valeur cible, tables de sensibilité, scénarios, Solveur, prévision."],
+    [15,"Module 12","Performance et audit","Pourquoi un classeur rame, comment auditer, les cellules de contrôle."],
+    [16,"Module 13","Finance","Valeur temps, VAN et TRI, emprunts, trésorerie et BFR, point mort, écarts."],
+    [17,"Module 14","Comptabilité","FEC, balance et états, SIG, rapprochement bancaire, amortissements, TVA."],
+    [18,"Module 15","Assurance","Primes acquises, PANE, charge et cadence, ratios, portefeuille, réassurance."],
+    [19,"Volet VBA","Assurance et finance","Chain-Ladder, tarification vie, échéancier, Monte-Carlo, piste d'audit."]
   ]; var modList = $("#modlist");
   if(modList){
     modList.innerHTML = "";
@@ -6495,9 +6739,447 @@ Echec:
   var elFig = document.getElementById("stat-fig");
   if(elFig) elFig.textContent = document.querySelectorAll("svg.fig").length;
 
+
+  /* ================= IDENTITÉ, BARRIÈRES MAIL, PROFIL ================= */
+
+  /* Le point d'entrée côté serveur. Sur Netlify il est redirigé vers la
+     fonction qui parle à Brevo ; ailleurs — fichier local, aperçu — l'appel
+     échoue et l'on continue hors ligne. */
+  var API = "/api/subscribe";
+  var LISTE = "Atelier Excel";
+
+  var ident = null;
+  try{ ident = JSON.parse(store.get("xl-ident", "null")); }catch(e){ ident = null; }
+  if(ident && !ident.mail) ident = null;
+
+  /* Les modules qui demandent une adresse. Le reste du parcours est libre. */
+  var VERROUS = {
+    "sh-8":  { t:"Le projet guidé",        d:"Douze étapes qui rejouent tout le parcours sur un vrai jeu de données, jusqu'au fichier livrable." },
+    "sh-11": { t:"Excel en finance",       d:"Valeur temps, VAN et TRI, tableaux d'amortissement, trésorerie, point mort, analyse d'écarts." },
+    "sh-12": { t:"Excel en comptabilité",  d:"Lecture du FEC, balance et états, soldes intermédiaires, rapprochement bancaire, amortissements, TVA." },
+    "sh-13": { t:"Excel en assurance",     d:"Primes acquises, provisions, cadence de règlement, ratios de sinistralité, portefeuille, réassurance." },
+    "sh-14": { t:"Le volet VBA",           d:"Chain-Ladder, tarification vie, échéancier, Monte-Carlo et piste d'audit, en code commenté." }
+  };
+
+  function svgic(d, w){
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + (w||1.8) +
+      '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + '</svg>';
+  }
+  function ech(s){
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
+      return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c];
+    });
+  }
+  function mailOk(v){ return /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(String(v || "").trim()); }
+
+  /* ---------------- le formulaire, partout où il sert ---------------- */
+  function formHTML(bouton, plain){
+    return '' +
+      '<form class="gform' + (plain ? " plain" : "") + '" novalidate>' +
+        '<div class="gline">' +
+          '<div class="gfield" data-f="prenom">' +
+            '<label>Prénom</label>' +
+            '<input type="text" name="prenom" autocomplete="given-name" placeholder="Aya" maxlength="60">' +
+          '</div>' +
+          '<div class="gfield" data-f="mail">' +
+            '<label>Adresse électronique</label>' +
+            '<input type="email" name="mail" autocomplete="email" placeholder="vous@exemple.com" maxlength="120">' +
+          '</div>' +
+        '</div>' +
+        '<label class="gcheck" data-f="accord">' +
+          '<input type="checkbox" name="accord">' +
+          '<span>J\'accepte de recevoir les compléments de l\'atelier — fichiers d\'exercice, corrigés, nouveaux modules. Une résiliation en un clic est jointe à chaque message.</span>' +
+        '</label>' +
+        '<input class="hp" type="text" name="societe" tabindex="-1" autocomplete="off" aria-hidden="true">' +
+        '<div class="gbar">' +
+          '<button type="submit" class="gbtn">' + ech(bouton) + '</button>' +
+          '<span class="gsmall">Votre adresse sert à cet atelier et à rien d\'autre : ni revente, ni partage.</span>' +
+        '</div>' +
+        '<p class="gmsg" role="status" aria-live="polite"></p>' +
+      '</form>';
+  }
+
+  /* ---------------- l'appel réseau ---------------- */
+  function envoyer(d, fini){
+    var rendu = false;
+    var rendre = function(r){ if(rendu) return; rendu = true; fini(r); };
+    var minuteur = setTimeout(function(){ rendre({ etat:"local", pourquoi:"délai dépassé" }); }, 9000);
+    var stop = function(){ clearTimeout(minuteur); };
+
+    if(typeof fetch !== "function"){ stop(); rendre({ etat:"local", pourquoi:"navigateur" }); return; }
+
+    try{
+      fetch(API, {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body:JSON.stringify(d)
+      }).then(function(r){
+        return r.text().then(function(t){
+          var j = null; try{ j = JSON.parse(t); }catch(e){}
+          return { code:r.status, ok:r.ok, j:j };
+        });
+      }).then(function(r){
+        stop();
+        if(r.ok && r.j) return rendre({ etat:"sync" });
+        if(r.code === 422 && r.j && r.j.champ) return rendre({ etat:"refus", champ:r.j.champ, message:r.j.message });
+        rendre({ etat:"local", pourquoi:"service indisponible" });
+      })["catch"](function(){
+        stop(); rendre({ etat:"local", pourquoi:"hors ligne" });
+      });
+    }catch(e){ stop(); rendre({ etat:"local", pourquoi:"hors ligne" }); }
+  }
+
+  /* ---------------- brancher un formulaire ---------------- */
+  function brancher(form, source, apres){
+    var champs = {
+      prenom: form.querySelector('[data-f="prenom"]'),
+      mail:   form.querySelector('[data-f="mail"]'),
+      accord: form.querySelector('[data-f="accord"]')
+    };
+    var msg = form.querySelector(".gmsg");
+    var btn = form.querySelector('button[type="submit"]');
+    var libelle = btn.textContent;
+
+    function net(){ for(var k in champs){ if(champs[k]) champs[k].removeAttribute("data-bad"); } }
+    function faux(k, texte){
+      if(champs[k]) champs[k].setAttribute("data-bad", "1");
+      msg.setAttribute("data-k", "bad");
+      msg.textContent = texte;
+      var i = champs[k] && champs[k].querySelector("input");
+      if(i) i.focus();
+    }
+    form.addEventListener("input", net);
+
+    form.addEventListener("submit", function(ev){
+      ev.preventDefault();
+      net();
+      var prenom = form.prenom.value.trim();
+      var mail   = form.mail.value.trim();
+      var accord = form.accord.checked;
+
+      if(prenom.length < 2) return faux("prenom", "Un prénom, même court, pour vous écrire correctement.");
+      if(!mailOk(mail))     return faux("mail",   "Cette adresse n'a pas l'air complète — il manque un @ ou un domaine.");
+      if(!accord)           return faux("accord", "Il faut cocher l'accord : sans lui, rien n'est envoyé.");
+      if(form.societe.value) return;
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="gspin"></span> Envoi';
+      msg.removeAttribute("data-k");
+      msg.textContent = "";
+
+      envoyer({ prenom:prenom, mail:mail, accord:true, source:source, liste:LISTE }, function(r){
+        btn.disabled = false;
+        btn.textContent = libelle;
+
+        if(r.etat === "refus"){
+          return faux(r.champ === "mail" ? "mail" : "prenom", r.message || "Cette valeur a été refusée.");
+        }
+
+        ident = {
+          prenom: prenom,
+          nom: (ident && ident.nom) || prenom,
+          mail: mail,
+          le: new Date().toISOString(),
+          sync: r.etat === "sync",
+          source: source
+        };
+        store.set("xl-ident", JSON.stringify(ident));
+
+        msg.setAttribute("data-k", "ok");
+        msg.textContent = r.etat === "sync"
+          ? "C'est bon, " + prenom + " — tout est ouvert et vous êtes inscrit à la liste."
+          : "C'est bon, " + prenom + " — tout est ouvert. L'inscription à la liste n'a pas pu partir (" + r.pourquoi + ") ; elle sera reproposée depuis votre profil.";
+
+        /* la confirmation doit avoir le temps d'etre lue avant que tout s'ouvre */
+        setTimeout(function(){
+          appliqueVerrous();
+          majProfil();
+          if(typeof apres === "function") apres();
+        }, 1100);
+      });
+    });
+  }
+
+  /* ---------------- poser et lever les verrous ---------------- */
+  function appliqueVerrous(){
+    var ouvert = !!(ident && ident.mail);
+    sheets.forEach(function(s, idx){
+      var v = VERROUS[s.id];
+      if(!v) return;
+
+      if(ouvert){
+        s.removeAttribute("data-lock");
+        var vieux = s.querySelector(":scope > .lockpane");
+        if(vieux) vieux.parentNode.removeChild(vieux);
+      } else {
+        s.setAttribute("data-lock", "1");
+        if(!s.querySelector(":scope > .lockpane")){
+          var p = document.createElement("div");
+          p.className = "lockpane";
+          p.innerHTML =
+            '<div class="lock-k">' + svgic(P.lock, 1.7) + 'Module réservé</div>' +
+            '<h2 class="lock-t">' + ech(v.t) + '</h2>' +
+            '<p class="lock-d">' + ech(v.d) + '</p>' +
+            '<ul class="lock-l">' +
+              '<li>Les <b>cinq modules réservés</b> — projet guidé, finance, comptabilité, assurance, volet VBA.</li>' +
+              '<li>Les <b>fichiers d\'exercice</b> et leurs corrigés, envoyés par courrier.</li>' +
+              '<li>Les <b>nouveaux modules</b> quand ils sortent, sans rien avoir à surveiller.</li>' +
+            '</ul>' +
+            formHTML("Ouvrir ce module", false);
+          s.insertBefore(p, s.firstChild);
+          brancher(p.querySelector("form"), "verrou:" + s.id, null);
+        }
+      }
+
+      if(navItems[idx]){
+        var lk = navItems[idx].querySelector(".lk");
+        if(ouvert){
+          if(lk) lk.parentNode.removeChild(lk);
+        } else if(!lk){
+          var sp = document.createElement("span");
+          sp.className = "lk";
+          sp.innerHTML = svgic(P.lock, 2);
+          navItems[idx].appendChild(sp);
+        }
+      }
+    });
+    relanceParcours();
+  }
+
+  /* ---------------- rappel en bas du parcours ---------------- */
+  function relanceParcours(){
+    var s = sheets[0];
+    if(!s) return;
+    var vieux = s.querySelector(".relance-hote");
+    if(ident && ident.mail){
+      if(vieux) vieux.parentNode.removeChild(vieux);
+      return;
+    }
+    if(vieux) return;
+    var h = document.createElement("div");
+    h.className = "relance-hote";
+    h.innerHTML =
+      '<div class="relance">' +
+        '<div class="relance-t">' +
+          '<b>Cinq modules vous attendent</b>' +
+          '<span>Le projet guidé et les trois spécialisations métier — finance, comptabilité, assurance — plus le volet VBA s\'ouvrent avec une adresse. Les fichiers d\'exercice suivent par courrier.</span>' +
+        '</div>' +
+        '<div class="relance-a"><button type="button" class="gbtn">Ouvrir les modules réservés</button></div>' +
+      '</div>';
+    h.querySelector("button").addEventListener("click", function(){
+      var i = sheets.indexOf(document.getElementById("sh-8"));
+      if(i > -1) show(i);
+    });
+    s.appendChild(h);
+  }
+
+  /* ---------------- écran profil ---------------- */
+  function initiales(n){
+    var m = String(n || "").trim().split(/\s+/).filter(Boolean);
+    if(!m.length) return "?";
+    return (m[0].charAt(0) + (m.length > 1 ? m[m.length - 1].charAt(0) : "")).toUpperCase();
+  }
+  function ligne(titre, sous, action){
+    return '<div class="pf-row"><div class="t"><b>' + ech(titre) + '</b><span>' + sous + '</span></div>' +
+      '<div class="a">' + (action || "") + '</div></div>';
+  }
+
+  function majProfil(){
+    if(!document.getElementById("sh-profil")) return;
+    var b = bilan();
+    var connu = !!(ident && ident.mail);
+    var nom = connu ? (ident.nom || ident.prenom) : "Invité";
+
+    var t = function(id, v){ var e = document.getElementById(id); if(e) e.textContent = v; };
+    t("pf-av", connu ? initiales(nom) : "?");
+    t("pf-nom", nom);
+    t("pf-mail", connu ? ident.mail : "aucune adresse enregistrée");
+    t("pf-niv", b.niveau);
+    t("pf-mod", b.faits + " / " + b.total);
+    t("pf-xp", b.xp.toLocaleString("fr-FR"));
+    t("pf-quiz", b.quizFaits);
+    t("pf-moy", b.quizFaits ? b.moyenne + " %" : "—");
+
+    /* 01 — identité */
+    var id1 = document.getElementById("pf-ident");
+    if(id1){
+      if(!connu){
+        id1.innerHTML =
+          '<p class="lock-d" style="margin-top:0">Vous parcourez l\'atelier en invité : la progression est gardée dans ce navigateur, mais les modules réservés restent fermés et rien ne vous suit d\'un appareil à l\'autre.</p>' +
+          formHTML("M'enregistrer", true);
+        brancher(id1.querySelector("form"), "profil", null);
+      } else {
+        id1.innerHTML =
+          '<div class="pf-rows">' +
+            ligne("Nom affiché", "Celui qui figure sur l\'attestation.",
+              '<input type="text" id="pf-nom-in" value="' + ech(nom) + '" maxlength="60" ' +
+              'style="font:inherit;font-size:15px;background:none;border:0;border-bottom:1px solid var(--line-strong);padding:6px 2px;color:var(--ink);min-width:180px">' +
+              '<button type="button" class="gbtn ghost" id="pf-nom-ok">Enregistrer</button>') +
+            ligne("Prénom", "Utilisé dans les messages qui vous sont adressés.", '<span class="gsmall">' + ech(ident.prenom) + '</span>') +
+            ligne("Adresse", "Celle qui a ouvert les modules réservés.", '<span class="gsmall">' + ech(ident.mail) + '</span>') +
+            ligne("Enregistré le", "Depuis ce navigateur.", '<span class="gsmall">' + ech(new Date(ident.le).toLocaleDateString("fr-FR", { day:"numeric", month:"long", year:"numeric" })) + '</span>') +
+          '</div>';
+        var inp = document.getElementById("pf-nom-in");
+        var okb = document.getElementById("pf-nom-ok");
+        if(okb) okb.addEventListener("click", function(){
+          var v = inp.value.trim();
+          if(v.length < 2) return;
+          ident.nom = v;
+          store.set("xl-ident", JSON.stringify(ident));
+          majProfil();
+        });
+      }
+    }
+
+    /* 02 — accès et courrier */
+    var id2 = document.getElementById("pf-acces");
+    if(id2){
+      var n = 0; for(var k in VERROUS) n++;
+      if(!connu){
+        id2.innerHTML = '<div class="pf-rows">' +
+          ligne("Modules réservés", n + " modules fermés — projet guidé, finance, comptabilité, assurance, volet VBA.",
+            '<span class="tag">Verrouillés</span>') +
+          ligne("Lettre de l\'atelier", "Fichiers d\'exercice, corrigés et nouveaux modules.", '<span class="tag">Non inscrit</span>') +
+          '</div>';
+      } else {
+        id2.innerHTML = '<div class="pf-rows">' +
+          ligne("Modules réservés", "Les " + n + " modules sont ouverts sur ce navigateur.", '<span class="tag a">Ouverts</span>') +
+          ligne("Lettre de l\'atelier",
+            ident.sync
+              ? "Inscrit sous <b>" + ech(ident.mail) + "</b>. La résiliation est jointe à chaque message reçu."
+              : "L\'inscription n\'a pas atteint le service au moment de l\'enregistrement. Les modules sont ouverts quand même.",
+            ident.sync ? '<span class="tag a">Inscrit</span>'
+                       : '<span class="tag">Non transmis</span><button type="button" class="gbtn ghost" id="pf-retry">Réessayer</button>') +
+          ligne("Changer d\'adresse", "Remplace l\'adresse enregistrée dans ce navigateur.",
+            '<button type="button" class="gbtn ghost" id="pf-chg">Modifier</button>') +
+          '</div><div id="pf-chg-hote"></div>';
+
+        var rb = document.getElementById("pf-retry");
+        if(rb) rb.addEventListener("click", function(){
+          rb.disabled = true;
+          rb.innerHTML = '<span class="gspin"></span> Envoi';
+          envoyer({ prenom:ident.prenom, mail:ident.mail, accord:true, source:"profil:reprise", liste:LISTE }, function(r){
+            if(r.etat === "sync"){ ident.sync = true; store.set("xl-ident", JSON.stringify(ident)); }
+            majProfil();
+          });
+        });
+
+        var cb = document.getElementById("pf-chg");
+        if(cb) cb.addEventListener("click", function(){
+          var h = document.getElementById("pf-chg-hote");
+          if(!h || h.querySelector("form")) return;
+          h.innerHTML = formHTML("Remplacer l'adresse", true);
+          brancher(h.querySelector("form"), "profil:changement", function(){ majProfil(); });
+          var f = h.querySelector("form");
+          f.prenom.value = ident.prenom;
+          f.prenom.focus();
+        });
+      }
+    }
+
+    /* 04 — attestation */
+    var c = document.getElementById("pf-cert");
+    if(c){
+      var reste = b.total - b.faits;
+      if(reste > 0){
+        c.innerHTML = '<div class="attest locked">' +
+          '<span class="a-k">Attestation de parcours</span>' +
+          '<span class="a-t">Il reste ' + reste + ' module' + (reste > 1 ? "s" : "") + ' à valider</span>' +
+          '<span class="a-n">— — —</span>' +
+          '<span class="a-r"></span>' +
+          '<span class="a-d">L\'attestation se débloque quand les ' + b.total + ' modules sont marqués terminés. Les quiz ne sont pas obligatoires, mais ils décident du niveau qui y figure.</span>' +
+          '</div>';
+      } else if(!connu){
+        c.innerHTML = '<div class="attest locked">' +
+          '<span class="a-k">Attestation de parcours</span>' +
+          '<span class="a-t">Parcours terminé</span>' +
+          '<span class="a-n">— — —</span>' +
+          '<span class="a-r"></span>' +
+          '<span class="a-d">Il ne manque qu\'un nom : enregistrez-vous dans la section Identité pour que l\'attestation porte le vôtre.</span>' +
+          '</div>';
+      } else {
+        var d = new Date();
+        c.innerHTML = '<div class="attest">' +
+            '<span class="a-k">Attestation de parcours</span>' +
+            '<span class="a-t">Atelier Dashboard Excel</span>' +
+            '<span class="a-n">' + ech(nom) + '</span>' +
+            '<span class="a-r"></span>' +
+            '<span class="a-d">a suivi les ' + b.total + ' modules de l\'atelier — des premiers pas dans une feuille jusqu\'aux tableaux de bord de finance, de comptabilité et d\'assurance, projet guidé et volet VBA compris.</span>' +
+            '<span class="a-s">Niveau ' + b.niveau + ' · ' + b.xp.toLocaleString("fr-FR") + ' XP · ' +
+              (b.quizFaits ? b.moyenne + " % de moyenne aux quiz · " : "") +
+              d.toLocaleDateString("fr-FR", { day:"numeric", month:"long", year:"numeric" }) + '</span>' +
+          '</div>' +
+          '<div class="gbar pf-noprint"><button type="button" class="gbtn" id="pf-print">Imprimer ou enregistrer en PDF</button>' +
+          '<span class="gsmall">Une attestation de suivi, sans valeur de diplôme : elle dit ce que vous avez parcouru, pas ce qu\'un jury a constaté.</span></div>';
+        var pb = document.getElementById("pf-print");
+        if(pb) pb.addEventListener("click", function(){ window.print(); });
+      }
+    }
+
+    /* 03 — préférences */
+    var swT = document.getElementById("pf-sw-theme");
+    if(swT) swT.setAttribute("aria-checked", root.getAttribute("data-theme") === "dark" ||
+      (!root.hasAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "true" : "false");
+    var swA = document.getElementById("pf-sw-anim");
+    if(swA) swA.setAttribute("aria-checked", root.getAttribute("data-anim") === "off" ? "true" : "false");
+  }
+
+  /* ---------------- préférences, export, effacement ---------------- */
+  if(store.get("xl-anim", "") === "off") root.setAttribute("data-anim", "off");
+
+  var swT0 = document.getElementById("pf-sw-theme");
+  if(swT0) swT0.addEventListener("click", function(){
+    var dark = swT0.getAttribute("aria-checked") === "true";
+    root.setAttribute("data-theme", dark ? "light" : "dark");
+    store.set("xl-theme", dark ? "light" : "dark");
+    majProfil();
+  });
+
+  var swA0 = document.getElementById("pf-sw-anim");
+  if(swA0) swA0.addEventListener("click", function(){
+    var off = swA0.getAttribute("aria-checked") === "true";
+    if(off){ root.removeAttribute("data-anim"); store.set("xl-anim", "on"); }
+    else { root.setAttribute("data-anim", "off"); store.set("xl-anim", "off"); }
+    majProfil();
+  });
+
+  var expB = document.getElementById("pf-export");
+  if(expB) expB.addEventListener("click", function(){
+    var paquet = {
+      atelier: "Atelier Dashboard Excel",
+      exporte: new Date().toISOString(),
+      identite: ident ? { prenom:ident.prenom, nom:ident.nom, mail:ident.mail, le:ident.le } : null,
+      bilan: bilan(),
+      modules: Object.keys(MODNOMS).map(function(k){
+        return { cle:k, titre:MODNOMS[k], termine: !!done[k], quiz: scores[k] || null };
+      })
+    };
+    try{
+      var u = URL.createObjectURL(new Blob([JSON.stringify(paquet, null, 2)], { type:"application/json" }));
+      var a = document.createElement("a");
+      a.href = u; a.download = "atelier-excel-progression.json";
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(u); }, 4000);
+    }catch(e){
+      window.prompt("Copiez votre progression :", JSON.stringify(paquet));
+    }
+  });
+
+  var rzB = document.getElementById("pf-reset");
+  if(rzB) rzB.addEventListener("click", function(){
+    if(!window.confirm("Effacer la progression, les scores, l'identité et les préférences de ce navigateur ? Cette action ne peut pas être annulée.")) return;
+    ["xl-progress", "xl-scores", "xl-ident", "xl-sheet2", "xl-anim"].forEach(function(k){
+      try{ localStorage.removeItem(k); }catch(e){}
+    });
+    window.location.reload();
+  });
+
+  appliqueVerrous();
+  majProfil();
+
   /* ---------------- démarrage ---------------- */
   paint();
-  var start0 = parseInt(store.get("xl-sheet", "0"), 10);
+  var start0 = parseInt(store.get("xl-sheet2", "0"), 10);
   if(isNaN(start0) || start0 < 0 || start0 >= sheets.length) start0 = 0;
   show(start0);
 })();
