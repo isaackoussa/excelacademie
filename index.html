@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Formation Excel en 15 modules, du grand debutant au tableau de bord : interface, saisie, premieres formules, Power Query, TCD, mesures, segments, volets finance, comptabilite et assurance, VBA et 135 raccourcis.">
+<meta name="description" content="Formation Excel en 15 modules, du grand debutant au tableau de bord, avec un quiz corrige par module, un suivi de progression, des niveaux et des badges.">
 <meta name="author" content="Isaac Koussa">
 <meta name="theme-color" content="#F7F9F8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0B0F0E" media="(prefers-color-scheme: dark)">
@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Atelier Dashboard Excel">
-<meta property="og:description" content="15 modules du grand debutant aux metiers, 59 schemas illustres et 135 raccourcis clavier.">
+<meta property="og:description" content="15 modules, 59 schemas, un quiz corrige par module et un suivi de progression.">
 <style>
 /* Reinitialisation equivalente a celle fournie par la plateforme Artifact. */
 :root{ color-scheme: light dark; }
@@ -502,6 +502,130 @@ svg.fig .dash{stroke-dasharray:4 3}
 @media (min-width:1081px){
   .scrim{display:none}
 }
+
+/* ================= quiz ================= */
+.qz-hote{margin-block:4px}
+.qz-intro{
+  display:flex;align-items:center;gap:15px;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-l);padding:18px;box-shadow:var(--sh-1);flex-wrap:wrap;
+}
+.qz-ico{width:46px;height:46px;border-radius:13px;flex:none;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent)}
+.qz-ico svg{width:21px;height:21px}
+.qz-txt{flex:1;min-width:180px}
+.qz-txt h3{font-size:16.5px}
+.qz-txt p{font-size:13.5px;color:var(--muted);margin-top:3px}
+.qz-go{
+  height:46px;padding:0 22px;border-radius:var(--r-pill);border:0;cursor:pointer;
+  background:var(--accent);color:#fff;font-family:var(--ui);font-size:14.5px;font-weight:700;
+  box-shadow:var(--sh-2);transition:transform .18s var(--ease)
+}
+:root[data-theme="dark"] .qz-go,:root:not([data-theme="light"]) .qz-go{color:#07110D}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .qz-go{color:#fff}}
+.qz-go:hover{transform:translateY(-1px)}
+
+.qz{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);padding:22px;box-shadow:var(--sh-1);display:flex;flex-direction:column;gap:17px}
+.qz-haut{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.qz-num{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--muted);flex:none}
+.qz-bar{flex:1;min-width:120px;height:6px;border-radius:var(--r-pill);background:var(--soft);overflow:hidden}
+.qz-bar i{display:block;height:100%;background:var(--accent);border-radius:var(--r-pill);transition:width .4s var(--ease)}
+.qz-q{font-size:clamp(17px,2vw,20px);font-weight:700;letter-spacing:-.02em;line-height:1.35}
+.qz-opts{display:flex;flex-direction:column;gap:10px}
+.qz-opt{
+  display:flex;align-items:center;gap:13px;width:100%;min-height:58px;padding:12px 15px;
+  border-radius:var(--r-m);border:1.5px solid var(--line);background:var(--surface);color:var(--ink);
+  cursor:pointer;text-align:left;font:inherit;transition:border-color .16s var(--ease),background .16s var(--ease)
+}
+.qz-opt:hover:not([disabled]){border-color:var(--line-strong)}
+.qz-l{width:30px;height:30px;border-radius:9px;flex:none;display:grid;place-items:center;font-family:var(--mono);font-size:12.5px;font-weight:600;background:var(--soft);color:var(--muted)}
+.qz-t{flex:1;font-size:14.5px;font-weight:500;line-height:1.45}
+.qz-opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.qz-opt.sel .qz-l{background:var(--accent);color:#fff}
+.qz-opt.bon{border-color:var(--accent);background:var(--accent-soft)}
+.qz-opt.bon .qz-l{background:var(--accent);color:#fff}
+.qz-opt.faux{border-color:var(--crit);background:var(--crit-soft)}
+.qz-opt.faux .qz-l{background:var(--crit);color:#fff}
+.qz-opt[disabled]{cursor:default}
+.qz-expl{border-radius:var(--r-m);padding:15px 17px}
+.qz-expl.ok{background:var(--accent-soft)}
+.qz-expl.ko{background:var(--crit-soft)}
+.qz-expl b{display:block;font-family:var(--ui);font-size:11.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+.qz-expl.ok b{color:var(--accent)}
+.qz-expl.ko b{color:var(--crit)}
+.qz-expl p{font-size:14px;line-height:1.6;color:var(--ink-2);margin-top:8px}
+.qz-pied{display:flex;gap:11px;flex-wrap:wrap}
+.qz-main,.qz-again{
+  height:48px;padding:0 24px;border-radius:var(--r-pill);border:0;cursor:pointer;
+  font-family:var(--ui);font-size:14.5px;font-weight:700;background:var(--accent);color:#fff;box-shadow:var(--sh-2)
+}
+:root[data-theme="dark"] .qz-main,:root:not([data-theme="light"]) .qz-main,
+:root[data-theme="dark"] .qz-again,:root:not([data-theme="light"]) .qz-again{color:#07110D}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .qz-main,:root:not([data-theme="dark"]) .qz-again{color:#fff}}
+.qz-main[disabled]{background:var(--soft);color:var(--muted);cursor:not-allowed;box-shadow:none}
+.qz-again{background:var(--surface);border:1px solid var(--line-strong);color:var(--ink);box-shadow:none}
+
+.qz-fin{display:flex;align-items:center;gap:18px;border-radius:var(--r-m);padding:20px;flex-wrap:wrap}
+.qz-fin.ok{background:var(--accent-soft)}
+.qz-fin.ko{background:var(--crit-soft)}
+.qz-score{font-family:var(--disp);font-size:42px;font-weight:800;letter-spacing:-.045em;line-height:1;flex:none}
+.qz-fin.ok .qz-score{color:var(--accent)}
+.qz-fin.ko .qz-score{color:var(--crit)}
+.qz-score span{font-size:18px;font-weight:600;margin-left:6px;opacity:.7}
+.qz-verdict{font-family:var(--disp);font-size:17px;font-weight:700;letter-spacing:-.02em}
+.qz-sous{font-size:13.5px;color:var(--ink-2);margin-top:3px}
+.qz-xp{margin-inline-start:auto;font-family:var(--mono);font-size:14px;font-weight:600;color:var(--warn);background:var(--warn-soft);border-radius:var(--r-pill);padding:7px 14px;flex:none}
+.qz-rev h4{margin-bottom:10px}
+.qz-rev-l{border-inline-start:3px solid var(--line-strong);padding-inline-start:14px;margin-bottom:12px}
+.qz-rev-l b{display:block;font-size:14px;font-weight:700;line-height:1.4}
+.qz-rev-l span{display:block;font-size:13.5px;line-height:1.55;color:var(--muted);margin-top:5px}
+
+/* ================= progression ================= */
+.pg-haut{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.pg-anneau{
+  position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);
+  padding:22px;display:grid;place-items:center;box-shadow:var(--sh-1);min-height:210px
+}
+.pg-anneau svg{width:170px;height:170px;display:block}
+.pg-centre{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.pg-centre div{font-family:var(--disp);font-size:34px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.pg-centre span{font-size:12.5px;color:var(--muted);margin-top:5px}
+.pg-niv{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);padding:22px;box-shadow:var(--sh-1);display:flex;flex-direction:column;gap:13px}
+.pg-niv-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.pg-lab{font-family:var(--ui);font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.pg-val{font-family:var(--disp);font-size:34px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.pg-xp{margin-inline-start:auto;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.pg-xp b{color:var(--ink);font-weight:600}
+.pg-bar{height:9px;border-radius:var(--r-pill);background:var(--soft);overflow:hidden}
+.pg-bar i{display:block;height:100%;border-radius:var(--r-pill);background:var(--accent);transition:width .6s var(--ease)}
+.pg-reste{font-size:12.5px;color:var(--muted)}
+.pg-mini{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:4px}
+.pg-mini div{background:var(--soft);border-radius:var(--r-m);padding:13px 15px}
+.pg-mini span{display:block;font-size:11.5px;color:var(--muted)}
+.pg-mini b{display:block;font-family:var(--disp);font-size:22px;font-weight:700;letter-spacing:-.03em;margin-top:2px}
+
+.bdgs{display:grid;gap:13px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.bdg{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-m);padding:17px 13px;text-align:center;box-shadow:var(--sh-1);opacity:.55}
+.bdg.on{opacity:1}
+.bdg-r{width:46px;height:46px;border-radius:var(--r-pill);margin:0 auto;display:grid;place-items:center;background:var(--soft);color:var(--muted)}
+.bdg.on .bdg-r{background:var(--warn-soft);color:var(--warn)}
+.bdg-r svg{width:21px;height:21px}
+.bdg b{display:block;font-size:13px;font-weight:700;margin-top:10px}
+.bdg span{display:block;font-size:11px;color:var(--muted);margin-top:3px;line-height:1.35}
+
+/* ================= carte de reprise ================= */
+.reprise{
+  width:100%;text-align:left;border:0;cursor:pointer;font:inherit;
+  background:var(--ink);color:var(--surface);border-radius:var(--r-l);padding:22px;
+  box-shadow:var(--sh-3);transition:transform .22s var(--ease)
+}
+.reprise:hover{transform:translateY(-2px)}
+.reprise-k{font-family:var(--ui);font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--warn)}
+.reprise-t{font-family:var(--disp);font-size:clamp(19px,2.4vw,23px);font-weight:700;letter-spacing:-.03em;margin-top:8px;color:var(--surface)}
+.reprise-b{display:inline-flex;align-items:center;gap:9px;height:44px;padding:0 20px;border-radius:var(--r-pill);background:var(--accent);color:#fff;font-size:14px;font-weight:700;margin-top:18px}
+.reprise-b svg{width:17px;height:17px}
+.reprise.fini{cursor:default;display:flex;align-items:center;gap:14px}
+.reprise.fini b{display:block;font-family:var(--disp);font-size:19px;font-weight:700;color:var(--surface)}
+.reprise.fini span{display:block;font-size:13.5px;opacity:.75;margin-top:4px}
+
 @media (max-width:640px){
   body{font-size:15.5px}
   main{padding-inline:16px}
@@ -579,6 +703,8 @@ svg.fig .dash{stroke-dasharray:4 3}
     <h1>Construire des dashboards Excel qui se mettent à jour tout seuls</h1>
     <p class="lede">Pas des captures d'écran collées dans un classeur. Une chaîne propre : données brutes → transformation → modèle → visuels pilotés par segments. Vous cliquez sur <em>Actualiser</em>, tout suit.</p>
   </div>
+
+  <div id="reprise"></div>
 
   <div class="grid g4">
     <div class="stat"><div class="v">15</div><div class="l">modules + 1 volet VBA</div></div>
@@ -732,6 +858,60 @@ svg.fig .dash{stroke-dasharray:4 3}
   <div class="note key">
     <h4>Versions</h4>
     <p>Écrit pour <strong>Excel Microsoft 365 / 2021+</strong> en français. Les fonctions dynamiques (<code>FILTRE</code>, <code>UNIQUE</code>, <code>RECHERCHEX</code>, <code>LET</code>) n'existent pas avant 2021 : l'alternative compatible est donnée à chaque fois. Power Query et le modèle de données sont plus limités sur Mac — le repli est indiqué dans les modules 1 et 3.</p>
+  </div>
+</section>
+
+<!-- ================= FEUILLE : MA PROGRESSION ================= -->
+<section class="sheet" id="sh-prog" data-cell="SUI" data-formula="=PROGRESSION()" data-tab="Ma progression" data-num="&#9678;" role="tabpanel" hidden>
+  <div class="prose">
+    <div class="eyebrow"><b>Suivi</b> <span>·</span> mis à jour à chaque quiz</div>
+    <h1>Ma progression</h1>
+    <p class="lede">Ce que vous avez validé, ce qu'il reste, et où vous perdez des points. Tout est calculé à partir de vos réponses, et stocké dans votre navigateur.</p>
+  </div>
+
+  <div class="pg-haut">
+    <div class="pg-anneau">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="60" cy="60" r="52" fill="none" stroke="var(--line)" stroke-width="12"/>
+        <circle id="pg-ring" cx="60" cy="60" r="52" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="round" stroke-dasharray="0 327" transform="rotate(-90 60 60)"/>
+      </svg>
+      <div class="pg-centre">
+        <div id="pg-pct">0 %</div>
+        <span id="pg-sous">0 modules</span>
+      </div>
+    </div>
+    <div class="pg-niv">
+      <div class="pg-niv-h">
+        <span class="pg-lab">Niveau</span>
+        <span class="pg-val" id="pg-niveau">1</span>
+        <span class="pg-xp"><b id="pg-xp">0</b> XP</span>
+      </div>
+      <div class="pg-bar"><i id="pg-xpbar" style="width:0%"></i></div>
+      <div class="pg-reste" id="pg-reste">400 XP avant le niveau 2</div>
+      <div class="pg-mini">
+        <div><span>Quiz réalisés</span><b id="pg-quiz">0</b></div>
+        <div><span>Score moyen</span><b id="pg-moy">—</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">01</span><h2>Badges</h2></div>
+    <div class="bdgs" id="pg-badges"></div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><span class="secnum">02</span><h2>Détail par module</h2></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Module</th><th style="width:22%">État</th><th style="width:18%">Score au quiz</th></tr></thead>
+        <tbody id="pg-liste"></tbody>
+      </table>
+    </div>
+    <div class="note key">
+      <h4>Comment le score est calculé</h4>
+      <p>Chaque module terminé vaut <strong>100 XP</strong>. Un quiz réussi — au moins trois bonnes réponses sur quatre — en ajoute <strong>60</strong>, un quiz raté <strong>20</strong> : vous gardez quelque chose même quand ça se passe mal. Un niveau se gagne tous les 400 XP. Rien n'est envoyé nulle part : tout vit dans le stockage local de ce navigateur, et une navigation privée repart de zéro.</p>
+    </div>
   </div>
 </section>
 
@@ -5030,15 +5210,15 @@ Echec:
   /* ---------------- feuilles et navigation ---------------- */
   var sheets = $$(".sheet");
   var GROUPS = [
-    { label:null, from:0, to:0 },
-    { label:"Démarrer de zéro", from:1, to:3 },
-    { label:"Construire un dashboard", from:4, to:10 },
-    { label:"Mise en pratique", from:11, to:11 },
-    { label:"Approfondissement", from:12, to:13 },
-    { label:"Spécialisations métier", from:14, to:16 },
-    { label:"Outils", from:17, to:18 }
+    { label:null, from:0, to:1 },
+    { label:"Démarrer de zéro", from:2, to:4 },
+    { label:"Construire un dashboard", from:5, to:11 },
+    { label:"Mise en pratique", from:12, to:12 },
+    { label:"Approfondissement", from:13, to:14 },
+    { label:"Spécialisations métier", from:15, to:17 },
+    { label:"Outils", from:18, to:19 }
   ];
-  var ICONS = ["home","eye","type","fx","data","sigma","table","chart","sliders","layout","refresh","flag","target","gauge","trend","book","shield","code","keyboard"];
+  var ICONS = ["home","target","eye","type","fx","data","sigma","table","chart","sliders","layout","refresh","flag","gauge","gauge","trend","book","shield","code","keyboard"];
 
   var done = {};
   try{ done = JSON.parse(store.get("xl-progress","{}")) || {}; }catch(e){ done = {}; }
@@ -5116,6 +5296,8 @@ Echec:
       var u = $("u", c);
       if(u && u.dataset.label) u.textContent = (done[c.dataset.key] ? "✓ " : "") + u.dataset.label;
     });
+    if(typeof majProgression === "function") majProgression();
+    if(typeof heroReprise === "function") heroReprise();
   }
 
   doneBtns.forEach(function(btn){
@@ -5129,23 +5311,23 @@ Echec:
 
   /* ---------------- cartes du sommaire ---------------- */
   var mods = [
-    [1,"Module 1","Découvrir Excel","L'interface, le vocabulaire, se déplacer, enregistrer sans se tromper de format."],
-    [2,"Module 2","Saisir et mettre en forme","Les trois types de contenu, la poignée de recopie, format contre valeur, collage spécial."],
-    [3,"Module 3","Vos premières formules","Le signe égal, SOMME et MOYENNE, le dollar, SI, et les six messages d'erreur."],
-    [4,"Module 4","Des données propres","Format long, tableaux structurés, Power Query, les cinq saletés à traquer."],
-    [5,"Module 5","Les formules du dashboard","Texte, dates, logique, recherche, agrégats conditionnels, formules dynamiques."],
-    [6,"Module 6","TCD et modèle de données","Les quatre zones, le schéma en étoile, les mesures DAX."],
-    [7,"Module 7","Graphiques","Choisir la bonne forme, puis retirer tout ce qui n'informe pas."],
-    [8,"Module 8","Interactivité","Segments connectés, chronologies, listes dynamiques, titres vivants."],
-    [9,"Module 9","Mise en forme et composition","Trame de colonnes, parcours de l'œil, MFC, formats personnalisés."],
-    [10,"Module 10","Automatiser et livrer","Chaîne d'actualisation, bouton VBA, protection, checklist."],
-    [11,"Projet","Dashboard commercial","Douze étapes qui rejouent tout le parcours, jusqu'au livrable."],
-    [12,"Module 11","Analyse et scénarios","Valeur cible, tables de sensibilité, scénarios, Solveur, prévision."],
-    [13,"Module 12","Performance et audit","Pourquoi un classeur rame, comment auditer, les cellules de contrôle."],
-    [14,"Module 13","Finance","Valeur temps, VAN et TRI, emprunts, trésorerie et BFR, point mort, écarts."],
-    [15,"Module 14","Comptabilité","FEC, balance et états, SIG, rapprochement bancaire, amortissements, TVA."],
-    [16,"Module 15","Assurance","Primes acquises, PANE, charge et cadence, ratios, portefeuille, réassurance."],
-    [17,"Volet VBA","Assurance et finance","Chain-Ladder, tarification vie, échéancier, Monte-Carlo, piste d'audit."]
+    [2,"Module 1","Découvrir Excel","L'interface, le vocabulaire, se déplacer, enregistrer sans se tromper de format."],
+    [3,"Module 2","Saisir et mettre en forme","Les trois types de contenu, la poignée de recopie, format contre valeur, collage spécial."],
+    [4,"Module 3","Vos premières formules","Le signe égal, SOMME et MOYENNE, le dollar, SI, et les six messages d'erreur."],
+    [5,"Module 4","Des données propres","Format long, tableaux structurés, Power Query, les cinq saletés à traquer."],
+    [6,"Module 5","Les formules du dashboard","Texte, dates, logique, recherche, agrégats conditionnels, formules dynamiques."],
+    [7,"Module 6","TCD et modèle de données","Les quatre zones, le schéma en étoile, les mesures DAX."],
+    [8,"Module 7","Graphiques","Choisir la bonne forme, puis retirer tout ce qui n'informe pas."],
+    [9,"Module 8","Interactivité","Segments connectés, chronologies, listes dynamiques, titres vivants."],
+    [10,"Module 9","Mise en forme et composition","Trame de colonnes, parcours de l'œil, MFC, formats personnalisés."],
+    [11,"Module 10","Automatiser et livrer","Chaîne d'actualisation, bouton VBA, protection, checklist."],
+    [12,"Projet","Dashboard commercial","Douze étapes qui rejouent tout le parcours, jusqu'au livrable."],
+    [13,"Module 11","Analyse et scénarios","Valeur cible, tables de sensibilité, scénarios, Solveur, prévision."],
+    [14,"Module 12","Performance et audit","Pourquoi un classeur rame, comment auditer, les cellules de contrôle."],
+    [15,"Module 13","Finance","Valeur temps, VAN et TRI, emprunts, trésorerie et BFR, point mort, écarts."],
+    [16,"Module 14","Comptabilité","FEC, balance et états, SIG, rapprochement bancaire, amortissements, TVA."],
+    [17,"Module 15","Assurance","Primes acquises, PANE, charge et cadence, ratios, portefeuille, réassurance."],
+    [18,"Volet VBA","Assurance et finance","Chain-Ladder, tarification vie, échéancier, Monte-Carlo, piste d'audit."]
   ]; var modList = $("#modlist");
   if(modList){
     modList.innerHTML = "";
@@ -5605,6 +5787,406 @@ Echec:
       trStreak.textContent = st.streak; trOk.textContent = st.ok; trTry.textContent = st.tries;
     });
   }
+
+
+  /* ================= QUIZ PAR MODULE ================= */
+  var QUIZ = {
+    "b1": [
+      {q:"Comment s'écrit l'adresse d'une cellule ?", o:["La ligne puis la colonne : 4C","La colonne puis la ligne : C4","Toujours avec un dollar : $C$4","Peu importe, Excel corrige"], b:1,
+       e:"Toujours colonne puis ligne. C'est la convention que suivront toutes vos formules, et l'inverse n'est jamais accepté."},
+      {q:"Que montre la barre de formule ?", o:["Ce qui est affiché dans la cellule","Le vrai contenu de la cellule","Le format appliqué","Le nom de la feuille"], b:1,
+       e:"Elle montre ce que la cellule contient réellement — une valeur ou une formule — alors que la grille montre le résultat mis en forme. C'est votre premier outil de diagnostic."},
+      {q:"Vous ouvrez un .csv, vous le mettez en forme et vous faites Ctrl+S. Que se passe-t-il ?", o:["Tout est conservé","La mise en forme et les autres feuilles sont perdues","Excel propose de convertir en .xlsx","Le fichier devient illisible"], b:1,
+       e:"Le CSV ne sait stocker que du texte brut. Excel réenregistre au même format, sans avertissement clair : couleurs, largeurs et feuilles multiples disparaissent. Faites Enregistrer sous en .xlsx dès la première minute."},
+      {q:"À quoi sert Ctrl+Origine ?", o:["Ouvrir un fichier","Revenir en A1","Annuler la dernière action","Aller à la dernière cellule utilisée"], b:1,
+       e:"C'est le point de repère quand on est perdu dans une grande feuille. Ctrl+Fin fait l'inverse : il va à la dernière cellule utilisée."}
+    ],
+    "b2": [
+      {q:"Un nombre apparaît collé à GAUCHE de sa cellule. Qu'est-ce que cela signifie ?", o:["Un alignement décoratif","C'est du texte, pas un nombre","La colonne est trop étroite","La cellule est protégée"], b:1,
+       e:"Excel colle les nombres à droite et le texte à gauche. Un nombre à gauche est donc du texte déguisé : SOMME l'ignorera et votre total sera faux, sans aucun message d'erreur."},
+      {q:"Vous affichez 3,7 avec zéro décimale. Que vaut la cellule pour Excel ?", o:["4","3,7","3","Cela dépend du format"], b:1,
+       e:"Le format ne change que l'affichage. La valeur stockée reste 3,7, et c'est avec elle qu'Excel calcule. C'est la source de l'écart d'un centime sur les totaux."},
+      {q:"Une cellule affiche #####. Que faut-il faire ?", o:["Corriger la formule","Élargir la colonne","Changer le format","Supprimer la cellule"], b:1,
+       e:"Ce n'est pas une erreur. Excel refuse d'afficher un nombre tronqué, parce qu'un chiffre coupé serait mensonger. Élargissez la colonne et tout revient."},
+      {q:"Pour centrer un titre sur plusieurs colonnes sans casser le tri ni les TCD :", o:["Fusionner et centrer","Centrer sur plusieurs colonnes","Élargir la première colonne","Insérer une zone de texte"], b:1,
+       e:"La fusion casse le tri, le filtre, le copier-coller et les tableaux croisés. Centrer sur plusieurs colonnes, dans Ctrl+1 → Alignement, donne le même rendu sans aucun de ces inconvénients."}
+    ],
+    "b3": [
+      {q:"Par quoi commence toujours une formule ?", o:["Par le nom de la fonction","Par le signe =","Par une parenthèse","Par un espace"], b:1,
+       e:"C'est la seule règle absolue d'Excel. Sans le signe égal, votre saisie est enregistrée comme du texte et rien n'est calculé."},
+      {q:"Que renvoie =100 + 20 * 3 ?", o:["360","160","123","Une erreur"], b:1,
+       e:"La multiplication passe avant l'addition : Excel calcule 20 × 3 = 60, puis 100 + 60. Pour obtenir 360, il faut écrire =(100+20)*3."},
+      {q:"Vous recopiez =D2*F1 vers le bas et le résultat tombe à zéro. Pourquoi ?", o:["F1 est vide","La référence F1 se décale en F2, F3…","La formule est mal écrite","Le format est en texte"], b:1,
+       e:"À la recopie, les références se décalent. Il faut figer la cellule de paramètre : $F$1, que la touche F4 écrit pour vous pendant la saisie."},
+      {q:"Vous obtenez #NOM?. Quelle est la cause la plus probable ?", o:["Une division par zéro","Une fonction mal orthographiée ou des guillemets oubliés","Une cellule supprimée","Une colonne trop étroite"], b:1,
+       e:"Excel ne reconnaît pas un mot de votre formule. Il cherche une plage nommée qui n'existe pas — souvent parce qu'un texte a été écrit sans guillemets, ou que le nom de la fonction comporte une faute."}
+    ],
+    "1": [
+      {q:"Qu'est-ce qu'une base de données exploitable par Excel ?", o:["Un tableau avec les mois en colonnes","Une ligne par fait, une colonne par variable","Un tableau avec des totaux intermédiaires","Une feuille par mois"], b:1,
+       e:"Le format que les humains lisent bien — les mois en colonnes — est exactement celui qu'Excel exploite mal. Test imparable : si ajouter un mois oblige à créer une colonne, ce n'est pas une base, c'est déjà un rapport."},
+      {q:"Que fait Ctrl+L dans Excel français ?", o:["Ouvre la boîte Atteindre","Crée un tableau structuré","Insère une ligne","Verrouille la cellule"], b:1,
+       e:"En anglais c'est Ctrl+T. Le tableau structuré donne un nom à votre plage, et c'est ce nom qui permettra à un TCD d'absorber les nouvelles lignes sans maintenance."},
+      {q:"Pourquoi brancher un TCD sur un tableau structuré plutôt que sur une plage ?", o:["C'est plus rapide à calculer","La source s'étend automatiquement aux nouvelles lignes","Cela économise de la mémoire","Cela évite les erreurs de formule"], b:1,
+       e:"Un TCD branché sur Feuil1!$A$1:$H$5000 ignore la ligne 5001. Branché sur le tableau Ventes, il suit la table quelle que soit sa taille."},
+      {q:"À quoi sert l'opération « Dépivoter les colonnes » de Power Query ?", o:["À supprimer les doublons","À transformer des colonnes de mois en lignes","À créer un tableau croisé","À fusionner deux requêtes"], b:1,
+       e:"Elle retourne un rapport en base à plat. Et comme c'est une étape de la requête, elle se rejoue toute seule au prochain import."}
+    ],
+    "2": [
+      {q:"Quel est l'avantage décisif de RECHERCHEX sur RECHERCHEV ?", o:["Elle est plus rapide","Elle est insensible aux insertions de colonnes","Elle accepte plus de lignes","Elle gère les doublons"], b:1,
+       e:"RECHERCHEV compte les colonnes par leur numéro : insérez-en une, et elle renvoie la mauvaise valeur sans erreur. RECHERCHEX raisonne en colonnes entières, ce qui la rend insensible à ces décalages."},
+      {q:"Les critères de SOMME.SI.ENS se combinent en :", o:["OU","ET","Ni l'un ni l'autre","Selon l'ordre des arguments"], b:1,
+       e:"Tous les critères doivent être vrais simultanément. Pour un OU, additionnez deux SOMME.SI.ENS, ou passez au TCD qui gère cela nativement."},
+      {q:"Que renvoie =UNIQUE(Ventes[Région]) ?", o:["La première région trouvée","Un bloc déversé contenant chaque région une fois","Le nombre de régions","Une erreur avant Excel 2021"], b:1,
+       e:"La formule vit dans une seule cellule mais son résultat se déverse dans les cellules voisines. L'opérateur dièse — D1# — désigne ce bloc entier, quelle que soit sa taille demain."},
+      {q:"Quel est le séparateur d'arguments en Excel français ?", o:["La virgule","Le point-virgule","Les deux points","L'espace"], b:1,
+       e:"C'est pourquoi une formule copiée d'un blog anglophone renvoie systématiquement une erreur tant qu'on n'a pas remplacé les virgules par des points-virgules."}
+    ],
+    "3": [
+      {q:"Que met-on dans la zone VALEURS d'un tableau croisé dynamique ?", o:["Ce qui découpe les données","Ce qui se cumule","Les filtres","Les en-têtes de colonnes"], b:1,
+       e:"LIGNES et COLONNES découpent — du texte, des catégories. VALEURS cumule — des nombres. Un champ texte glissé dans VALEURS bascule en comptage, ce qui est désastreux quand on croyait sommer un CA."},
+      {q:"Dans une relation « un vers plusieurs », le côté « 1 » doit :", o:["Contenir des valeurs uniques","Être la table la plus grande","Contenir des dates","Être sur la même feuille"], b:1,
+       e:"Un seul doublon dans Produits[Code] et Excel refuse la relation. C'est une contrainte, pas un caprice : sans unicité, la jointure serait ambiguë."},
+      {q:"Pourquoi écrire DIVIDE([CA];[CA N-1]) plutôt que [CA]/[CA N-1] ?", o:["C'est plus rapide","DIVIDE renvoie un blanc au lieu d'une erreur quand le dénominateur est nul","DIVIDE arrondit automatiquement","Les deux sont équivalents"], b:1,
+       e:"Sur la première année, le CA N-1 vaut zéro. La division classique produit une erreur qui se propage jusqu'au total ; DIVIDE renvoie un blanc propre."},
+      {q:"Que faire de LIREDONNEESTABCROISDYNAMIQUE (GETPIVOTDATA) ?", o:["L'utiliser systématiquement","La désactiver, car elle casse dès que le TCD change de forme","La remplacer par RECHERCHEX","Elle n'existe qu'en anglais"], b:1,
+       e:"Analyse du TCD → flèche à côté d'Options → décocher Générer GETPIVOTDATA. Sinon, toute référence à une cellule du TCD devient fragile."}
+    ],
+    "4": [
+      {q:"L'axe horizontal représente le temps. Quelle forme choisir ?", o:["Des barres","Une courbe","Un camembert","Un nuage de points"], b:1,
+       e:"En cas d'hésitation entre barres et courbe, la règle est celle-là : si l'axe horizontal est du temps, c'est une courbe ; sinon, ce sont des barres triées."},
+      {q:"Au-delà de combien de parts un camembert devient-il illisible ?", o:["3","5","8","10"], b:0,
+       e:"L'œil compare mal des angles. Au-delà de trois parts, une barre empilée à 100 % ou des barres horizontales triées font le travail bien mieux."},
+      {q:"Quel est le changement le plus décisif quand on dépouille un graphique ?", o:["Supprimer le quadrillage","Écrire un titre qui énonce la conclusion","Changer les couleurs","Ajouter une légende"], b:1,
+       e:"Le reste est cosmétique. Un titre qui dit « Serveur X porte 38 % du CA » informe ; un titre qui dit « CA par produit » décrit l'axe et n'apprend rien."},
+      {q:"Pourquoi un graphique croisé dynamique change-t-il de couleurs tout seul ?", o:["C'est un bug d'Excel","Un filtre a fait disparaître une catégorie et les couleurs se réattribuent","Le thème du classeur a changé","Les données ont été triées"], b:1,
+       e:"Fixez chaque série manuellement, ou construisez le graphique sur une plage de résultats stable plutôt que directement sur le TCD."}
+    ],
+    "5": [
+      {q:"Un seul graphique bouge quand vous cliquez sur un segment. Qu'avez-vous oublié ?", o:["De trier les données","Les connexions de rapport","D'actualiser le TCD","De nommer le segment"], b:1,
+       e:"C'est le bug numéro un des dashboards. Clic droit sur le segment → Connexions de rapport → cocher TOUS les TCD du classeur."},
+      {q:"Comment alimenter une liste déroulante qui grandit avec les données ?", o:["En élargissant la plage chaque mois","Avec =$D$1# pointant vers un UNIQUE","Avec une macro","Ce n'est pas possible"], b:1,
+       e:"L'opérateur dièse désigne tout le bloc déversé par la formule, quelle que soit sa taille. La liste suit donc les données sans maintenance."},
+      {q:"Pourquoi décocher « Déplacer et dimensionner avec les cellules » sur un segment ?", o:["Pour l'aligner au pixel","Pour qu'un masquage de colonne ne l'écrase pas","Pour accélérer le calcul","Pour pouvoir le copier"], b:1,
+       e:"Sans cela, toute modification de la largeur des colonnes déforme ou écrase vos segments — et cela arrive au pire moment, juste avant une présentation."},
+      {q:"Comment rendre le titre du dashboard réactif aux filtres ?", o:["Avec une macro","En liant une zone de texte à une cellule contenant une formule","Ce n'est pas possible","Avec la mise en forme conditionnelle"], b:1,
+       e:"Sélectionnez la zone de texte du graphique, tapez = puis cliquez sur la cellule. Le titre devient vivant et suit le filtre."}
+    ],
+    "6": [
+      {q:"Quelle manipulation transforme la feuille en grille de mise en page ?", o:["Fusionner les cellules","Réduire toutes les colonnes à 2 pixels","Masquer le quadrillage","Figer les volets"], b:1,
+       e:"On compose ensuite par blocs occupant un nombre entier de colonnes de trame. C'est ce qui distingue un dashboard aligné au pixel d'un collage approximatif."},
+      {q:"Que doit-on placer dans le coin haut-gauche d'un dashboard ?", o:["Le logo","Le chiffre le plus important","Les filtres","La date de mise à jour"], b:1,
+       e:"C'est ce que le lecteur retient s'il ne lit rien d'autre. Ne perdez pas cette place avec un logo."},
+      {q:"Pour colorer une ligne entière d'après la valeur d'une seule colonne, on écrit :", o:["=D2<80%","=$D2<80%","=$D$2<80%","=D$2<80%"], b:1,
+       e:"Le dollar sur la colonne seulement. C'est lui qui fait déteindre la règle sur toute la ligne, tout en laissant le numéro de ligne suivre."},
+      {q:"Quelle part de la surface l'accent doit-il occuper au maximum ?", o:["Environ 10 %","Environ un tiers","La moitié","Autant que nécessaire"], b:0,
+       e:"Une seule couleur saturée, celle de la marque, sert à désigner ce qu'il faut regarder. Tout ce qui n'est pas le sujet du moment reste gris."}
+    ],
+    "7": [
+      {q:"Que fait Ctrl+Alt+F5 ?", o:["Actualise l'objet sélectionné","Actualise tout, dans le bon ordre","Recalcule les formules","Enregistre le classeur"], b:1,
+       e:"Requêtes, puis modèle, puis TCD, puis visuels. Alt+F5 seul n'actualise que l'objet sélectionné — et un TCD actualisé avant sa requête source affiche les chiffres du mois dernier."},
+      {q:"Pourquoi régler « Nombre d'éléments à conserver » sur Aucun ?", o:["Pour alléger le fichier","Pour éviter que d'anciennes valeurs restent dans les segments","Pour accélérer l'actualisation","Pour permettre le partage"], b:1,
+       e:"Sinon, des catégories disparues des données continuent d'apparaître dans les segments, et le lecteur filtre sur du vide."},
+      {q:"Que ne fait pas Excel Online ?", o:["Afficher les segments","Actualiser les requêtes Power Query","Afficher les TCD","Ouvrir un .xlsx"], b:1,
+       e:"Segments et TCD s'affichent bien, mais l'actualisation Power Query n'est pas disponible. Prévoyez une actualisation planifiée ou un poste de référence."},
+      {q:"Pourquoi éviter un chemin C:\\Users\\... dans une requête ?", o:["C'est trop long","Il casse dès qu'un autre utilisateur ouvre le fichier","Power Query le refuse","Cela ralentit l'actualisation"], b:1,
+       e:"Utilisez un chemin réseau, ou paramétrez le dossier source dans une requête de paramètre unique que l'on modifie en un seul endroit."}
+    ],
+    "8": [
+      {q:"Combien de feuilles compte l'architecture recommandée du projet ?", o:["Trois","Cinq","Une seule","Autant que de modules"], b:1,
+       e:"LISEZ-MOI, SOURCE, TCD, CALCULS et DASHBOARD. Les trois du milieu finissent masquées : on ne montre que le dashboard."},
+      {q:"Quel est le test qui prouve que le dashboard est fini ?", o:["Il contient tous les indicateurs demandés","Une personne extérieure comprend le message principal en moins de dix secondes","Il s'ouvre rapidement","Il utilise des mesures DAX"], b:1,
+       e:"C'est le seul test qui compte vraiment. Les autres — actualisation en un clic, aucune valeur tapée à la main, traçabilité de chaque chiffre — en sont les conditions."},
+      {q:"Avant de livrer, que fait-on des feuilles techniques ?", o:["On les supprime","On les masque et on protège la feuille de présentation","On les laisse visibles","On les déplace dans un autre classeur"], b:1,
+       e:"Supprimer casserait tout. On masque TCD et CALCULS par clic droit sur l'onglet, et on protège le dashboard en n'autorisant que les segments et les listes déroulantes."},
+      {q:"Où doivent vivre les calculs agrégés ?", o:["Dans la feuille du dashboard","Dans les mesures du modèle de données","Dans des colonnes de la source","Peu importe"], b:1,
+       e:"Une mesure se recalcule dans le contexte de chaque cellule du TCD : elle reste juste par région, par mois, par gamme et au total. Une colonne calculée, elle, pèse en mémoire et fige le niveau de détail."}
+    ],
+    "9": [
+      {q:"Une inconnue, une cible exacte à atteindre. Quel outil ?", o:["La table de données","La valeur cible","Le Solveur","Le gestionnaire de scénarios"], b:1,
+       e:"Deux hypothèses et toute la carte : table de données. Des jeux d'hypothèses nommés à comparer : scénarios. Plusieurs inconnues et des contraintes : Solveur."},
+      {q:"Dans une table de données à deux variables, que met-on dans le coin haut-gauche ?", o:["La première hypothèse","Une référence à la formule à observer","Un titre","Rien"], b:1,
+       e:"La première ligne et la première colonne portent les hypothèses ; le coin pointe la formule dont on veut voir le résultat pour chaque croisement."},
+      {q:"Quand faut-il le Solveur plutôt que la valeur cible ?", o:["Quand le calcul est long","Quand il y a plusieurs inconnues et des contraintes","Quand la cible est un pourcentage","Quand les données sont dans un TCD"], b:1,
+       e:"Maximiser la marge avec un budget total plafonné et un minimum par région : c'est exactement ce que la valeur cible ne sait pas faire."},
+      {q:"Pourquoi toujours afficher l'intervalle de confiance d'une prévision ?", o:["C'est plus joli","Sans lui, la prévision se lit comme une certitude","Excel l'exige","Pour respecter la norme"], b:1,
+       e:"L'algorithme détecte la saisonnalité seul, mais il ne connaît aucun événement futur. Montrer la zone d'incertitude est ce qui rend la prévision honnête."}
+    ],
+    "10": [
+      {q:"Quelle est la cause de lenteur la plus fréquente ?", o:["Trop de feuilles","Les plages entières du type A:A dans les formules","Les graphiques","Les couleurs"], b:1,
+       e:"Excel évalue alors un million de lignes par formule. Référencer un tableau structuré — Ventes[CA] — borne le calcul à la vraie taille des données."},
+      {q:"Laquelle de ces fonctions est volatile ?", o:["INDEX","DECALER","RECHERCHEX","SOMME.SI.ENS"], b:1,
+       e:"Une fonction volatile recalcule à chaque frappe, même sans rapport avec elle. DECALER, INDIRECT, ALEA et AUJOURDHUI en font partie ; INDEX les remplace souvent avantageusement."},
+      {q:"Quel contrôle attrape une jointure qui duplique des lignes ?", o:["Le compte de lignes","La somme d'un montant de bout en bout","La vérification des formules","Le mode calcul manuel"], b:1,
+       e:"Un compte de lignes peut rester juste après filtrage alors que le CA a doublé. Seule la somme d'un montant, comparée à chaque étape de la chaîne, le révèle."},
+      {q:"Le mode de calcul manuel est enregistré :", o:["Dans les options d'Excel","Dans le fichier, et il suit le classeur","Dans la session en cours","Nulle part"], b:1,
+       e:"Le destinataire ouvrira donc votre classeur en calcul manuel sans le savoir. Affichez l'état sur le dashboard avec =SI(INFORMATIONS(\"mode\")=\"Manuel\";\"⚠ calcul manuel\";\"\")."}
+    ],
+    "10f": [
+      {q:"Quelles sont les deux erreurs de la fonction VAN d'Excel ?", o:["Elle arrondit et ignore les dates","Elle actualise le flux initial et suppose des périodes égales","Elle ne gère pas les taux négatifs","Elle n'accepte que 30 valeurs"], b:1,
+       e:"L'investissement initial, en date zéro, ne doit pas être actualisé. Laissez-le hors de la fonction et additionnez-le — ou utilisez VAN.PAIEMENTS, qui travaille sur les dates réelles."},
+      {q:"Deux calculs sur les mêmes dates, l'un en base 30/360 et l'autre en exact/exact :", o:["Donnent le même résultat","Donnent des résultats différents","L'un des deux est faux","Excel choisit automatiquement"], b:1,
+       e:"L'écart paraît minuscule — 0,3 % — mais sur un encours de 40 M€ à 4 %, cela fait 4 800 € par trimestre. Notez toujours la base retenue à côté du résultat."},
+      {q:"Le point mort se calcule comme :", o:["Charges fixes × taux de marge","Charges fixes / taux de marge sur coût variable","CA − charges variables","Charges totales / CA"], b:1,
+       e:"Au-delà de ce seuil, chaque euro de CA supplémentaire apporte le taux de marge en résultat. En dessous, chaque euro perdu en coûte autant : c'est le levier opérationnel."},
+      {q:"Le cycle de conversion du cash vaut :", o:["DSO + DPO + DIO","DIO + DSO − DPO","DSO − DIO","DPO − DSO"], b:1,
+       e:"Stock plus délai client, moins ce que les fournisseurs financent pour vous. Gagner dix jours de DSO sur 12 M€ de CA libère environ 330 k€, sans emprunter."}
+    ],
+    "11c": [
+      {q:"Quel contrôle prime sur tous les autres en comptabilité ?", o:["Le rapprochement bancaire","Σ débits − Σ crédits = 0","Le contrôle de TVA","Le report à nouveau"], b:1,
+       e:"S'il ne vaut pas zéro, aucun état n'a de sens : on s'arrête là. Il attrape une écriture déséquilibrée, une ligne perdue à l'import ou un filtre resté actif."},
+      {q:"Dans un FEC, la colonne EcritureDate arrive généralement :", o:["Comme une vraie date","Comme un nombre au format AAAAMMJJ","Comme du texte libre","Vide"], b:1,
+       e:"Il faut la convertir, avec DATE(GAUCHE;STXT;DROITE) ou en forçant le type dans Power Query. Sans cela, aucun groupement par mois ne fonctionnera."},
+      {q:"Que fait AMORDEGRC que les tableaux faits main oublient ?", o:["Arrondir à l'euro","Basculer en linéaire dès que celui-ci devient plus favorable","Gérer la TVA","Calculer la valeur résiduelle"], b:1,
+       e:"Ce basculement est une règle fiscale, pas une subtilité. Le recalculer à la main produit presque toujours une dotation fausse sur les deux derniers exercices."},
+      {q:"Les comptes des classes 6 et 7 alimentent :", o:["Le bilan","Le compte de résultat","La trésorerie","Les immobilisations"], b:1,
+       e:"Classe 6 les charges, classe 7 les produits ; leur solde est le résultat de l'exercice. Les classes 1 à 5 alimentent le bilan."}
+    ],
+    "12a": [
+      {q:"Le S/P se rapporte aux primes :", o:["Émises","Acquises","Encaissées","Commerciales"], b:1,
+       e:"Rapporter les sinistres aux primes émises flatte mécaniquement les exercices de croissance : l'écart entre émis et acquis, c'est la PANE, et elle grossit tant que le portefeuille grossit."},
+      {q:"La provision pour primes non acquises est :", o:["Un produit de l'exercice","Une dette envers l'assuré au bilan","Une charge de sinistre","Un chargement de gestion"], b:1,
+       e:"C'est la contrepartie de la couverture restant à fournir. Elle sortira du bilan au fur et à mesure que la période de garantie s'écoule."},
+      {q:"La charge de sinistres de l'exercice vaut :", o:["Les sinistres payés","Payés + PSAP clôture − PSAP ouverture","Payés + PSAP clôture","PSAP clôture − PSAP ouverture"], b:1,
+       e:"La charge n'est pas le décaissement. C'est la variation des provisions qui entre au résultat — d'où l'importance de disposer des deux, à l'ouverture comme à la clôture."},
+      {q:"Le ratio combiné se calcule comme :", o:["S/P × taux de frais","S/P + taux de frais","S/P − taux de frais","Charge / primes émises"], b:1,
+       e:"Au-delà de 100 %, le produit perd de l'argent sur son activité. Il peut rester rentable si les produits financiers compensent, mais pas durablement."}
+    ],
+    "11": [
+      {q:"À quoi sert Option Explicit ?", o:["À accélérer le code","À empêcher qu'une faute de frappe crée une variable vide","À activer les macros","À déclarer les modules"], b:1,
+       e:"Sans lui, une variable mal orthographiée est créée silencieusement, vaut zéro, et le calcul rend zéro sans broncher. C'est la première ligne de chaque module."},
+      {q:"Quelle est la règle de performance numéro un en VBA ?", o:["Éviter les boucles","Lire et écrire en mémoire, pas cellule par cellule","Désactiver les macros événementielles","Utiliser des variables Variant"], b:1,
+       e:"Chaque accès à une cellule traverse la frontière entre VBA et le moteur Excel. Sur 100 000 lignes, on passe de 100 000 allers-retours à deux."},
+      {q:"Dans une simulation Monte-Carlo, que se passe-t-il sans graine fixée ?", o:["Le calcul est plus lent","Le résultat n'est pas reproductible","Les tirages sont biaisés","Excel plante"], b:1,
+       e:"Deux exécutions donnent deux résultats : indéfendable en audit. Rnd -1 puis Randomize graine, et la graine est journalisée avec le reste."},
+      {q:"Chain-Ladder s'applique à un triangle :", o:["De paiements annuels","Cumulé","Non cumulé","De primes"], b:1,
+       e:"Appliqué à des paiements non cumulés, il produit des facteurs qui n'ont aucun sens — et le résultat reste plausible à l'œil, ce qui le rend dangereux. Ajoutez un contrôle : chaque ligne doit être croissante."}
+    ]
+  };
+
+  /* ================= PROGRESSION, XP, BADGES ================= */
+  var scores = {};
+  try{ scores = JSON.parse(store.get("xl-scores","{}")) || {}; }catch(e){ scores = {}; }
+
+  var MODNOMS = {};
+  sheets.forEach(function(s){
+    var b = s.querySelector("[data-done]");
+    if(b) MODNOMS[b.dataset.done] = (s.querySelector("h1") || {}).textContent || s.dataset.tab;
+  });
+
+  function bilan(){
+    var cles = Object.keys(MODNOMS);
+    var faits = cles.filter(function(k){ return !!done[k]; }).length;
+    var quizFaits = 0, quizReussis = 0, sansFaute = 0, somme = 0, nb = 0;
+    cles.forEach(function(k){
+      var r = scores[k];
+      if(!r) return;
+      quizFaits++;
+      var p = r.s / r.t;
+      somme += p; nb++;
+      if(p >= 0.75) quizReussis++;
+      if(p === 1) sansFaute++;
+    });
+    var xp = faits * 100 + quizReussis * 60 + (quizFaits - quizReussis) * 20;
+    return {
+      total: cles.length, faits: faits,
+      quizFaits: quizFaits, quizReussis: quizReussis, sansFaute: sansFaute,
+      moyenne: nb ? Math.round(somme / nb * 100) : 0,
+      xp: xp, niveau: Math.floor(xp / 400) + 1,
+      reste: 400 - (xp % 400),
+      pct: cles.length ? Math.round(faits / cles.length * 100) : 0
+    };
+  }
+
+  function badges(b){
+    return [
+      { n:"Premier pas", d:"1 module terminé", on: b.faits >= 1 },
+      { n:"En route", d:"5 modules terminés", on: b.faits >= 5 },
+      { n:"Sans faute", d:"un quiz à 100 %", on: b.sansFaute >= 1 },
+      { n:"Rigoureux", d:"5 quiz réussis", on: b.quizReussis >= 5 },
+      { n:"Spécialiste", d:"les 3 volets métier", on: !!(done["10f"] && done["11c"] && done["12a"]) },
+      { n:"Parcours complet", d:"tous les modules", on: b.faits === b.total && b.total > 0 }
+    ];
+  }
+
+  /* ================= MOTEUR DE QUIZ ================= */
+  function questionsDe(k){ return QUIZ[k] || null; }
+
+  function poseQuiz(hote, cle){
+    var qs = questionsDe(cle);
+    if(!qs) return;
+    var et = { i:0, choix:null, valide:false, bons:0, fini:false, ouvert:false };
+    var ancien = scores[cle];
+
+    function dessine(){
+      if(!et.ouvert){
+        var libelle = ancien
+          ? 'Refaire le quiz — dernier score ' + ancien.s + ' / ' + ancien.t
+          : 'Démarrer le quiz — ' + qs.length + ' questions';
+        hote.innerHTML =
+          '<div class="qz-intro">' +
+            '<div class="qz-ico">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 9a2.5 2.5 0 1 1 3.2 2.4c-.8.3-1.2 1-1.2 1.8v.3"/><path d="M11.5 17.2h.01"/></svg>' +
+            '</div>' +
+            '<div class="qz-txt"><h3>Quiz du module</h3><p>' + qs.length + ' questions · correction expliquée · ' + (60) + ' XP si vous réussissez</p></div>' +
+            '<button type="button" class="qz-go">' + (ancien ? 'Refaire' : 'Démarrer') + '</button>' +
+          '</div>';
+        if(ancien){
+          var p = Math.round(ancien.s / ancien.t * 100);
+          hote.querySelector(".qz-txt p").innerHTML =
+            'Dernier score : <b style="color:' + (p >= 75 ? 'var(--accent)' : 'var(--crit)') + '">' + ancien.s + ' / ' + ancien.t + '</b> · ' + p + ' %';
+        }
+        hote.querySelector(".qz-go").addEventListener("click", function(){ et.ouvert = true; et.i=0; et.choix=null; et.valide=false; et.bons=0; et.fini=false; dessine(); });
+        return;
+      }
+
+      if(et.fini){
+        var pct = Math.round(et.bons / qs.length * 100);
+        var ok = pct >= 75;
+        var rates = [];
+        qs.forEach(function(q, n){ if(et.reponses && et.reponses[n] !== q.b) rates.push(q); });
+        hote.innerHTML =
+          '<div class="qz">' +
+            '<div class="qz-fin ' + (ok ? 'ok' : 'ko') + '">' +
+              '<div class="qz-score">' + et.bons + '<span>/ ' + qs.length + '</span></div>' +
+              '<div><div class="qz-verdict">' + (ok ? 'Module validé' : 'À reprendre') + '</div>' +
+              '<div class="qz-sous">' + (ok ? 'Vous avez les idées clés. Passez au module suivant.' : 'Relisez les sections concernées, puis refaites le quiz.') + '</div></div>' +
+              '<div class="qz-xp">+ ' + (ok ? 60 : 20) + ' XP</div>' +
+            '</div>' +
+            (rates.length ? '<div class="qz-rev"><h4>À revoir</h4>' + rates.map(function(q){
+                return '<div class="qz-rev-l"><b>' + q.q + '</b><span>' + q.e + '</span></div>';
+              }).join('') + '</div>' : '<div class="qz-rev"><h4>Aucune erreur</h4><div class="qz-rev-l"><span>Rien à revoir sur ce module.</span></div></div>') +
+            '<div class="qz-pied"><button type="button" class="qz-again">Refaire le quiz</button></div>' +
+          '</div>';
+        hote.querySelector(".qz-again").addEventListener("click", function(){ et.i=0; et.choix=null; et.valide=false; et.bons=0; et.fini=false; et.reponses=[]; dessine(); });
+        return;
+      }
+
+      var q = qs[et.i], L = ["A","B","C","D"];
+      var juste = et.valide && et.choix === q.b;
+      var opts = q.o.map(function(t, n){
+        var cl = "qz-opt";
+        if(et.valide){
+          if(n === q.b) cl += " bon";
+          else if(n === et.choix) cl += " faux";
+        } else if(n === et.choix) cl += " sel";
+        return '<button type="button" class="' + cl + '" data-n="' + n + '"' + (et.valide ? ' disabled' : '') + '>' +
+          '<span class="qz-l">' + L[n] + '</span><span class="qz-t">' + t + '</span></button>';
+      }).join("");
+
+      hote.innerHTML =
+        '<div class="qz">' +
+          '<div class="qz-haut"><span class="qz-num">Question ' + (et.i + 1) + ' / ' + qs.length + '</span>' +
+          '<div class="qz-bar"><i style="width:' + Math.round(((et.i + (et.valide ? 1 : 0)) / qs.length) * 100) + '%"></i></div></div>' +
+          '<h3 class="qz-q">' + q.q + '</h3>' +
+          '<div class="qz-opts">' + opts + '</div>' +
+          (et.valide ? '<div class="qz-expl ' + (juste ? 'ok' : 'ko') + '"><b>' + (juste ? 'Bonne réponse' : 'Réponse incorrecte') + '</b><p>' + q.e + '</p></div>' : '') +
+          '<div class="qz-pied"><button type="button" class="qz-main"' + (et.valide || et.choix !== null ? '' : ' disabled') + '>' +
+            (!et.valide ? 'Valider' : (et.i + 1 < qs.length ? 'Question suivante' : 'Voir mon score')) + '</button></div>' +
+        '</div>';
+
+      Array.prototype.forEach.call(hote.querySelectorAll(".qz-opt"), function(b){
+        b.addEventListener("click", function(){ if(!et.valide){ et.choix = parseInt(b.dataset.n, 10); dessine(); } });
+      });
+      hote.querySelector(".qz-main").addEventListener("click", function(){
+        if(!et.valide){
+          if(et.choix === null) return;
+          et.reponses = et.reponses || [];
+          et.reponses[et.i] = et.choix;
+          et.valide = true;
+          if(et.choix === q.b) et.bons++;
+        } else if(et.i + 1 < qs.length){
+          et.i++; et.choix = null; et.valide = false;
+        } else {
+          et.fini = true;
+          scores[cle] = { s: et.bons, t: qs.length };
+          ancien = scores[cle];
+          store.set("xl-scores", JSON.stringify(scores));
+          majProgression();
+          paint();
+        }
+        dessine();
+      });
+    }
+    dessine();
+  }
+
+  /* insertion d'un quiz avant chaque bouton « terminé » */
+  doneBtns.forEach(function(btn){
+    var cle = btn.dataset.done;
+    if(!QUIZ[cle]) return;
+    var hote = document.createElement("div");
+    hote.className = "qz-hote";
+    btn.parentNode.insertBefore(hote, btn);
+    poseQuiz(hote, cle);
+  });
+
+  /* ================= ÉCRAN DE PROGRESSION ================= */
+  function majProgression(){
+    var b = bilan();
+    var C = 2 * Math.PI * 52;
+
+    var el = document.getElementById("pg-ring");
+    if(el) el.setAttribute("stroke-dasharray", (C * b.pct / 100).toFixed(1) + " " + C.toFixed(1));
+    var t = function(id, v){ var e = document.getElementById(id); if(e) e.textContent = v; };
+    t("pg-pct", b.pct + " %");
+    t("pg-sous", b.faits + " modules sur " + b.total);
+    t("pg-niveau", b.niveau);
+    t("pg-xp", b.xp.toLocaleString("fr-FR"));
+    t("pg-quiz", b.quizFaits);
+    t("pg-moy", b.quizFaits ? b.moyenne + " %" : "—");
+    t("pg-reste", b.reste + " XP avant le niveau " + (b.niveau + 1));
+    var jb = document.getElementById("pg-xpbar");
+    if(jb) jb.style.width = Math.round((b.xp % 400) / 4) + "%";
+
+    var g = document.getElementById("pg-badges");
+    if(g) g.innerHTML = badges(b).map(function(x){
+      return '<div class="bdg' + (x.on ? " on" : "") + '">' +
+        '<span class="bdg-r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9.5" r="5.5"/><path d="M8.5 14 7 21l5-2.5L17 21l-1.5-7"/></svg></span>' +
+        '<b>' + x.n + '</b><span>' + x.d + '</span></div>';
+    }).join("");
+
+    var tb = document.getElementById("pg-liste");
+    if(tb){
+      var cles = Object.keys(MODNOMS);
+      tb.innerHTML = cles.map(function(k){
+        var r = scores[k], fini = !!done[k];
+        var etat = fini ? '<span class="tag a">Terminé</span>' : (r ? '<span class="tag">Commencé</span>' : '<span class="tag">À venir</span>');
+        var sc = r ? (Math.round(r.s / r.t * 100) + " %") : "—";
+        var col = r ? (r.s / r.t >= 0.75 ? "var(--accent)" : "var(--crit)") : "var(--muted)";
+        return '<tr><td>' + MODNOMS[k] + '</td><td>' + etat + '</td><td class="mono" style="color:' + col + ';font-weight:600">' + sc + '</td></tr>';
+      }).join("");
+    }
+  }
+
+  /* ================= CARTE « REPRENDRE » SUR LE PARCOURS ================= */
+  function heroReprise(){
+    var hote = document.getElementById("reprise");
+    if(!hote) return;
+    var idx = -1;
+    sheets.forEach(function(s, j){
+      if(idx > -1) return;
+      var b = s.querySelector("[data-done]");
+      if(b && !done[b.dataset.done]) idx = j;
+    });
+    if(idx < 0){
+      hote.innerHTML = '<div class="reprise fini"><div><b>Parcours terminé</b><span>Les ' + Object.keys(MODNOMS).length + ' modules sont validés. Rejouez les quiz pour consolider.</span></div></div>';
+      return;
+    }
+    var s = sheets[idx];
+    var titre = (s.querySelector("h1") || {}).textContent || s.dataset.tab;
+    var kick = (s.querySelector(".eyebrow") || {}).textContent || "";
+    hote.innerHTML =
+      '<button type="button" class="reprise">' +
+        '<div class="reprise-k">' + kick.split("·")[0].trim() + ' · à reprendre</div>' +
+        '<div class="reprise-t">' + titre + '</div>' +
+        '<div class="reprise-b"><span>Continuer</span>' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13"/><path d="m12 5 7 7-7 7"/></svg></div>' +
+      '</button>';
+    hote.querySelector(".reprise").addEventListener("click", function(){ show(idx); });
+  }
+
+  majProgression();
+  heroReprise();
 
   /* ---------------- compteurs tenus par les données ---------------- */
   var nSk = SK.length;

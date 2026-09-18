@@ -12,7 +12,8 @@ le seul appel réseau est la feuille de styles Google Fonts.
 
 | Feuille | Sujet |
 |---|---|
-| Parcours | Anatomie d'un dashboard, chaîne de production, jeu de données fil rouge |
+| Parcours | Anatomie d'un dashboard, chaîne de production, carte de reprise, jeu de données |
+| Ma progression | Anneau de progression, niveau, XP, badges, score de chaque quiz |
 | M1 · Découvrir Excel | Interface, vocabulaire, se déplacer, enregistrer au bon format |
 | M2 · Saisir et mettre en forme | Types de contenu, poignée de recopie, format contre valeur, collage spécial |
 | M3 · Premières formules | Le signe égal, SOMME, le dollar, SI, les six messages d'erreur |
@@ -58,6 +59,10 @@ configuration : `publish = "."` et quelques en-têtes de sécurité.
   progression. Données locales au navigateur du lecteur, jamais transmises.
 - **Illustrations** : SVG inline, colorés par les mêmes tokens que la page,
   donc lisibles dans les deux thèmes. Aucune image binaire.
+- **Quiz** : 17 quiz de 4 questions, un par module, avec validation, explication
+  après chaque réponse, score final et rappel des notions ratées.
+- **Gamification** : 100 XP par module terminé, 60 par quiz réussi, 20 par quiz
+  raté ; un niveau tous les 400 XP ; six badges ; tout est recalculé à la volée.
 - **Accessibilité** : navigation par onglets ARIA, focus visible,
   `prefers-reduced-motion` respecté.
 
