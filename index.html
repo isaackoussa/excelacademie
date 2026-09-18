@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Formation Excel en 15 modules, du grand debutant au tableau de bord, avec un quiz corrige par module, un suivi de progression, des niveaux et des badges.">
 <meta name="author" content="Isaac Koussa">
-<meta name="theme-color" content="#F7F9F8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0B0F0E" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F5F6FC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0D1A" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -14,7 +14,7 @@
 <meta property="og:title" content="Atelier Dashboard Excel">
 <meta property="og:description" content="15 modules, 59 schemas, un quiz corrige par module et un suivi de progression.">
 <style>
-/* Reinitialisation equivalente a celle fournie par la plateforme Artifact. */
+/* Reinitialisation equivalente a celle de la plateforme Artifact. */
 :root{ color-scheme: light dark; }
 body{ margin:0; }
 img{ max-width:100%; }
@@ -22,7 +22,8 @@ img{ max-width:100%; }
 </style>
 <title>Atelier Dashboard Excel</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600;700;800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <style>
 /* ============================================================
    Atelier Excel — système de design
@@ -31,41 +32,41 @@ img{ max-width:100%; }
    ============================================================ */
 :root{
   /* surfaces et neutres */
-  --ground:#F7F9F8;
+  --ground:#F5F6FC;
   --surface:#FFFFFF;
-  --soft:#F1F5F3;
-  --head:#ECF1EF;
-  --ink:#0D1512;
-  --ink-2:#31423B;
-  --muted:#6B7F77;
-  --line:#E5EBE8;
-  --line-strong:#CFD9D5;
+  --soft:#F5F6FF;
+  --head:#EDEFFE;
+  --ink:#11142B;
+  --ink-2:#464C6E;
+  --muted:#79809E;
+  --line:#E7E9F4;
+  --line-strong:#D5D9EA;
 
   /* accent unique + secondaire de données */
-  --accent:#0B7A5A;
-  --accent-ink:#095E46;
-  --accent-soft:#E4F3ED;
-  --accent2:#0E7490;
-  --accent2-soft:#E1F0F4;
+  --accent:#4A55E8;
+  --accent-ink:#3742C6;
+  --accent-soft:#EDEFFE;
+  --accent2:#2F7D8C;
+  --accent2-soft:#E2F0F3;
 
   /* sémantique */
-  --warn:#9A6207;
-  --warn-soft:#FBF1E0;
-  --crit:#B3261E;
-  --crit-soft:#FBE9E7;
+  --warn:#B0781A;
+  --warn-soft:#FBF3E2;
+  --crit:#CE4738;
+  --crit-soft:#FCEDEB;
 
   /* élévation — très légère */
-  --sh-1:0 1px 2px rgba(13,21,18,.04);
-  --sh-2:0 1px 2px rgba(13,21,18,.04), 0 6px 20px -12px rgba(13,21,18,.16);
-  --sh-3:0 2px 6px rgba(13,21,18,.05), 0 18px 40px -24px rgba(13,21,18,.28);
+  --sh-1:0 1px 2px rgba(17,20,43,.04);
+  --sh-2:0 2px 4px rgba(17,20,43,.03), 0 10px 24px -14px rgba(17,20,43,.18);
+  --sh-3:0 4px 10px rgba(17,20,43,.04), 0 24px 48px -28px rgba(17,20,43,.34);
 
   /* rayons */
-  --r-s:9px; --r-m:14px; --r-l:20px; --r-pill:999px;
+  --r-s:12px; --r-m:18px; --r-l:26px; --r-pill:999px;
 
   /* typographie */
-  --ui:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;
-  --body:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;
-  --disp:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;
+  --ui:"Onest","Segoe UI",system-ui,sans-serif;
+  --body:"Onest","Segoe UI",system-ui,sans-serif;
+  --disp:"Schibsted Grotesk","Segoe UI",system-ui,sans-serif;
   --mono:"JetBrains Mono","Consolas",ui-monospace,monospace;
 
   --sidebar-w:274px;
@@ -73,22 +74,22 @@ img{ max-width:100%; }
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --ground:#0B0F0E; --surface:#141917; --soft:#1A211E; --head:#1E2724;
-    --ink:#EDF2EF; --ink-2:#C3D0CB; --muted:#8FA29A; --line:#222B28; --line-strong:#38443F;
-    --accent:#2FBF8F; --accent-ink:#5FD6AC; --accent-soft:#11291F;
-    --accent2:#38B6D0; --accent2-soft:#0E242B;
-    --warn:#E0A84A; --warn-soft:#2A2110; --crit:#F08A7E; --crit-soft:#2C1614;
+    --ground:#0B0D1A; --surface:#13162A; --soft:#161A34; --head:#1B2046;
+    --ink:#EDEFFA; --ink-2:#B6BCD8; --muted:#868DAE; --line:#232842; --line-strong:#333A5C;
+    --accent:#7E86FF; --accent-ink:#9AA1FF; --accent-soft:#1B2046;
+    --accent2:#58A9B8; --accent2-soft:#132A30;
+    --warn:#D9A54B; --warn-soft:#2A2213; --crit:#E87A6C; --crit-soft:#2E1A18;
     --sh-1:0 1px 2px rgba(0,0,0,.4);
     --sh-2:0 1px 2px rgba(0,0,0,.4), 0 6px 20px -12px rgba(0,0,0,.8);
     --sh-3:0 2px 6px rgba(0,0,0,.5), 0 18px 40px -24px rgba(0,0,0,1);
   }
 }
 :root[data-theme="dark"]{
-  --ground:#0B0F0E; --surface:#141917; --soft:#1A211E; --head:#1E2724;
-  --ink:#EDF2EF; --ink-2:#C3D0CB; --muted:#8FA29A; --line:#222B28; --line-strong:#38443F;
-  --accent:#2FBF8F; --accent-ink:#5FD6AC; --accent-soft:#11291F;
-  --accent2:#38B6D0; --accent2-soft:#0E242B;
-  --warn:#E0A84A; --warn-soft:#2A2110; --crit:#F08A7E; --crit-soft:#2C1614;
+  --ground:#0B0D1A; --surface:#13162A; --soft:#161A34; --head:#1B2046;
+  --ink:#EDEFFA; --ink-2:#B6BCD8; --muted:#868DAE; --line:#232842; --line-strong:#333A5C;
+  --accent:#7E86FF; --accent-ink:#9AA1FF; --accent-soft:#1B2046;
+  --accent2:#58A9B8; --accent2-soft:#132A30;
+  --warn:#D9A54B; --warn-soft:#2A2213; --crit:#E87A6C; --crit-soft:#2E1A18;
   --sh-1:0 1px 2px rgba(0,0,0,.4);
   --sh-2:0 1px 2px rgba(0,0,0,.4), 0 6px 20px -12px rgba(0,0,0,.8);
   --sh-3:0 2px 6px rgba(0,0,0,.5), 0 18px 40px -24px rgba(0,0,0,1);
@@ -466,7 +467,7 @@ svg.fig .t-crit{fill:var(--crit)}
 svg.fig .t-warn{fill:var(--warn)}
 svg.fig .t-on{fill:var(--surface)}
 svg.fig .t-b{font-weight:600}
-svg.fig .t-d{font-family:"Plus Jakarta Sans",sans-serif; font-weight:700}
+svg.fig .t-d{font-family:"Schibsted Grotesk",sans-serif; font-weight:700}
 svg.fig .f-surf{fill:var(--surface)}
 svg.fig .f-soft{fill:var(--soft)}
 svg.fig .f-head{fill:var(--head)}
@@ -618,8 +619,8 @@ svg.fig .dash{stroke-dasharray:4 3}
   box-shadow:var(--sh-3);transition:transform .22s var(--ease)
 }
 .reprise:hover{transform:translateY(-2px)}
-.reprise-k{font-family:var(--ui);font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--warn)}
-.reprise-t{font-family:var(--disp);font-size:clamp(19px,2.4vw,23px);font-weight:700;letter-spacing:-.03em;margin-top:8px;color:var(--surface)}
+.reprise-k{display:block;font-family:var(--ui);font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--warn)}
+.reprise-t{display:block;font-family:var(--disp);font-size:clamp(19px,2.4vw,23px);font-weight:700;letter-spacing:-.03em;margin-top:8px;color:var(--surface)}
 .reprise-b{display:inline-flex;align-items:center;gap:9px;height:44px;padding:0 20px;border-radius:var(--r-pill);background:var(--accent);color:#fff;font-size:14px;font-weight:700;margin-top:18px}
 .reprise-b svg{width:17px;height:17px}
 .reprise.fini{cursor:default;display:flex;align-items:center;gap:14px}
@@ -636,6 +637,61 @@ svg.fig .dash{stroke-dasharray:4 3}
   .stat .v{font-size:25px}
   th,td{padding:10px 12px}
 }
+
+/* ================= habillage Kairo ================= */
+/* Les surfaces se détachent par l'ombre, plus par le trait. */
+.card,.stat,.tablewrap,.figbox,.modcard,.qz,.qz-intro,.pg-anneau,.pg-niv,.bdg,.sk-search,.formula{
+  border-color:transparent;
+}
+.card,.stat,.tablewrap,.figbox,.modcard,.qz,.qz-intro,.pg-anneau,.pg-niv{box-shadow:var(--sh-2)}
+.bdg,.formula,.sk-search{box-shadow:var(--sh-1)}
+.card:hover,.modcard:hover{box-shadow:var(--sh-3);border-color:transparent}
+kbd{border-color:var(--line-strong)}
+
+/* Boutons en capsule, ombre colorée sur l'action principale. */
+.donebtn,.qz-go,.qz-main,.qz-again,.tbtn{
+  border-radius:var(--r-pill);
+  box-shadow:0 8px 18px rgba(74,85,232,.12), 0 20px 40px -26px rgba(74,85,232,.45);
+  transition:transform .2s var(--ease), box-shadow .2s var(--ease), background .2s var(--ease);
+}
+.donebtn:hover,.qz-go:hover,.qz-main:hover{transform:translateY(-1px)}
+.donebtn:active,.qz-go:active,.qz-main:active,.tbtn:active{transform:translateY(0) scale(.98)}
+.qz-again,.tbtn{box-shadow:var(--sh-1)}
+.chip{box-shadow:var(--sh-1);border-color:transparent;transition:transform .18s var(--ease),background .18s var(--ease),color .18s var(--ease)}
+.chip:hover{transform:translateY(-1px)}
+.tab{border-color:transparent}
+
+/* Plus d'air, titres plus nets. */
+.sheet{gap:clamp(28px,3.4vw,38px)}
+.sec{gap:20px}
+h1{letter-spacing:-.038em}
+h2{letter-spacing:-.028em}
+.secnum{font-family:var(--ui);font-weight:700}
+
+/* Apparition en cascade des premiers blocs d'une feuille. */
+.sheet>*{animation:kmonte .42s var(--ease) both}
+.sheet>*:nth-child(2){animation-delay:.04s}
+.sheet>*:nth-child(3){animation-delay:.08s}
+.sheet>*:nth-child(4){animation-delay:.12s}
+.sheet>*:nth-child(n+5){animation-delay:.16s}
+@keyframes kmonte{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+
+/* Les barres portent leur valeur en CSS : l'animation n'est qu'un supplément. */
+.pg-bar i,.qz-bar i{animation:kgrow .9s var(--ease) both}
+@keyframes kgrow{from{width:0}}
+
+/* Carte de reprise : illustration à profondeur douce. */
+.reprise{display:flex;align-items:center;gap:clamp(16px,2.4vw,28px);flex-wrap:wrap}
+.reprise-tx{flex:1 1 260px;min-width:0}
+.reprise-il{flex:0 0 auto;width:min(210px,100%)}
+.reprise-il svg{display:block;width:100%;height:auto}
+.qz-il{flex:0 0 auto;width:96px}
+.qz-il svg{display:block;width:100%;height:auto}
+@media (max-width:560px){
+  .reprise-il{width:150px;margin-inline:auto}
+  .qz-il{width:74px}
+}
+
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important}
 }
@@ -6008,6 +6064,42 @@ Echec:
     ];
   }
 
+  /* ================= ILLUSTRATIONS À PROFONDEUR DOUCE ================= */
+  function illuStack(){
+    return '<svg viewBox="0 0 260 200" role="img" aria-label="Pile de modules">' +
+      '<defs>' +
+        '<linearGradient id="xkA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8E95FF"/><stop offset="1" stop-color="#5A64EE"/></linearGradient>' +
+        '<linearGradient id="xkB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".92"/><stop offset="1" stop-color="#E4E7FA" stop-opacity=".86"/></linearGradient>' +
+        '<radialGradient id="xkH" cx="30%" cy="22%" r="70%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".5"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>' +
+        '<filter id="xkS" x="-40%" y="-40%" width="180%" height="190%"><feGaussianBlur stdDeviation="9"/></filter>' +
+      '</defs>' +
+      '<ellipse cx="132" cy="172" rx="78" ry="13" fill="#05060F" opacity=".34" filter="url(#xkS)"/>' +
+      '<g transform="translate(46 96) skewY(-9)"><rect width="168" height="46" rx="13" fill="url(#xkB)" opacity=".45"/></g>' +
+      '<g transform="translate(36 68) skewY(-9)"><rect width="184" height="50" rx="14" fill="url(#xkB)"/><rect x="16" y="17" width="72" height="7" rx="3.5" fill="#B9BEEA"/><rect x="16" y="30" width="42" height="6" rx="3" fill="#D3D7F3"/></g>' +
+      '<g transform="translate(26 34) skewY(-9)">' +
+        '<rect width="200" height="56" rx="16" fill="url(#xkA)"/>' +
+        '<rect width="200" height="56" rx="16" fill="url(#xkH)"/>' +
+        '<rect x="18" y="17" width="86" height="8" rx="4" fill="#fff" opacity=".92"/>' +
+        '<rect x="18" y="32" width="54" height="7" rx="3.5" fill="#fff" opacity=".55"/>' +
+        '<circle cx="170" cy="28" r="13" fill="#fff" opacity=".22"/>' +
+        '<path d="m165 28 4 4 7-8" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>' +
+      '</g>' +
+    '</svg>';
+  }
+  function illuOrb(){
+    return '<svg viewBox="0 0 160 160" role="img" aria-label="Module validé">' +
+      '<defs>' +
+        '<linearGradient id="xoA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9AA0FF"/><stop offset="1" stop-color="#4A55E8"/></linearGradient>' +
+        '<radialGradient id="xoH" cx="34%" cy="26%" r="62%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".76"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>' +
+        '<filter id="xoS" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>' +
+      '</defs>' +
+      '<ellipse cx="80" cy="134" rx="46" ry="9" fill="#05060F" opacity=".26" filter="url(#xoS)"/>' +
+      '<circle cx="80" cy="74" r="46" fill="url(#xoA)"/>' +
+      '<circle cx="80" cy="74" r="46" fill="url(#xoH)"/>' +
+      '<circle cx="80" cy="74" r="46" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="1.5"/>' +
+      '<path d="M66 74.5 76 85l18-21" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>' +
+    '</svg>';
+  }
   /* ================= MOTEUR DE QUIZ ================= */
   function questionsDe(k){ return QUIZ[k] || null; }
 
@@ -6047,6 +6139,7 @@ Echec:
         hote.innerHTML =
           '<div class="qz">' +
             '<div class="qz-fin ' + (ok ? 'ok' : 'ko') + '">' +
+              '<div class="qz-il">' + illuOrb() + '</div>' +
               '<div class="qz-score">' + et.bons + '<span>/ ' + qs.length + '</span></div>' +
               '<div><div class="qz-verdict">' + (ok ? 'Module validé' : 'À reprendre') + '</div>' +
               '<div class="qz-sous">' + (ok ? 'Vous avez les idées clés. Passez au module suivant.' : 'Relisez les sections concernées, puis refaites le quiz.') + '</div></div>' +
@@ -6177,10 +6270,13 @@ Echec:
     var kick = (s.querySelector(".eyebrow") || {}).textContent || "";
     hote.innerHTML =
       '<button type="button" class="reprise">' +
-        '<div class="reprise-k">' + kick.split("·")[0].trim() + ' · à reprendre</div>' +
-        '<div class="reprise-t">' + titre + '</div>' +
-        '<div class="reprise-b"><span>Continuer</span>' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13"/><path d="m12 5 7 7-7 7"/></svg></div>' +
+        '<span class="reprise-tx">' +
+          '<span class="reprise-k">' + kick.split("·")[0].trim() + ' · à reprendre</span>' +
+          '<span class="reprise-t">' + titre + '</span>' +
+          '<span class="reprise-b"><span>Continuer</span>' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13"/><path d="m12 5 7 7-7 7"/></svg></span>' +
+        '</span>' +
+        '<span class="reprise-il">' + illuStack() + '</span>' +
       '</button>';
     hote.querySelector(".reprise").addEventListener("click", function(){ show(idx); });
   }

@@ -53,6 +53,10 @@ configuration : `publish = "."` et quelques en-têtes de sécurité.
 
 ## Notes techniques
 
+- **Identité** : habillage Kairo — indigo `#4A55E8` comme unique couleur
+  principale, fond clair, surfaces détachées par l'ombre plutôt que par le trait,
+  Schibsted Grotesk en titrage et Onest en lecture, illustrations SVG à
+  profondeur douce.
 - **Thème** clair / sombre : tokens CSS redéfinis pour `prefers-color-scheme`
   et pour un `data-theme` explicite, avec un bouton de bascule.
 - **Stockage** : `localStorage` pour le thème, la feuille active et la
